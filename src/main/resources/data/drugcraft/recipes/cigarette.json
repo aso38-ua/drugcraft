@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "VVV",
+    "PPP"
+  ],
+  "key": {
+    "V": {
+      "item": "drugcraft:volado_leaf"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "drugcraft:cigarette",
+    "count": 1
+  }
+}
