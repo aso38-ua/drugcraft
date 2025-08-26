@@ -15,6 +15,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Drugcraft.MODID);
 
+    //======================= MARIJUANA ===========================================
     // Cogollo
     public static final RegistryObject<Item> MARIJUANA = ITEMS.register("marijuana",
             () -> new Item(new Item.Properties()));
@@ -23,6 +24,7 @@ public class ModItems {
     public static final RegistryObject<Item> MARIJUANA_SEEDS = ITEMS.register("marijuanaseeds",
             () -> new ItemNameBlockItem(ModBlocks.MARIJUANA_CROP.get(), new Item.Properties()));
 
+    // Porro
     public static final RegistryObject<Item> CANNABIS_JOINT = ITEMS.register("cannabis_joint",
             () -> new CannabisJointItem(new Item.Properties()
                      // 3 caladas
@@ -32,6 +34,23 @@ public class ModItems {
                             .alwaysEat()        // permite usar siempre
                             .build())
             ));
+
+    //======================== TOBACCO ===========================================
+    public static final RegistryObject<Item> TOBACCO_SEEDS = ITEMS.register("tobacco_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.TOBACCO_CROP.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> VOLADO_LEAF = ITEMS.register("volado_leaf",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SECO_LEAF = ITEMS.register("seco_leaf",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LIGERO_LEAF = ITEMS.register("ligero_leaf",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
+            () -> new Item(new Item.Properties()));
+
 
 
     public static void register(IEventBus eventBus) {
