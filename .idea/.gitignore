@@ -1,3 +1,27 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+# Gradle
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+
+# Minecraft specific
+run/
+
+# OS
+.DS_Store
+Thumbs.db
