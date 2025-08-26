@@ -1,0 +1,11 @@
+{
+  "joint_smoke": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "drugcraft:joint_smoke",
+        "stream": false
+      }
+    ]
+  }
+}
