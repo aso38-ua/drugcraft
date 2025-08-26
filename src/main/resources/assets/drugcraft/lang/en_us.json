@@ -3,5 +3,11 @@
   "item.drugcraft.marijuanaseeds": "Marijuana Seeds",
   "item.drugcraft.cannabis_joint": "Cannabis Joint",
 
+  "item.drugcraft.tobacco_seeds": "Tobacco Seeds",
+  "item.drugcraft.volado_leaf": "Volado Leaf",
+  "item.drugcraft.seco_leaf": "Seco Leaf",
+  "item.drugcraft.ligero_leaf": "Ligero Leaf",
+  "item.drugcraft.corona_leaf": "Corona Leaf",
+
   "creativetab.drugcraft_tab": "DrugCraft Tab"
 }

@@ -20,6 +20,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MARIJUANA.get());
                         pOutput.accept(ModItems.MARIJUANA_SEEDS.get());
                         pOutput.accept(ModItems.CANNABIS_JOINT.get());
+                        pOutput.accept(ModItems.TOBACCO_SEEDS.get());
+                        pOutput.accept(ModItems.VOLADO_LEAF.get());
                     })
                     .build());
 
