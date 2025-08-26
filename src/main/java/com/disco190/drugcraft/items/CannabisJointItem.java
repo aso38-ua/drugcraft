@@ -1,29 +1,31 @@
 package com.disco190.drugcraft.items;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class CannabisJointItem extends Item {
 
     public CannabisJointItem(Properties properties) {
-        super(properties);
+        super(properties.stacksTo(16)); // hasta 16 porros por stack
     }
 
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.DRINK; // animación de beber
+        return UseAnim.DRINK; // animación al fumar
     }
 
     @Override
@@ -49,14 +51,12 @@ public class CannabisJointItem extends Item {
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide());
     }
 
-
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entityLiving) {
         if (!world.isClientSide && entityLiving instanceof Player player) {
             // Efectos al fumar
-            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0)); // nausea 1, 10s
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 0)); // lentitud 5s
-            // Puedes añadir más efectos aquí
+            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0));         // nausea 30s
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 0)); // lentitud 20s
         }
 
         // Guardar cuántas caladas se han dado
@@ -66,12 +66,14 @@ public class CannabisJointItem extends Item {
 
         // Si llega a 3 caladas, se consume el porro
         if (caladas >= 3) {
-            stack.shrink(1); // quita un ítem del stack
+            stack.shrink(1);
         }
 
-        // Sonido de “fumar” (de momento bebida)
+        // Sonido (puedes poner tu .ogg en lugar de honey_drink)
+        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.fromNamespaceAndPath("drugcraft", "joint_smoke"));
+        if (sound == null) sound = SoundEvents.HONEY_DRINK; // fallback por si no encuentra el tuyo
         world.playSound(null, entityLiving.getX(), entityLiving.getY(), entityLiving.getZ(),
-                SoundEvents.HONEY_DRINK, entityLiving.getSoundSource(), 1.0F, 1.0F);
+                sound, entityLiving.getSoundSource(), 1.0F, 1.0F);
 
         return stack;
     }

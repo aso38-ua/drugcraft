@@ -1,0 +1,33 @@
+# === Gradle / Build ===
+.gradle/
+build/
+out/
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+
+# === Archivos de ejecución de Minecraft ===
+run/
+
+# === Logs ===
+*.log
+*.log.gz
+
+# === Archivos temporales / locks ===
+*.lock
+*.tmp
+
+# === Archivos de mundo y guardados (no subir mundos de prueba) ===
+*.dat
+*.dat_old
+*.mca
+usercache.json
+session.lock
+raids.dat
+raids_end.dat
+random_sequences.dat
+
+# === Recursos del sistema / macOS / Windows ===
+*.DS_Store
+Thumbs.db
