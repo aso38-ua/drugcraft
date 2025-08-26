@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "seeds_pool",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":0}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":1}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":2}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":3}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":4}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":5}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":6}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":1}}]},
+        { "type": "minecraft:item", "name": "drugcraft:marijuanaseeds", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":3}}]}
+      ]
+    },
+    {
+      "name": "cogollo_pool",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "drugcraft:marijuana", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:marijuana_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":3}}]}
+      ]
+    }
+  ]
+}
