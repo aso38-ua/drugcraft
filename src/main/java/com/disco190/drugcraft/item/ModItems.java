@@ -54,6 +54,9 @@ public class ModItems {
     public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> CIGARETTE = ITEMS.register("cigarette",
+            () -> new Item(new Item.Properties()));
+
     //======================= MOOSHROOMS ===========================================
     // Seta alucinógena
     public static final RegistryObject<Item> MOOSHROOMS = ITEMS.register("mooshrooms",
