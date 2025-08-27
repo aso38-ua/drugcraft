@@ -47,7 +47,7 @@ public class CannabisJointItem extends Item {
             return InteractionResultHolder.fail(stack);
         }
 
-        // 🔊 Sonido al empezar a fumar
+        // Sonido al empezar a fumar
         if (!world.isClientSide) {
             SoundEvent sound = ModSounds.JOINT_SMOKE.get();
             world.playSound(null, player.getX(), player.getY(), player.getZ(),

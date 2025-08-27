@@ -3,6 +3,9 @@ package com.disco190.drugcraft.item;
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.items.CannabisJointItem;
+import com.disco190.drugcraft.items.MooshroomsItem;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -51,6 +54,22 @@ public class ModItems {
     public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
             () -> new Item(new Item.Properties()));
 
+    //======================= MOOSHROOMS ===========================================
+    // Seta alucinógena
+    public static final RegistryObject<Item> MOOSHROOMS = ITEMS.register("mooshrooms",
+            () -> new MooshroomsItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(2)
+                            .saturationMod(0.3f)
+                            .alwaysEat()
+                            .build())));
+
+
+
+
+    // Semillas
+    public static final RegistryObject<Item> MOOSHROOMS_SEEDS = ITEMS.register("mooshrooms_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.MOOSHROOMS_CROP.get(), new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

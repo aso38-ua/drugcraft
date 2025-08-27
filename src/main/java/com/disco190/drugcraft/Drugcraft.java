@@ -1,6 +1,7 @@
 package com.disco190.drugcraft;
 
 import com.disco190.drugcraft.blocks.ModBlocks;
+import com.disco190.drugcraft.effects.ModEffects;
 import com.disco190.drugcraft.item.ModCreativeModTabs;
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.sound.ModSounds;
@@ -70,6 +71,8 @@ public class Drugcraft {
         ModItems.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModSounds.register(modEventBus);
+
+        ModEffects.register(modEventBus);
 
 
         // Register the commonSetup method for modloading
