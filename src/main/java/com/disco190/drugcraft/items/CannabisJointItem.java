@@ -35,6 +35,44 @@ public class CannabisJointItem extends Item {
     }
 
     @Override
+    public void onUseTick(Level world, LivingEntity entity, ItemStack stack, int count) {
+        if (world.isClientSide && entity instanceof Player player) {
+            if (world.random.nextFloat() < 0.3f) { // no cada tick, random
+                // Rotación del jugador
+                float yaw = player.getYRot() * ((float)Math.PI / 180F);
+                float pitch = player.getXRot() * ((float)Math.PI / 180F);
+
+                // Offset: adelante y a un lado
+                double forwardX = -Math.sin(yaw) * 0.3;
+                double forwardZ =  Math.cos(yaw) * 0.3;
+                double sideX    =  Math.cos(yaw) * 0.2;
+                double sideZ    =  Math.sin(yaw) * 0.2;
+
+                // Según mano principal
+                boolean rightHand = player.getUsedItemHand() == InteractionHand.MAIN_HAND;
+                double offsetX = forwardX + (rightHand ? sideX : -sideX);
+                double offsetZ = forwardZ + (rightHand ? sideZ : -sideZ);
+
+                // Altura (cerca de la boca)
+                double x = player.getX() + offsetX;
+                double y = player.getY() + player.getEyeHeight() - 0.2;
+                double z = player.getZ() + offsetZ;
+
+                world.addParticle(
+                        net.minecraft.core.particles.ParticleTypes.CAMPFIRE_COSY_SMOKE,
+                        x, y, z,
+                        (world.random.nextGaussian()) * 0.005,
+                        0.02,
+                        (world.random.nextGaussian()) * 0.005
+                );
+            }
+        }
+        super.onUseTick(world, entity, stack, count);
+    }
+
+
+
+    @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         ItemStack otherHand = player.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);

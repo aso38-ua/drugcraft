@@ -3,6 +3,7 @@ package com.disco190.drugcraft.item;
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.items.CannabisJointItem;
+import com.disco190.drugcraft.items.EphedraBerryItem;
 import com.disco190.drugcraft.items.MooshroomsItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -65,6 +66,9 @@ public class ModItems {
                             .build())));
 
 
+    // Item bayas de Ephedra (se planta como arbusto)
+    public static final RegistryObject<Item> EPHEDRA_BERRIES = ITEMS.register("ephedra_berries",
+            () -> new EphedraBerryItem(new Item.Properties()));
 
 
     // Semillas
