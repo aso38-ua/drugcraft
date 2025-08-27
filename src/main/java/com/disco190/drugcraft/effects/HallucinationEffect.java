@@ -1,6 +1,7 @@
 package com.disco190.drugcraft.effects;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -32,21 +33,30 @@ public class HallucinationEffect extends MobEffect {
             double offsetX = (random.nextDouble() - 0.5) * 0.5;
             double offsetY = random.nextDouble() * 0.5;
             double offsetZ = (random.nextDouble() - 0.5) * 0.5;
+
+            // partículas de colores aleatorias
+            SimpleParticleType[] particles = {ParticleTypes.ENCHANT, ParticleTypes.END_ROD, ParticleTypes.HAPPY_VILLAGER, ParticleTypes.COMPOSTER};
+            SimpleParticleType particle = particles[random.nextInt(particles.length)];
             world.addParticle(
-                    ParticleTypes.ENCHANT,
+                    ParticleTypes.ENTITY_EFFECT,
                     entity.getX() + offsetX,
                     entity.getY() + 1 + offsetY,
                     entity.getZ() + offsetZ,
-                    0, 0.05, 0
+                    random.nextFloat(), // rojo
+                    random.nextFloat(), // verde
+                    random.nextFloat()  // azul
             );
+
         }
+
 
         // movimiento aleatorio para simular mareo
         if (entity instanceof Player player) {
-            float wobble = (random.nextFloat() - 0.5f) * 0.1f * (amplifier + 1);
-            player.setDeltaMovement(player.getDeltaMovement().add(
-                    wobble, 0, wobble
-            ));
+            float wobble = (random.nextFloat() - 0.5f) * 0.15f * (amplifier + 1);
+            player.setDeltaMovement(player.getDeltaMovement().add(wobble, 0, wobble));
+
+            double floatY = Math.sin(world.getGameTime() * 0.3) * 0.02 * (amplifier + 1);
+            player.setDeltaMovement(player.getDeltaMovement().add(wobble, floatY, wobble));
         }
     }
 
