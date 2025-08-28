@@ -2,10 +2,15 @@
   "item.drugcraft.marijuana": "Marijuana Bud",
   "item.drugcraft.marijuanaseeds": "Marijuana Seeds",
   "item.drugcraft.cannabis_joint": "Cannabis Joint",
+  "item.drugcraft.purple_haze": "Purple Haze Bud",
+  "item.drugcraft.purple_haze_seeds": "Purple Haze Seeds",
+  "item.drugcraft.purple_haze_joint": "Purple Haze Joint",
   "block.drugcraft.wild_marijuana": "Wild Marijuana Plant",
 
   "advancement.drugcraft.smoke_on_the_water": "Smoke on the Water",
   "advancement.drugcraft.smoke_on_the_water.desc": "Roll up and light one",
+  "advancement.drugcraft.jimi_hendrix": "Jimi Hendrix",
+  "advancement.drugcraft.jimi_hendrix.desc": "Roll up and light one purple haze",
 
 
   "item.drugcraft.tobacco_seeds": "Tobacco Seeds",

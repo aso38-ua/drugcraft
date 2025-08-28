@@ -15,7 +15,7 @@ import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = Drugcraft.MODID)
 public class SeedDrops {
-
+/*
     private static final Random random = new Random();
 
     @SubscribeEvent
@@ -57,5 +57,5 @@ public class SeedDrops {
                 level.addFreshEntity(drop);
             }
         }
-    }
+    }*/
 }

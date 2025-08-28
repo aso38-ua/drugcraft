@@ -27,14 +27,30 @@ public class ModItems {
     public static final RegistryObject<Item> MARIJUANA = ITEMS.register("marijuana",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> PURPLE_HAZE = ITEMS.register("purple_haze",
+            () -> new Item(new Item.Properties()));
+
     // Semillas
     public static final RegistryObject<Item> MARIJUANA_SEEDS = ITEMS.register("marijuanaseeds",
             () -> new ItemNameBlockItem(ModBlocks.MARIJUANA_CROP.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> PURPLE_HAZE_SEEDS = ITEMS.register("purple_haze_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.PURPLE_HAZE_CROP.get(), new Item.Properties()));
 
     // Porro
     public static final RegistryObject<Item> CANNABIS_JOINT = ITEMS.register("cannabis_joint",
             () -> new CannabisJointItem(new Item.Properties()
                      // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> PURPLE_HAZE_JOINT = ITEMS.register("purple_haze_joint",
+            () -> new CannabisJointItem(new Item.Properties()
+                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
