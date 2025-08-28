@@ -2,6 +2,11 @@
   "item.drugcraft.marijuana": "Marijuana Bud",
   "item.drugcraft.marijuanaseeds": "Marijuana Seeds",
   "item.drugcraft.cannabis_joint": "Cannabis Joint",
+  "block.drugcraft.wild_marijuana": "Wild Marijuana Plant",
+
+  "advancement.drugcraft.smoke_on_the_water": "Smoke on the Water",
+  "advancement.drugcraft.smoke_on_the_water.desc": "Roll up and light one",
+
 
   "item.drugcraft.tobacco_seeds": "Tobacco Seeds",
   "item.drugcraft.volado_leaf": "Volado Leaf",
@@ -12,11 +17,18 @@
   "item.drugcraft.mooshrooms": "Magic Mushroom",
   "item.drugcraft.mooshrooms_seeds": "Mushroom Spores",
 
+  "advancement.drugcraft.magic_mushrooms": "Lucy in the Sky",
+  "advancement.drugcraft.magic_mushrooms.desc": "Get your hands on some shrooms",
+
   "item.drugcraft.ephedra_berries": "Ephedra Berries",
   "block.drugcraft.ephedra_bush": "Ephedra Bush",
   "item.drugcraft.cough_syrup": "Cough Syrup",
   "item.drugcraft.candy": "Candy",
   "item.drugcraft.refreshment": "Refreshment",
+  "item.drugcraft.lean": "Lean",
+
+  "advancement.drugcraft.lean_on": "Lean On",
+  "advancement.drugcraft.lean_on.desc": "Craft some Lean",
 
 
   "effect.drugcraft.hallucination": "Hallucination",

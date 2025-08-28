@@ -2,10 +2,7 @@ package com.disco190.drugcraft.item;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
-import com.disco190.drugcraft.items.CannabisJointItem;
-import com.disco190.drugcraft.items.CoughSyrupItem;
-import com.disco190.drugcraft.items.EphedraBerryItem;
-import com.disco190.drugcraft.items.MooshroomsItem;
+import com.disco190.drugcraft.items.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -91,11 +88,17 @@ public class ModItems {
                     .food(new FoodProperties.Builder()
                             .nutrition(3) // poca comida
                             .saturationMod(0.4f) // no da tanta saturación
+                            .alwaysEat()
                             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0f) // 10s de speed I
                             .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 20, 0), 1.0f) // 1s de saturación leve
                             .build()
                     )
             ));
+
+    public static final RegistryObject<Item> LEAN = ITEMS.register("lean",
+            () -> new LeanItem(new Item.Properties().stacksTo(16)));
+
+
 
 
 
