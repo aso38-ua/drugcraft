@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "SSS",
+    "PPP"
+  ],
+  "key": {
+    "S": {
+      "tag": "drugcraft:smoking_leaves"
+    },
+    "P": {
+      "item": "drugcraft:cardboard"
+    }
+  },
+  "result": {
+    "item": "drugcraft:pack_of_cigarettes",
+    "count": 1
+  }
+}
