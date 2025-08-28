@@ -26,6 +26,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SECO_LEAF.get());
                         pOutput.accept(ModItems.CORONA_LEAF.get());
                         pOutput.accept(ModItems.CIGARETTE.get());
+                        pOutput.accept(ModItems.CARDBOARD.get());
+                        pOutput.accept(ModItems.PACK_OF_CIGARETTES.get());
                         pOutput.accept(ModItems.MOOSHROOMS.get());
                         pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());
 

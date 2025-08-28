@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "PPP",
-    "SSS",
+    "PMP",
     "PPP"
   ],
   "key": {
-    "S": {
-      "tag": "drugcraft:smoking_leaves"
+    "M": {
+      "tag": "minecraft:planks"
     },
     "P": {
       "item": "minecraft:paper"
     }
   },
   "result": {
-    "item": "drugcraft:cigarette",
-    "count": 5
+    "item": "drugcraft:cardboard",
+    "count": 1
   }
 }

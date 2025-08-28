@@ -11,4 +11,6 @@ public class ModDamageSources {
         return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
                 .getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE,
                         new ResourceLocation("drugcraft", "cigarette"))));
-    }}
+    }
+
+}

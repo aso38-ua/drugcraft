@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 
 public class CigaretteItem extends Item{
     public CigaretteItem(Item.Properties properties) {
-        super(properties.stacksTo(64)); // hasta 16 porros por stack
+        super(properties.stacksTo(64)); // hasta 64 cigarros por stack
     }
 
     @Override
@@ -37,7 +37,6 @@ public class CigaretteItem extends Item{
         ItemStack stack = player.getItemInHand(hand);
         ItemStack otherHand = player.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
 
-        // Comprueba que la otra mano tenga el mechero
         if (otherHand.getItem() != Items.FLINT_AND_STEEL) {
             if (!world.isClientSide) {
                 player.displayClientMessage(Component.literal("Necesitas un mechero en la otra mano!"), true);
@@ -45,38 +44,36 @@ public class CigaretteItem extends Item{
             return InteractionResultHolder.fail(stack);
         }
 
-        // Sonido al empezar a fumar
         if (!world.isClientSide) {
             SoundEvent sound = ModSounds.JOINT_SMOKE.get();
             world.playSound(null, player.getX(), player.getY(), player.getZ(),
                     sound, player.getSoundSource(), 1.0F, 1.0F);
         }
 
-        // Inicia animación y uso
+        // Aseguramos que el primer cigarro tenga su propio NBT
+        if (stack.getCount() > 1 && !stack.getOrCreateTag().contains("Caladas")) {
+            stack = stack.split(1); // separa 1 cigarro del stack
+            player.setItemInHand(hand, stack); // sustituye el stack original por este cigarro independiente
+        }
+
         player.startUsingItem(hand);
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide());
     }
 
-
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entityLiving) {
         if (!world.isClientSide && entityLiving instanceof Player player) {
-            // Efectos
             player.addEffect(new MobEffectInstance(MobEffects.LUCK, 600, 0));
-            // Quitar medio corazón (1 punto de vida)
             player.hurt(ModDamageSources.cigarette(world), 1.0F);
-
         }
 
-        // Caladas
         int caladas = stack.getOrCreateTag().getInt("Caladas");
         caladas++;
         stack.getOrCreateTag().putInt("Caladas", caladas);
 
-        if (caladas >= 3) {
-            stack.shrink(1);
+        if (caladas >= 1) {
+            stack.shrink(1); // consume este cigarro independiente
         }
-
 
         return stack;
     }

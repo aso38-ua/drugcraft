@@ -5,9 +5,11 @@ import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.items.CannabisJointItem;
 import com.disco190.drugcraft.items.CigaretteItem;
 import com.disco190.drugcraft.items.MooshroomsItem;
+import com.disco190.drugcraft.items.PackOfCigaretteItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -64,6 +66,12 @@ public class ModItems {
                             .alwaysEat()        // permite usar siempre
                             .build())
             ));
+
+    public static final RegistryObject<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
+            () -> new PackOfCigaretteItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> CARDBOARD = ITEMS.register("cardboard",
+            () -> new Item(new Item.Properties()));
 
     //======================= MOOSHROOMS ===========================================
     // Seta alucinógena
