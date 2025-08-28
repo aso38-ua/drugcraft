@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "drugcraft:volado_leaf",
+    "drugcraft:ligero_leaf",
+    "drugcraft:seco_leaf",
+    "drugcraft:corona_leaf"
+  ]
+}
