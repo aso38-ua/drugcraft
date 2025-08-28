@@ -20,8 +20,19 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MARIJUANA.get());
                         pOutput.accept(ModItems.MARIJUANA_SEEDS.get());
                         pOutput.accept(ModItems.CANNABIS_JOINT.get());
+                        pOutput.accept(ModItems.TOBACCO_SEEDS.get());
+                        pOutput.accept(ModItems.VOLADO_LEAF.get());
+                        pOutput.accept(ModItems.LIGERO_LEAF.get());
+                        pOutput.accept(ModItems.SECO_LEAF.get());
+                        pOutput.accept(ModItems.CORONA_LEAF.get());
+                        pOutput.accept(ModItems.CIGARETTE.get());
+                        pOutput.accept(ModItems.MOOSHROOMS.get());
+                        pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());
+
                     })
                     .build());
+
+
 
     public static void register(IEventBus eventBus){
         CREATIVE_MODE_TABS.register(eventBus);

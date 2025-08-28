@@ -17,6 +17,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> MARIJUANA_CROP = BLOCKS.register("marijuana_crop",
             () -> new MarijuanaCropBlock(() -> ModItems.MARIJUANA_SEEDS.get()));
 
+    public static final RegistryObject<Block> TOBACCO_CROP = BLOCKS.register("tobacco_crop",
+            () -> new TobaccoCropBlock(() -> ModItems.TOBACCO_SEEDS.get()));
+
+    public static final RegistryObject<Block> MOOSHROOMS_CROP = BLOCKS.register("mooshrooms_crop",
+            () -> new MooshroomsCropBlock(() -> ModItems.MOOSHROOMS_SEEDS.get()));
 
 
     public static void register(IEventBus eventBus) {
