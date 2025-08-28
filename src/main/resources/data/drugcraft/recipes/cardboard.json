@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "PPP",
-    "VVV",
+    "PMP",
     "PPP"
   ],
   "key": {
-    "V": {
-      "item": "drugcraft:volado_leaf"
+    "M": {
+      "tag": "minecraft:planks"
     },
     "P": {
       "item": "minecraft:paper"
     }
   },
   "result": {
-    "item": "drugcraft:cigarette",
+    "item": "drugcraft:cardboard",
     "count": 1
   }
 }
