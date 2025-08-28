@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "drugcraft:candy" },
+    { "item": "drugcraft:cough_syrup" },
+    { "item": "drugcraft:refreshment" }
+  ],
+  "result": {
+    "item": "drugcraft:lean",
+    "count": 1
+  }
+}

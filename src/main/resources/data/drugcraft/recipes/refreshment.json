@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "SBS",
+    " S "
+  ],
+  "key": {
+    "S": { "item": "minecraft:sugar" },
+    "B": { "item": "minecraft:potion", "nbt": "{Potion:\"minecraft:water\"}" }
+  },
+  "result": {
+    "item": "drugcraft:refreshment",
+    "count": 1
+  }
+}

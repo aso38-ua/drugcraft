@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:cannabis_joint" },
+    "title": { "translate": "advancement.drugcraft.smoke_on_the_water" },
+    "description": { "translate": "advancement.drugcraft.smoke_on_the_water.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_joint": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["drugcraft:cannabis_joint"] }
+        ]
+      }
+    }
+  }
+}
