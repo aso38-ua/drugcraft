@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:red_dye" }
+  ],
+  "result": {
+    "item": "drugcraft:candy",
+    "count": 1
+  }
+}

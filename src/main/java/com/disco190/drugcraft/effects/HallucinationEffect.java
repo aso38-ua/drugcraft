@@ -22,43 +22,73 @@ public class HallucinationEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
-        Level world = entity.level(); // <-- usar getter
-        if (!world.isClientSide) return; // efectos visuales solo en cliente
+        Level world = entity.level();
+        if (world.isClientSide) {
+            // --- Cliente: partículas y mareo ---
+            spawnHallucinationParticles(entity, amplifier);
+            applyWobble(entity, amplifier);
+        } else {
+            // --- Servidor: dar GLOWING al jugador y a los mobs cercanos ---
+            int radius = 16; // alcance de la "alucinación"
+            world.getEntitiesOfClass(LivingEntity.class,
+                    entity.getBoundingBox().inflate(radius),
+                    e -> e != entity // excluir al jugador mismo (si no quieres, bórralo)
+            ).forEach(target -> {
+                target.addEffect(new MobEffectInstance(
+                        net.minecraft.world.effect.MobEffects.GLOWING,
+                        40, // 2 segundos, se refresca cada tick
+                        0,
+                        false,
+                        false
+                ));
+            });
 
-        // efecto cliente: partículas y mareo
-        Minecraft mc = Minecraft.getInstance();
+            // también el propio jugador puede brillar si quieres
+            entity.addEffect(new MobEffectInstance(
+                    net.minecraft.world.effect.MobEffects.GLOWING,
+                    40,
+                    0,
+                    false,
+                    false
+            ));
+        }
+    }
 
-        // partículas random tipo portal
+    private void spawnHallucinationParticles(LivingEntity entity, int amplifier) {
+        Random random = HallucinationEffect.random;
+        Level world = entity.level();
         for (int i = 0; i < 5 + amplifier; i++) {
             double offsetX = (random.nextDouble() - 0.5) * 0.5;
             double offsetY = random.nextDouble() * 0.5;
             double offsetZ = (random.nextDouble() - 0.5) * 0.5;
 
-            // partículas de colores aleatorias
-            SimpleParticleType[] particles = {ParticleTypes.ENCHANT, ParticleTypes.END_ROD, ParticleTypes.HAPPY_VILLAGER, ParticleTypes.COMPOSTER};
+            SimpleParticleType[] particles = {
+                    ParticleTypes.ENCHANT, ParticleTypes.END_ROD,
+                    ParticleTypes.HAPPY_VILLAGER, ParticleTypes.COMPOSTER
+            };
             SimpleParticleType particle = particles[random.nextInt(particles.length)];
+
             world.addParticle(
                     ParticleTypes.ENTITY_EFFECT,
                     entity.getX() + offsetX,
                     entity.getY() + 1 + offsetY,
                     entity.getZ() + offsetZ,
-                    random.nextFloat(), // rojo
-                    random.nextFloat(), // verde
-                    random.nextFloat()  // azul
+                    random.nextFloat(),
+                    random.nextFloat(),
+                    random.nextFloat()
             );
-
         }
+    }
 
-
-        // movimiento aleatorio para simular mareo
+    private void applyWobble(LivingEntity entity, int amplifier) {
         if (entity instanceof Player player) {
             float wobble = (random.nextFloat() - 0.5f) * 0.15f * (amplifier + 1);
-            player.setDeltaMovement(player.getDeltaMovement().add(wobble, 0, wobble));
+            double floatY = Math.sin(entity.level().getGameTime() * 0.3) * 0.02 * (amplifier + 1);
 
-            double floatY = Math.sin(world.getGameTime() * 0.3) * 0.02 * (amplifier + 1);
             player.setDeltaMovement(player.getDeltaMovement().add(wobble, floatY, wobble));
         }
     }
+
 
     @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {

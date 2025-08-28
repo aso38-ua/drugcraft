@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "drugcraft:ephedra_berries" },
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:potion", "nbt": "{Potion:\"minecraft:water\"}" }
+  ],
+  "result": {
+    "item": "drugcraft:cough_syrup",
+    "count": 1
+  }
+}

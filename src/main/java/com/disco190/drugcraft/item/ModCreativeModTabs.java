@@ -25,6 +25,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MOOSHROOMS.get());
                         pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());
                         pOutput.accept(ModItems.EPHEDRA_BERRIES.get());
+                        pOutput.accept(ModItems.COUGH_SYRUP.get());
+                        pOutput.accept(ModItems.CANDY.get());
+                        pOutput.accept(ModItems.REFRESHMENT.get());
 
                     })
                     .build());
