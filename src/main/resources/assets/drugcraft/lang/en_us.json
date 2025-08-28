@@ -15,5 +15,7 @@
 
   "effect.drugcraft.hallucination": "Hallucination",
 
-  "creativetab.drugcraft_tab": "DrugCraft Tab"
+  "creativetab.drugcraft_tab": "DrugCraft Tab",
+
+  "death.attack.cigarette": "%1$s murió por causas naturales"
 }

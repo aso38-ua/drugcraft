@@ -3,6 +3,7 @@ package com.disco190.drugcraft.item;
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.items.CannabisJointItem;
+import com.disco190.drugcraft.items.CigaretteItem;
 import com.disco190.drugcraft.items.MooshroomsItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -55,7 +56,14 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> CIGARETTE = ITEMS.register("cigarette",
-            () -> new Item(new Item.Properties()));
+            () -> new CigaretteItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
 
     //======================= MOOSHROOMS ===========================================
     // Seta alucinógena
