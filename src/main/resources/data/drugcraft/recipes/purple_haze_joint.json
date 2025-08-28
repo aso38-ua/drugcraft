@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CP ",
+    "PP ",
+    "   "
+  ],
+  "key": {
+    "C": {
+      "item": "drugcraft:purple_haze"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "drugcraft:purple_haze_joint",
+    "count": 1
+  }
+}
