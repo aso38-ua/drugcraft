@@ -2,6 +2,7 @@ package com.disco190.drugcraft.items;
 
 import com.disco190.drugcraft.effects.ModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
@@ -40,6 +41,8 @@ public class MooshroomsItem extends Item {
             player.addEffect(new MobEffectInstance(ModEffects.HALLUCINATION.get(), 600, 0));
             player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.CONFUSION, 600, 0));
             player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 400, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 900, 1));
+            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 700, 1));
         }
 
         stack.shrink(1); // consume la seta

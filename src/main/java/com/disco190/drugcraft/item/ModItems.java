@@ -2,8 +2,7 @@ package com.disco190.drugcraft.item;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
-import com.disco190.drugcraft.items.CannabisJointItem;
-import com.disco190.drugcraft.items.MooshroomsItem;
+import com.disco190.drugcraft.items.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -54,6 +53,55 @@ public class ModItems {
     public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
             () -> new Item(new Item.Properties()));
 
+    //======================= LEAN ===========================================
+
+    // Item bayas de Ephedra (se planta como arbusto)
+    public static final RegistryObject<Item> EPHEDRA_BERRIES = ITEMS.register("ephedra_berries",
+            () -> new EphedraBerryItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> COUGH_SYRUP = ITEMS.register("cough_syrup",
+            () -> new CoughSyrupItem(new Item.Properties()
+                    .stacksTo(16)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(1)
+                            .saturationMod(0.1F)
+                            .alwaysEat()
+                            .effect(() -> new MobEffectInstance(MobEffects.HEAL, 1, 0), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 10, 0), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 20 * 5, 0), 0.5F)
+                            .build())
+            ));
+
+
+
+    public static final RegistryObject<Item> CANDY = ITEMS.register("candy",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(2) // medio muslito
+                            .saturationMod(0.3F) // poca saturación
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 2), 1.0F) // 5s Velocidad I
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> REFRESHMENT = ITEMS.register("refreshment",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(3) // poca comida
+                            .saturationMod(0.4f) // no da tanta saturación
+                            .alwaysEat()
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0f) // 10s de speed I
+                            .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 20, 0), 1.0f) // 1s de saturación leve
+                            .build()
+                    )
+            ));
+
+    public static final RegistryObject<Item> LEAN = ITEMS.register("lean",
+            () -> new LeanItem(new Item.Properties().stacksTo(16)));
+
+
+
+
+
     //======================= MOOSHROOMS ===========================================
     // Seta alucinógena
     public static final RegistryObject<Item> MOOSHROOMS = ITEMS.register("mooshrooms",
@@ -63,8 +111,6 @@ public class ModItems {
                             .saturationMod(0.3f)
                             .alwaysEat()
                             .build())));
-
-
 
 
     // Semillas
