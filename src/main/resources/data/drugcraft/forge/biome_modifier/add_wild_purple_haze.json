@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:flower_forest",
+    "minecraft:forest"
+  ],
+  "features": "drugcraft:wild_purple_haze_placed",
+  "step": "vegetal_decoration"
+}

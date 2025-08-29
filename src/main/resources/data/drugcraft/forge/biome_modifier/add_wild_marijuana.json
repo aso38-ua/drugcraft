@@ -1,8 +1,11 @@
 {
   "type": "forge:add_features",
-  "biomes": {
-    "type": "forge:any"
-  },
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau"
+  ],
   "features": "drugcraft:wild_marijuana_placed",
   "step": "vegetal_decoration"
 }

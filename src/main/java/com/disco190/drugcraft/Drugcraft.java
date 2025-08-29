@@ -4,6 +4,7 @@ import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.effects.ModEffects;
 import com.disco190.drugcraft.item.ModCreativeModTabs;
 import com.disco190.drugcraft.item.ModItems;
+import com.disco190.drugcraft.recipes.ModRecipes;
 import com.disco190.drugcraft.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -67,6 +68,7 @@ public class Drugcraft {
         ModSounds.register(modEventBus);
 
         ModEffects.register(modEventBus);
+        ModRecipes.SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
 
 

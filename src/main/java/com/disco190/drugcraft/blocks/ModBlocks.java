@@ -28,6 +28,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_MARIJUANA = BLOCKS.register("wild_marijuana",
             WildMarijuanaBlock::new);
 
+    // Registro del bloque
+    public static final RegistryObject<Block> WILD_PURPLE_HAZE = BLOCKS.register("wild_purple_haze",
+            WildPurpleHazeBlock::new);
+
     public static final RegistryObject<Block> TOBACCO_CROP = BLOCKS.register("tobacco_crop",
             () -> new TobaccoCropBlock(ModItems.TOBACCO_SEEDS));
 
