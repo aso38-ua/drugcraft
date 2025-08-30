@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0":  { "model": "drugcraft:block/tobacco_crop_0" },
+    "age=1":  { "model": "drugcraft:block/tobacco_crop_1" },
+    "age=2":  { "model": "drugcraft:block/tobacco_crop_2" },
+    "age=3":  { "model": "drugcraft:block/tobacco_crop_3" },
+    "age=4":  { "model": "drugcraft:block/tobacco_crop_4" },
+    "age=5":  { "model": "drugcraft:block/tobacco_crop_5" },
+    "age=6":  { "model": "drugcraft:block/tobacco_crop_6" },
+    "age=7":  { "model": "drugcraft:block/tobacco_crop_7" }
+  }
+}

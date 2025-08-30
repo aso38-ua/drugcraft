@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "drugcraft:item/corona_leaf"
+    "layer0": "drugcraft:item/capote"
   }
 }

@@ -60,7 +60,7 @@ public class ModItems {
     //======================== TOBACCO ===========================================
     public static final RegistryObject<Item> TOBACCO_SEEDS = ITEMS.register("tobacco_seeds",
             () -> new ItemNameBlockItem(ModBlocks.TOBACCO_CROP.get(), new Item.Properties()));
-
+/*
     public static final RegistryObject<Item> VOLADO_LEAF = ITEMS.register("volado_leaf",
             () -> new Item(new Item.Properties()));
 
@@ -72,6 +72,25 @@ public class ModItems {
 
     public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
             () -> new Item(new Item.Properties()));
+*/
+    public static final RegistryObject<Item> TRIPA = ITEMS.register("tripa",
+        () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CAPOTE = ITEMS.register("capote",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CAPA = ITEMS.register("capa",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CURED_TRIPA = ITEMS.register("cured_tripa",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CURED_CAPOTE = ITEMS.register("cured_capote",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CURED_CAPA = ITEMS.register("cured_capa",
+            () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> CIGARETTE = ITEMS.register("cigarette",
             () -> new CigaretteItem(new Item.Properties()
@@ -132,6 +151,8 @@ public class ModItems {
                             .alwaysEat()        // permite usar siempre
                             .build())
             ));
+
+
 
     public static final RegistryObject<Item> CARDBOARD = ITEMS.register("cardboard",
             () -> new Item(new Item.Properties()));

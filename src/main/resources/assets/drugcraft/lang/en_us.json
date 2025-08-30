@@ -14,10 +14,12 @@
 
 
   "item.drugcraft.tobacco_seeds": "Tobacco Seeds",
-  "item.drugcraft.volado_leaf": "Volado Leaf",
-  "item.drugcraft.seco_leaf": "Seco Leaf",
-  "item.drugcraft.ligero_leaf": "Ligero Leaf",
-  "item.drugcraft.corona_leaf": "Corona Leaf",
+  "item.drugcraft.tripa": "tripa",
+  "item.drugcraft.capote": "capote",
+  "item.drugcraft.capa": "capa",
+  "item.drugcraft.cured_tripa": "cured_tripa",
+  "item.drugcraft.cured_capote": "cured_capote",
+  "item.drugcraft.cured_capa": "cured_capa",
 
   "item.drugcraft.cigarette": "Cigarette",
   "item.drugcraft.malmoro_cigarette": "Malmoro cigarette",

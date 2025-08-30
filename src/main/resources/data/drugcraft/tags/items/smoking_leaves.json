@@ -1,9 +1,8 @@
 {
   "replace": false,
   "values": [
-    "drugcraft:volado_leaf",
-    "drugcraft:ligero_leaf",
-    "drugcraft:seco_leaf",
-    "drugcraft:corona_leaf"
+    "drugcraft:cured_tripa",
+    "drugcraft:cured_capote",
+    "drugcraft:cured_capa"
   ]
 }

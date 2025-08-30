@@ -25,10 +25,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CANNABIS_JOINT.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_JOINT.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
-                        pOutput.accept(ModItems.VOLADO_LEAF.get());
-                        pOutput.accept(ModItems.LIGERO_LEAF.get());
-                        pOutput.accept(ModItems.SECO_LEAF.get());
-                        pOutput.accept(ModItems.CORONA_LEAF.get());
+                        pOutput.accept(ModItems.TRIPA.get());
+                        pOutput.accept(ModItems.CAPOTE.get());
+                        pOutput.accept(ModItems.CAPA.get());
 
                         pOutput.accept(ModItems.CIGARETTE.get());
                         pOutput.accept(ModItems.MALMORO_CIGARETTE.get());

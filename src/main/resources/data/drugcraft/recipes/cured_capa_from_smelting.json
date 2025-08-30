@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "drugcraft:capa"
+  },
+  "result": "drugcraft:cured_capa",
+  "experience": 0.35,
+  "cookingtime": 200
+}
