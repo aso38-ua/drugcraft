@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PD ",
+    "C  ",
+    "   "
+  ],
+  "key": {
+    "P": {
+      "item": "drugcraft:pack_of_cigarettes"
+    },
+    "D": {
+      "item": "minecraft:yellow_dye"
+    },
+    "C": {
+      "item": "drugcraft:cardboard"
+    }
+  },
+  "result": {
+    "item": "drugcraft:pack_of_camello",
+    "count": 1
+  }
+}

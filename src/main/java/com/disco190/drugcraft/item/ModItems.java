@@ -10,7 +10,6 @@ import com.disco190.drugcraft.items.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -68,11 +67,78 @@ public class ModItems {
                             .build())
             ));
 
-    public static final RegistryObject<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
-            () -> new PackOfCigaretteItem(new Item.Properties()));
+    public static final RegistryObject<Item> MALMORO_CIGARETTE = ITEMS.register("malmoro_cigarette",
+            () -> new MalmoroCigaretteItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> MALMORO_GOLD_CIGARETTE = ITEMS.register("malmoro_gold_cigarette",
+            () -> new MalmoroGoldCigaretteItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> CAMELLO_CIGARETTE = ITEMS.register("camello_cigarette",
+            () -> new CamelloCigaretteItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> LUCKY_STROKE_CIGARETTE = ITEMS.register("lucky_stroke_cigarette",
+            () -> new LuckyStrokeCigaretteItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> HORIZONTE_CIGARETTE = ITEMS.register("horizonte_cigarette",
+            () -> new HorizonteCigaretteItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(2)       // cura el hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
 
     public static final RegistryObject<Item> CARDBOARD = ITEMS.register("cardboard",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
+            () -> new PackOfCigaretteItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_MALMORO = ITEMS.register("pack_of_malmoro",
+            () -> new PackOfMalmoroItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_MALMORO_GOLD = ITEMS.register("pack_of_malmoro_gold",
+            () -> new PackOfMalmoroGoldItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_CAMELLO = ITEMS.register("pack_of_camello",
+            () -> new PackOfCamelloItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_LUCKY_STROKE = ITEMS.register("pack_of_lucky_stroke",
+            () -> new PackOfLuckyStrokeItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_HORIZONTE = ITEMS.register("pack_of_horizonte",
+            () -> new PackOfHorizonteItem(new Item.Properties()));
+
+
   
     //======================= LEAN ===========================================
 

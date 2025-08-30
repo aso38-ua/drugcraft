@@ -50,31 +50,19 @@ public class CigaretteItem extends Item{
                     sound, player.getSoundSource(), 1.0F, 1.0F);
         }
 
-        // Aseguramos que el primer cigarro tenga su propio NBT
-        if (stack.getCount() > 1 && !stack.getOrCreateTag().contains("Caladas")) {
-            stack = stack.split(1); // separa 1 cigarro del stack
-            player.setItemInHand(hand, stack); // sustituye el stack original por este cigarro independiente
-        }
-
         player.startUsingItem(hand);
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide());
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entityLiving) {
+        // aplica primero la lógica de comida (cura hambre, consume ítem, etc.)
+        ItemStack result = super.finishUsingItem(stack, world, entityLiving);
+
         if (!world.isClientSide && entityLiving instanceof Player player) {
-            player.addEffect(new MobEffectInstance(MobEffects.LUCK, 600, 0));
             player.hurt(ModDamageSources.cigarette(world), 1.0F);
         }
 
-        int caladas = stack.getOrCreateTag().getInt("Caladas");
-        caladas++;
-        stack.getOrCreateTag().putInt("Caladas", caladas);
-
-        if (caladas >= 1) {
-            stack.shrink(1); // consume este cigarro independiente
-        }
-
-        return stack;
+        return result;
     }
 }

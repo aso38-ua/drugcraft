@@ -13,8 +13,21 @@
   "item.drugcraft.seco_leaf": "Seco Leaf",
   "item.drugcraft.ligero_leaf": "Ligero Leaf",
   "item.drugcraft.corona_leaf": "Corona Leaf",
+
   "item.drugcraft.cigarette": "Cigarette",
+  "item.drugcraft.malmoro_cigarette": "Malmoro cigarette",
+  "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD",
+  "item.drugcraft.camello_cigarette": "Camello cigarette",
+  "item.drugcraft.lucky_stroke_cigarette": "Lucky Stroke cigarette",
+  "item.drugcraft.horizonte_cigarette": "Horizonte cigarette",
+
   "item.drugcraft.pack_of_cigarettes": "Pack of cigarettes",
+  "item.drugcraft.pack_of_malmoro": "Pack of Malmoro",
+  "item.drugcraft.pack_of_malmoro_gold": "Pack of Malmoro GOLD",
+  "item.drugcraft.pack_of_camello": "Pack of Camello",
+  "item.drugcraft.pack_of_lucky_stroke": "Pack of Lucky Stroke",
+  "item.drugcraft.pack_of_horizonte": "Pack of Horizonte",
+
   "item.drugcraft.cardboard": "Cardboard",
 
   "item.drugcraft.mooshrooms": "Magic Mushroom",
