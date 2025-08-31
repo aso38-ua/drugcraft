@@ -28,6 +28,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.TRIPA.get());
                         pOutput.accept(ModItems.CAPOTE.get());
                         pOutput.accept(ModItems.CAPA.get());
+                        pOutput.accept(ModItems.CURED_TRIPA.get());
+                        pOutput.accept(ModItems.CURED_CAPOTE.get());
+                        pOutput.accept(ModItems.CURED_CAPA.get());
 
                         pOutput.accept(ModItems.CIGARETTE.get());
                         pOutput.accept(ModItems.MALMORO_CIGARETTE.get());
@@ -44,6 +47,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PACK_OF_CAMELLO.get());
                         pOutput.accept(ModItems.PACK_OF_LUCKY_STROKE.get());
                         pOutput.accept(ModItems.PACK_OF_HORIZONTE.get());
+
+                        pOutput.accept(ModItems.ESPLENDIDO_CIGAR.get());
+                        pOutput.accept(ModItems.DON_JAVIER_CIGAR.get());
+                        pOutput.accept(ModItems.TORITO_CIGAR.get());
 
                         pOutput.accept(ModItems.MOOSHROOMS.get());
                         pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());

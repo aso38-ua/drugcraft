@@ -60,19 +60,7 @@ public class ModItems {
     //======================== TOBACCO ===========================================
     public static final RegistryObject<Item> TOBACCO_SEEDS = ITEMS.register("tobacco_seeds",
             () -> new ItemNameBlockItem(ModBlocks.TOBACCO_CROP.get(), new Item.Properties()));
-/*
-    public static final RegistryObject<Item> VOLADO_LEAF = ITEMS.register("volado_leaf",
-            () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> SECO_LEAF = ITEMS.register("seco_leaf",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> LIGERO_LEAF = ITEMS.register("ligero_leaf",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
-            () -> new Item(new Item.Properties()));
-*/
     public static final RegistryObject<Item> TRIPA = ITEMS.register("tripa",
         () -> new Item(new Item.Properties()));
 
@@ -176,6 +164,35 @@ public class ModItems {
             () -> new PackOfHorizonteItem(new Item.Properties()));
 
 
+    public static final RegistryObject<Item> ESPLENDIDO_CIGAR = ITEMS.register("esplendido_cigar",
+            () -> new EsplendidoCigarItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> DON_JAVIER_CIGAR = ITEMS.register("don_javier_cigar",
+            () -> new DonJavierCigarItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> TORITO_CIGAR = ITEMS.register("torito_cigar",
+            () -> new ToritoCigarItem(new Item.Properties()
+                    // 3 caladas
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
   
     //======================= LEAN ===========================================
 

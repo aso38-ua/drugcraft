@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "PTP",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "drugcraft:cured_capa"
+    },
+    "P": {
+      "item": "drugcraft:cured_capote"
+    },
+    "T": {
+      "item": "drugcraft:cured_tripa"
+    }
+  },
+  "result": {
+    "item": "drugcraft:torito_cigar",
+    "count": 1
+  }
+}
