@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  G",
+    " D ",
+    "GG "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "D": {
+      "item": "drugcraft:diamond"
+    }
+  },
+  "result": {
+    "item": "drugcraft:wisdom_pipe",
+    "count": 1
+  }
+}

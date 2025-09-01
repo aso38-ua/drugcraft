@@ -40,6 +40,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.HORIZONTE_CIGARETTE.get());
 
                         pOutput.accept(ModItems.CARDBOARD.get());
+                        pOutput.accept(ModItems.ROLLING_TOBACCO.get());
+                        pOutput.accept(ModItems.ROLLING_CIGARETTE.get());
+                        pOutput.accept(ModItems.WOOD_PIPE.get());
+                        pOutput.accept(ModItems.WISDOM_PIPE.get());
 
                         pOutput.accept(ModItems.PACK_OF_CIGARETTES.get());
                         pOutput.accept(ModItems.PACK_OF_MALMORO.get());

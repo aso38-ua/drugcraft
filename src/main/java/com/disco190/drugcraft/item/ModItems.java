@@ -82,7 +82,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> CIGARETTE = ITEMS.register("cigarette",
             () -> new CigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -92,7 +91,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> MALMORO_CIGARETTE = ITEMS.register("malmoro_cigarette",
             () -> new MalmoroCigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -102,7 +100,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> MALMORO_GOLD_CIGARETTE = ITEMS.register("malmoro_gold_cigarette",
             () -> new MalmoroGoldCigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -112,7 +109,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> CAMELLO_CIGARETTE = ITEMS.register("camello_cigarette",
             () -> new CamelloCigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -122,7 +118,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> LUCKY_STROKE_CIGARETTE = ITEMS.register("lucky_stroke_cigarette",
             () -> new LuckyStrokeCigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -132,7 +127,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> HORIZONTE_CIGARETTE = ITEMS.register("horizonte_cigarette",
             () -> new HorizonteCigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(2)       // cura el hambre
                             .saturationMod(0f)  // no da saturación
@@ -143,6 +137,15 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> CARDBOARD = ITEMS.register("cardboard",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ROLLING_TOBACCO = ITEMS.register("rolling_tobacco",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WOOD_PIPE = ITEMS.register("wood_pipe",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WISDOM_PIPE = ITEMS.register("wisdom_pipe",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
@@ -166,7 +169,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> ESPLENDIDO_CIGAR = ITEMS.register("esplendido_cigar",
             () -> new EsplendidoCigarItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -176,7 +178,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> DON_JAVIER_CIGAR = ITEMS.register("don_javier_cigar",
             () -> new DonJavierCigarItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -186,13 +187,23 @@ public class ModItems {
 
     public static final RegistryObject<Item> TORITO_CIGAR = ITEMS.register("torito_cigar",
             () -> new ToritoCigarItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
                             .alwaysEat()        // permite usar siempre
                             .build())
             ));
+
+    public static final RegistryObject<Item> ROLLING_CIGARETTE = ITEMS.register("rolling_cigarette",
+            () -> new RollingCigaretteItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+
   
     //======================= LEAN ===========================================
 
