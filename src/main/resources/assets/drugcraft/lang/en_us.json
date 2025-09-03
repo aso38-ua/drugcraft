@@ -38,6 +38,11 @@
   "advancement.drugcraft.lean_on": "Lean On",
   "advancement.drugcraft.lean_on.desc": "Craft some Lean",
 
+  "item.drugcraft.ayahuasca": "Ayahuasca",
+  "block.drugcraft.peyote_cactus": "Peyote Cactus",
+  "item.drugcraft.peyote": "Peyote",
+
+  "block.drugcraft.chemistry_station": "Chemistry Station",
 
   "effect.drugcraft.hallucination": "Hallucination",
 

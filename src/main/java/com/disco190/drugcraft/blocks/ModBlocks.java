@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,6 +33,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_PURPLE_HAZE = BLOCKS.register("wild_purple_haze",
             WildPurpleHazeBlock::new);
 
+    // Registro del bloque
+    public static final RegistryObject<Block> WILD_MOOSHROOMS = BLOCKS.register("wild_mooshrooms",
+            WildMooshroomsBlock::new);
+
     public static final RegistryObject<Block> TOBACCO_CROP = BLOCKS.register("tobacco_crop",
             () -> new TobaccoCropBlock(ModItems.TOBACCO_SEEDS));
 
@@ -41,6 +46,15 @@ public class ModBlocks {
     // Planta Ephedra
     public static final RegistryObject<Block> EPHEDRA_BUSH = BLOCKS.register("ephedra_bush",
             () -> new EphedraBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
+
+    public static final RegistryObject<Block> PEYOTE_CACTUS = BLOCKS.register("peyote_cactus",
+            () -> new PeyoteCactusBlock(BlockBehaviour.Properties.copy(Blocks.CACTUS)));
+
+    public static final RegistryObject<Block> CHEMISTRY_STATION = BLOCKS.register("chemistry_station",
+            () -> new ChemistryStationBlock());
+
+
+
 
 
 

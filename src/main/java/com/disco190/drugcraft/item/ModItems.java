@@ -2,6 +2,7 @@ package com.disco190.drugcraft.item;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
+import com.disco190.drugcraft.effects.ModEffects;
 import com.disco190.drugcraft.items.CannabisJointItem;
 import com.disco190.drugcraft.items.CigaretteItem;
 import com.disco190.drugcraft.items.MooshroomsItem;
@@ -10,6 +11,7 @@ import com.disco190.drugcraft.items.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -153,6 +155,43 @@ public class ModItems {
     // Semillas
     public static final RegistryObject<Item> MOOSHROOMS_SEEDS = ITEMS.register("mooshrooms_seeds",
             () -> new ItemNameBlockItem(ModBlocks.MOOSHROOMS_CROP.get(), new Item.Properties()));
+
+
+    //======================== AYAHUASCA ===========================================
+    // Ayahuasca
+    public static final RegistryObject<Item> AYAHUASCA = ITEMS.register("ayahuasca",
+            () -> new AyahuascaItem(new Item.Properties()
+                    .stacksTo(16) // no como sopa sospechosa (solo 1), que puedas acumular varias
+                    .food(new FoodProperties.Builder()
+                            .nutrition(6)       // llena más que los hongos (sopa)
+                            .saturationMod(0.8f)
+                            .alwaysEat()
+                            .build())));
+
+    //======================== PEYOTE ===========================================
+    public static final RegistryObject<Item> PEYOTE_CACTUS_ITEM = ModItems.ITEMS.register("peyote_cactus",
+            () -> new BlockItem(ModBlocks.PEYOTE_CACTUS.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> PEYOTE = ITEMS.register("peyote",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(1) // quita un poco de hambre
+                            .saturationMod(0.2f)
+                            .alwaysEat() // se puede comer aunque tengas la barra llena
+                            .effect(() -> new MobEffectInstance(ModEffects.HALLUCINATION.get(), 20 * 20, 0), 1.0f)
+                            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 20 * 30, 0), 1.0f) // nausea 30s
+                            .effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 40, 0), 1.0f) // night vision 1m
+                            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 20 * 30, 0), 1.0f)
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> ACID = ITEMS.register("acid",
+            () -> new AcidItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> CHEMISTRY_STATION_ITEM = ITEMS.register("chemistry_station",
+            () -> new BlockItem(ModBlocks.CHEMISTRY_STATION.get(), new Item.Properties()));
+
+
 
 
     public static void register(IEventBus eventBus) {

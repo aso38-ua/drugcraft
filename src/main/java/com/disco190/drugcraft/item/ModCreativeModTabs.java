@@ -39,6 +39,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CANDY.get());
                         pOutput.accept(ModItems.REFRESHMENT.get());
                         pOutput.accept(ModItems.LEAN.get());
+                        pOutput.accept(ModItems.AYAHUASCA.get());
+                        pOutput.accept(ModItems.PEYOTE_CACTUS_ITEM.get());
+                        pOutput.accept(ModItems.PEYOTE.get());
+                        pOutput.accept(ModItems.ACID.get());
+                        pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
 
                     })
                     .build());
