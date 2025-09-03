@@ -24,6 +24,9 @@ public class DonJavierCigarItem extends Cigar{
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 0));
         }
 
+        // gasta un "uso"
+        stack.hurtAndBreak(1, entityLiving, e -> { e.broadcastBreakEvent(e.getUsedItemHand()); });
+
         return result;
     }
 }

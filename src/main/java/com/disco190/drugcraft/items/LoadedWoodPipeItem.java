@@ -1,32 +1,42 @@
 package com.disco190.drugcraft.items;
 
 import com.disco190.drugcraft.ModDamageSources;
+import com.disco190.drugcraft.item.ModItems;
+import com.disco190.drugcraft.sound.ModSounds;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
-public class ToritoCigarItem extends Cigar {
+public class LoadedWoodPipeItem extends Pipe{
 
-    public ToritoCigarItem(Item.Properties properties) {
-        super(properties); // 5 caladas
+    public LoadedWoodPipeItem(Properties properties) {
+        super(properties);
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entityLiving) {
+
         // aplica primero la lógica de comida (cura hambre, consume ítem, etc.)
         ItemStack result = super.finishUsingItem(stack, world, entityLiving);
 
         if (!world.isClientSide && entityLiving instanceof Player player) {
             player.hurt(ModDamageSources.cigarette(world), 1.0F);
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 900, 2));
+            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 900, 0));
         }
 
-        // gasta un "uso"
-        stack.hurtAndBreak(1, entityLiving, e -> { e.broadcastBreakEvent(e.getUsedItemHand()); });
+        // gastar durabilidad
+        stack.hurtAndBreak(1, entityLiving, e -> {
+            // cuando se rompe, reemplazar por la pipa vacía
+            e.setItemInHand(e.getUsedItemHand(), new ItemStack(ModItems.WOOD_PIPE.get()));
+        });
 
         return result;
     }

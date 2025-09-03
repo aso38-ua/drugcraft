@@ -44,6 +44,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ROLLING_CIGARETTE.get());
                         pOutput.accept(ModItems.WOOD_PIPE.get());
                         pOutput.accept(ModItems.WISDOM_PIPE.get());
+                        pOutput.accept(ModItems.LOADED_WOOD_PIPE.get());
+                        pOutput.accept(ModItems.LOADED_WISDOM_PIPE.get());
 
                         pOutput.accept(ModItems.PACK_OF_CIGARETTES.get());
                         pOutput.accept(ModItems.PACK_OF_MALMORO.get());

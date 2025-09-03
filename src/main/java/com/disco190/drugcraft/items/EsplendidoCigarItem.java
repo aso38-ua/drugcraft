@@ -17,13 +17,19 @@ public class EsplendidoCigarItem extends Cigar{
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entityLiving) {
-        // aplica primero la lógica de comida (cura hambre, consume ítem, etc.)
+
         ItemStack result = super.finishUsingItem(stack, world, entityLiving);
 
         if (!world.isClientSide && entityLiving instanceof Player player) {
             player.hurt(ModDamageSources.cigarette(world), 1.0F);
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 900, 1));
         }
+
+        System.out.println(stack.getMaxDamage());
+        System.out.println(stack.getMaxDamage() - stack.getDamageValue());
+
+        // gasta un "uso"
+        stack.hurtAndBreak(1, entityLiving, e -> { e.broadcastBreakEvent(e.getUsedItemHand()); });
 
         return result;
     }

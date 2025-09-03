@@ -43,7 +43,9 @@
   "item.drugcraft.rolling_tobacco": "Rolling tobacco",
   "item.drugcraft.rolling_cigarette": "Rolling cigarette",
   "item.drugcraft.wood_pipe": "Wood pipe",
-  "item.drugcraft.wisdom_pipe": "Wisdom pipe",
+  "item.drugcraft.wisdom_pipe": "WISDOM pipe",
+  "item.drugcraft.loaded_wood_pipe": "Loaded wood pipe",
+  "item.drugcraft.loaded_wisdom_pipe": "Loaded WISDOM pipe",
 
 
   "item.drugcraft.mooshrooms": "Magic Mushroom",
