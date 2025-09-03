@@ -1,12 +1,14 @@
 package com.disco190.drugcraft.items;
 
 import com.disco190.drugcraft.ModDamageSources;
+import com.disco190.drugcraft.item.ModItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 public class HorseSemenItem extends Item {
@@ -26,7 +28,12 @@ public class HorseSemenItem extends Item {
             player.addEffect(new MobEffectInstance(MobEffects.JUMP, 900, 3));
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 900, 3));
             player.hurt(ModDamageSources.cigarette(world), 2.0F);
+
+            player.setItemInHand(player.getUsedItemHand(), new ItemStack(Items.BUCKET));
         }
+
+
+
 
         return result;
     }
