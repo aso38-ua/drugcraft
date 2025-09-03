@@ -61,6 +61,14 @@
   "item.drugcraft.refreshment": "Refreshment",
   "item.drugcraft.lean": "Lean",
 
+  "item.drugcraft.horse_semen": "Horse semen",
+
+  "advancement.drugcraft.what_were_you_tring": "What were you trying?",
+  "advancement.drugcraft.what_were_you_tring.desc": "Get a horse to ejaculate into a bucket",
+
+  "advancement.drugcraft.why": "Why?",
+  "advancement.drugcraft.why.desc": "Swallow horse semen (creep)",
+
   "advancement.drugcraft.lean_on": "Lean On",
   "advancement.drugcraft.lean_on.desc": "Craft some Lean",
 
@@ -69,5 +77,5 @@
 
   "creativetab.drugcraft_tab": "DrugCraft Tab",
 
-  "death.attack.cigarette": "%1$s murió por causas naturales"
+  "death.attack.cigarette": "%1$s died of natural causes"
 }

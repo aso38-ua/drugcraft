@@ -255,4 +255,18 @@ public class ModItems {
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+
+
+    //========================== SEMEN ========================================================
+
+    public static final RegistryObject<Item> HORSE_SEMEN = ITEMS.register("horse_semen",
+            () -> new HorseSemenItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(20)       // cura el hambre
+                            .saturationMod(1f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
 }
+
+

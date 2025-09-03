@@ -2,19 +2,41 @@ package com.disco190.drugcraft.events;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.item.ModItems;
-import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.Random;
-
 @Mod.EventBusSubscriber(modid = Drugcraft.MODID)
-public class SeedDrops {
+public class ModEvents {
+
+    @SubscribeEvent
+    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+        Player player = event.getEntity();
+        Level level = event.getLevel();
+        ItemStack held = event.getItemStack();
+
+        // Si hace clic con cubo vacío sobre un caballo
+        if (!level.isClientSide
+                && event.getTarget() instanceof Horse
+                && held.getItem() == Items.BUCKET) {
+
+            // consumir cubo
+            held.shrink(1);
+
+            // dar el ítem nuevo
+            ItemStack semen = new ItemStack(ModItems.HORSE_SEMEN.get());
+            if (!player.addItem(semen)) {
+                player.drop(semen, false);
+            }
+
+            event.setCanceled(true);
+        }
+    }
 /*
     private static final Random random = new Random();
 

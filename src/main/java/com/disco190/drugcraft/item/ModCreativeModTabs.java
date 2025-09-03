@@ -66,6 +66,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.REFRESHMENT.get());
                         pOutput.accept(ModItems.LEAN.get());
 
+                        pOutput.accept(ModItems.HORSE_SEMEN.get());
+
                     })
                     .build());
 
