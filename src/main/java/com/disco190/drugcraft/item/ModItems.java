@@ -267,6 +267,17 @@ public class ModItems {
                             .alwaysEat()        // permite usar siempre
                             .build())
             ));
+
+
+    //=========================== LIGHTERS ========================================================
+    public static final RegistryObject<Item> IRON_LIGHTER = ITEMS.register("iron_lighter",
+            () -> new IronLighterItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> GOLD_LIGHTER = ITEMS.register("gold_lighter",
+            () -> new GoldLighterItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> DIAMOND_LIGHTER = ITEMS.register("diamond_lighter",
+            () -> new DiamondLighterItem(new Item.Properties()));
 }
 
 

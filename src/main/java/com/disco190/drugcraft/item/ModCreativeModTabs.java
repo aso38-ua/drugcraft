@@ -68,6 +68,10 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.HORSE_SEMEN.get());
 
+                        pOutput.accept(ModItems.IRON_LIGHTER.get());
+                        pOutput.accept(ModItems.GOLD_LIGHTER.get());
+                        pOutput.accept(ModItems.DIAMOND_LIGHTER.get());
+
                     })
                     .build());
 

@@ -63,6 +63,10 @@
 
   "item.drugcraft.horse_semen": "Horse semen",
 
+  "item.drugcraft.iron_lighter": "Iron lighter",
+  "item.drugcraft.gold_lighter": "Gold lighter",
+  "item.drugcraft.diamond_lighter": "Diamond lighter",
+
   "advancement.drugcraft.what_were_you_trying": "What were you trying?",
   "advancement.drugcraft.what_were_you_trying.desc": "Get a horse to ejaculate into a bucket",
 

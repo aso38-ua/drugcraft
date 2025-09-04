@@ -1,20 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  G",
-    " D ",
-    "GG "
+    "F  ",
+    "GCG",
+    "GGG"
   ],
   "key": {
     "G": {
       "item": "minecraft:gold_ingot"
     },
-    "D": {
-      "item": "minecraft:diamond"
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "tag": "drugcraft:coal"
     }
   },
   "result": {
-    "item": "drugcraft:wisdom_pipe",
+    "item": "drugcraft:gold_lighter",
     "count": 1
   }
 }
