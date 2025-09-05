@@ -188,6 +188,20 @@ public class ModItems {
     public static final RegistryObject<Item> ACID = ITEMS.register("acid",
             () -> new AcidItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> PHOSPHOR = ITEMS.register("phosphor",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> PSEUDO = ITEMS.register("pseudo",
+            () -> new PseudoItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(2)        // puntos de comida que da
+                            .saturationMod(0.1f) // saturación baja
+                            .alwaysEat()         // permite comerlo aunque la barra esté llena
+                            .build())
+                    .stacksTo(64)            // cantidad máxima en stack
+            ));
+
+
     public static final RegistryObject<Item> CHEMISTRY_STATION_ITEM = ITEMS.register("chemistry_station",
             () -> new BlockItem(ModBlocks.CHEMISTRY_STATION.get(), new Item.Properties()));
 

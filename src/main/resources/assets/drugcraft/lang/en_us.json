@@ -42,6 +42,9 @@
   "block.drugcraft.peyote_cactus": "Peyote Cactus",
   "item.drugcraft.peyote": "Peyote",
 
+  "item.drugcraft.phosphor": "Phosphor",
+  "item.drugcraft.acid": "Acid",
+  "item.drugcraft.pseudo": "Pseudo",
   "block.drugcraft.chemistry_station": "Chemistry Station",
 
   "effect.drugcraft.hallucination": "Hallucination",

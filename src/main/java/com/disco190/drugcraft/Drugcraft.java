@@ -1,13 +1,16 @@
 package com.disco190.drugcraft;
 
 import com.disco190.drugcraft.blocks.ModBlocks;
+import com.disco190.drugcraft.registry.ModBlockEntities;
 import com.disco190.drugcraft.effects.ModEffects;
 import com.disco190.drugcraft.item.ModCreativeModTabs;
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.recipes.ModRecipes;
+import com.disco190.drugcraft.registry.ModMenuTypes;
 import com.disco190.drugcraft.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -27,6 +30,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import com.disco190.drugcraft.screens.ChemistryStationScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -69,6 +73,11 @@ public class Drugcraft {
 
         ModEffects.register(modEventBus);
         ModRecipes.SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+
+        ModMenuTypes.MENU_TYPES.register(modEventBus);
+
 
 
 
@@ -126,6 +135,10 @@ public class Drugcraft {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            event.enqueueWork(() -> {
+                MenuScreens.register(ModMenuTypes.CHEMISTRY_STATION.get(), ChemistryStationScreen::new);
+            });
         }
     }
 }

@@ -43,6 +43,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PEYOTE_CACTUS_ITEM.get());
                         pOutput.accept(ModItems.PEYOTE.get());
                         pOutput.accept(ModItems.ACID.get());
+                        pOutput.accept(ModItems.PHOSPHOR.get());
+                        pOutput.accept(ModItems.PSEUDO.get());
                         pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
 
                     })

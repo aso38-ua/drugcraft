@@ -12,20 +12,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
-public class AcidItem extends Item {
+public class PseudoItem extends Item {
 
-    public AcidItem(Properties properties) {
+    public PseudoItem(Properties properties) {
         super(properties);
     }
 
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.DRINK; // que se vea que lo bebes
+        return UseAnim.EAT;
     }
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        return 32; // más largo, como tomar una poción ritual
+        return 32;
     }
 
     @Override
@@ -37,14 +37,20 @@ public class AcidItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
         if (!world.isClientSide && entity instanceof Player player) {
-            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 1000, 1));
-            player.addEffect(new MobEffectInstance(MobEffects.POISON, 800, 2));
+            // efectos de pseudoephedrine
+            // velocidad y salto aumentados
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 1)); // 30 segundos, nivel 2
+            player.addEffect(new MobEffectInstance(MobEffects.JUMP, 600, 0)); // 30 segundos, nivel 1
+
+            // efectos negativos
+            player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 400, 0)); // 20 segundos
+            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 300, 0)); // 15 segundos, leve
+            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 0)); // 10 segundos, leve
         }
 
         if (entity instanceof Player player && !player.getAbilities().instabuild) {
             stack.shrink(1);
         }
-
         return stack;
     }
 }
