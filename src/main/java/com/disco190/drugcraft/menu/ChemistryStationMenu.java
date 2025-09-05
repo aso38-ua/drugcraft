@@ -1,6 +1,7 @@
 package com.disco190.drugcraft.menu;
 
 import com.disco190.drugcraft.blockentities.ChemistryStationBlockEntity;
+import com.disco190.drugcraft.recipes.ChemistryStationRecipes;
 import com.disco190.drugcraft.registry.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -8,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -15,6 +17,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+
+import java.util.List;
 
 public class ChemistryStationMenu extends AbstractContainerMenu {
 
@@ -119,8 +123,63 @@ public class ChemistryStationMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        return ItemStack.EMPTY; // Mejorable después
+        Slot slot = this.slots.get(index);
+        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
+
+        ItemStack stack = slot.getItem();
+        ItemStack copy = stack.copy();
+
+        final int outputSlotIndex = 3;   // slot de salida
+        final int inputStart = 0;
+        final int inputEnd = 3;
+        final int invStart = 4;
+        final int invEnd = this.slots.size();
+
+        // --- Si es slot de salida, mover al inventario ---
+        if (index == outputSlotIndex) {
+            if (!moveItemStackTo(stack, invStart, invEnd, true)) return ItemStack.EMPTY;
+            slot.onQuickCraft(stack, copy);
+        }
+        // --- Si es un slot de entrada o del inventario del jugador ---
+        else {
+            // Si es inventario del jugador, intentar a inputs primero
+            if (index >= invStart) {
+                if (!moveItemStackTo(stack, inputStart, inputEnd, false)) {
+                    // Si no cabe en inputs, mover dentro del inventario (hotbar/inv)
+                    if (index < invStart + 27) { // inventario principal
+                        if (!moveItemStackTo(stack, invStart + 27, invEnd, false)) return ItemStack.EMPTY;
+                    } else { // hotbar
+                        if (!moveItemStackTo(stack, invStart, invStart + 27, false)) return ItemStack.EMPTY;
+                    }
+                }
+            }
+            // Si es slot de input y se hace shift, mover al inventario
+            else {
+                if (!moveItemStackTo(stack, invStart, invEnd, false)) return ItemStack.EMPTY;
+            }
+        }
+
+        if (stack.isEmpty()) slot.set(ItemStack.EMPTY);
+        else slot.setChanged();
+
+        return copy;
     }
+
+
+
+    /**
+     * Comprueba si un ItemStack es válido para un slot de entrada según recetas.
+     */
+    private boolean isValidForSlot(int slotIndex, ItemStack stack) {
+        if (blockEntity == null) return false;
+        List<ItemStack> currentInputs = List.of(
+                slotIndex == 0 ? stack : blockEntity.getInputHandler().getStackInSlot(0),
+                slotIndex == 1 ? stack : blockEntity.getInputHandler().getStackInSlot(1),
+                slotIndex == 2 ? stack : blockEntity.getInputHandler().getStackInSlot(2)
+        );
+        return !ChemistryStationRecipes.getResult(currentInputs).isEmpty();
+    }
+
 
     @Override
     public boolean stillValid(Player player) { return true; }
