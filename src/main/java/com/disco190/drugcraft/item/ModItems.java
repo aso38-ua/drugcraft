@@ -99,6 +99,9 @@ public class ModItems {
     public static final RegistryObject<Item> EPHEDRA_BERRIES = ITEMS.register("ephedra_berries",
             () -> new EphedraBerryItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> EPHEDRINE = ITEMS.register("ephedrine",
+            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> COUGH_SYRUP = ITEMS.register("cough_syrup",
             () -> new CoughSyrupItem(new Item.Properties()
                     .stacksTo(16)
@@ -185,6 +188,7 @@ public class ModItems {
                             .build())
             ));
 
+    //======================== META ===========================================
     public static final RegistryObject<Item> ACID = ITEMS.register("acid",
             () -> new AcidItem(new Item.Properties()));
 
@@ -200,6 +204,9 @@ public class ModItems {
                             .build())
                     .stacksTo(64)            // cantidad máxima en stack
             ));
+
+    public static final RegistryObject<Item> LIQUID_METH = ITEMS.register("liquid_meth",
+            () -> new LiquidMethItem(new Item.Properties()));
 
 
     public static final RegistryObject<Item> CHEMISTRY_STATION_ITEM = ITEMS.register("chemistry_station",

@@ -29,6 +29,7 @@
   "advancement.drugcraft.magic_mushrooms.desc": "Get your hands on some shrooms",
 
   "item.drugcraft.ephedra_berries": "Ephedra Berries",
+  "item.drugcraft.ephedrine": "Ephedrine",
   "block.drugcraft.ephedra_bush": "Ephedra Bush",
   "item.drugcraft.cough_syrup": "Cough Syrup",
   "item.drugcraft.candy": "Candy",
@@ -45,6 +46,7 @@
   "item.drugcraft.phosphor": "Phosphor",
   "item.drugcraft.acid": "Acid",
   "item.drugcraft.pseudo": "Pseudo",
+  "item.drugcraft.liquid_meth": "Liquid Meth",
   "block.drugcraft.chemistry_station": "Chemistry Station",
 
   "effect.drugcraft.hallucination": "Hallucination",

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:blaze_powder"
+  },
+  "result": {
+    "item": "drugcraft:phosphor",
+    "count": 1
+  },
+  "experience": 0.1,
+  "cookingtime": 200
+}
