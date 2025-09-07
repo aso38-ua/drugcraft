@@ -104,6 +104,7 @@ public class ModularJointItem extends Item {
         if (getBudType(stack).isEmpty()) {
             if (this == ModItems.PURPLE_HAZE_JOINT.get()) setBudType(stack, "purple_haze");
             else if (this == ModItems.CANNABIS_JOINT.get()) setBudType(stack, "marijuana");
+            else if (this == ModItems.FUJIYAMA_JOINT.get()) setBudType(stack, "fujiyama");
         }
         if (getColor(stack) == 0) stack.getOrCreateTag().putInt("Color", 0x6A0DAD);
 
@@ -132,6 +133,14 @@ public class ModularJointItem extends Item {
                     player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
                 }
+                case "fujiyama" -> {
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1600, 2));
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1200, 1));
+                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 800, 1));
+                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1));
+                    player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 0));
+                }
+
             }
 
             // Efectos de modificadores
@@ -184,6 +193,7 @@ public class ModularJointItem extends Item {
         if (getBudType(stack).isEmpty()) {
             if (this == ModItems.PURPLE_HAZE_JOINT.get()) setBudType(stack, "purple_haze");
             else if (this == ModItems.CANNABIS_JOINT.get()) setBudType(stack, "marijuana");
+            else if (this == ModItems.FUJIYAMA_JOINT.get()) setBudType(stack, "fujiyama");
         }
         if (getColor(stack) == 0) stack.getOrCreateTag().putInt("Color", 0x6A0DAD);
         return stack;

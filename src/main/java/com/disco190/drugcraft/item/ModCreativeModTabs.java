@@ -20,10 +20,12 @@ public class ModCreativeModTabs {
                     .displayItems((itemDisplayParameters, pOutput) -> {
                         pOutput.accept(ModItems.MARIJUANA.get());
                         pOutput.accept(ModItems.PURPLE_HAZE.get());
+                        pOutput.accept(ModItems.FUJIYAMA.get());
                         pOutput.accept(ModItems.MARIJUANA_SEEDS.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_SEEDS.get());
                         pOutput.accept(ModItems.CANNABIS_JOINT.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_JOINT.get());
+                        pOutput.accept(ModItems.FUJIYAMA_JOINT.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
                         pOutput.accept(ModItems.VOLADO_LEAF.get());
                         pOutput.accept(ModItems.LIGERO_LEAF.get());

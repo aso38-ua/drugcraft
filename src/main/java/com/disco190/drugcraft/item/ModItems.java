@@ -3,7 +3,6 @@ package com.disco190.drugcraft.item;
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.effects.ModEffects;
-import com.disco190.drugcraft.items.CannabisJointItem;
 import com.disco190.drugcraft.items.CigaretteItem;
 import com.disco190.drugcraft.items.MooshroomsItem;
 import com.disco190.drugcraft.items.PackOfCigaretteItem;
@@ -32,6 +31,9 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_HAZE = ITEMS.register("purple_haze",
             () -> new ModularBudItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> FUJIYAMA = ITEMS.register("fujiyama",
+            () -> new ModularBudItem(new Item.Properties()));
+
     // Semillas
     public static final RegistryObject<Item> MARIJUANA_SEEDS = ITEMS.register("marijuanaseeds",
             () -> new ItemNameBlockItem(ModBlocks.MARIJUANA_CROP.get(), new Item.Properties()));
@@ -51,6 +53,16 @@ public class ModItems {
             ));
 
     public static final RegistryObject<Item> PURPLE_HAZE_JOINT = ITEMS.register("purple_haze_joint",
+            () -> new ModularJointItem(new Item.Properties()
+                    .stacksTo(64) // tamaño del stack
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> FUJIYAMA_JOINT = ITEMS.register("fujiyama_joint",
             () -> new ModularJointItem(new Item.Properties()
                     .stacksTo(64) // tamaño del stack
                     .food(new FoodProperties.Builder()
