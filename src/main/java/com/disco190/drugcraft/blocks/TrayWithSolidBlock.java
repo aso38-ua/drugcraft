@@ -1,7 +1,6 @@
 package com.disco190.drugcraft.blocks;
 
 import com.disco190.drugcraft.blockentities.TrayWithSolidBlockEntity;
-import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -24,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class TrayWithSolidBlock extends BaseEntityBlock {
 
     private static final VoxelShape SHAPE = Shapes.or(
-            Block.box(1, 1, 3, 15, 2, 13), // base subida 1
+            Block.box(1, 1, 3, 15, 2, 13), // base
             Block.box(1, 2, 3, 15, 3, 4),   // norte pared
             Block.box(1, 2, 12, 15, 3, 13), // sur pared
             Block.box(1, 2, 3, 2, 3, 13),   // oeste pared
@@ -63,11 +62,17 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
 
         ItemStack held = player.getItemInHand(hand);
 
-        // Click derecho con palo para dropear 4 ACID y volver a bandeja vacía
+        //SOLO funciona si el jugador tiene un palo en la mano
         if (held.getItem() == net.minecraft.world.item.Items.STICK) {
-            popResource(level, pos, new ItemStack(ModItems.ACID.get(), 4));
-            level.setBlock(pos, com.disco190.drugcraft.blocks.ModBlocks.TRAY.get().defaultBlockState(), 3);
-            return InteractionResult.SUCCESS;
+            ItemStack meth = tray.getStoredMeth();
+            if (!meth.isEmpty()) {
+                popResource(level, pos, meth); // suelta la meth con NBT conservado
+                tray.clearStoredMeth();
+
+                // Vuelve a la bandeja vacía
+                level.setBlock(pos, com.disco190.drugcraft.blocks.ModBlocks.TRAY.get().defaultBlockState(), 3);
+                return InteractionResult.SUCCESS;
+            }
         }
 
         return InteractionResult.PASS;

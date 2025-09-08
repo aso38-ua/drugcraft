@@ -220,6 +220,9 @@ public class ModItems {
     public static final RegistryObject<Item> LIQUID_METH = ITEMS.register("liquid_meth",
             () -> new LiquidMethItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> METH = ITEMS.register("meth",
+            () -> new MethItem(new Item.Properties()));
+
 
     public static final RegistryObject<Item> CHEMISTRY_STATION_ITEM = ITEMS.register("chemistry_station",
             () -> new BlockItem(ModBlocks.CHEMISTRY_STATION.get(), new Item.Properties()));
