@@ -50,6 +50,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PSEUDO.get());
                         pOutput.accept(ModItems.LIQUID_METH.get());
                         pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
+                        pOutput.accept(ModItems.TRAY_ITEM.get());
 
                     })
                     .build());

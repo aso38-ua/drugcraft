@@ -224,6 +224,10 @@ public class ModItems {
     public static final RegistryObject<Item> CHEMISTRY_STATION_ITEM = ITEMS.register("chemistry_station",
             () -> new BlockItem(ModBlocks.CHEMISTRY_STATION.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> TRAY_ITEM = ITEMS.register("tray",
+            () -> new BlockItem(ModBlocks.TRAY.get(), new Item.Properties()));
+
+
 
 
 

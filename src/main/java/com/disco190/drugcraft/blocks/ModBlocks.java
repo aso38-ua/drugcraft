@@ -53,8 +53,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHEMISTRY_STATION = BLOCKS.register("chemistry_station",
             () -> new ChemistryStationBlock());
 
+    public static final RegistryObject<Block> TRAY =
+            BLOCKS.register("tray", TrayBlock::new);
 
+    public static final RegistryObject<Block> TRAY_WITH_LIQUID = BLOCKS.register("tray_with_liquid",
+            TrayWithLiquidBlock::new);
 
+    public static final RegistryObject<Block> TRAY_WITH_SOLID = BLOCKS.register("tray_with_solid",
+            TrayWithSolidBlock::new);
 
 
 

@@ -17,7 +17,7 @@ import java.util.List;
 public class LiquidMethItem extends Item {
 
     public LiquidMethItem(Properties properties) {
-        super(properties.stacksTo(16));
+        super(properties.stacksTo(64));
     }
 
     // --- QUALITY SYSTEM ---
