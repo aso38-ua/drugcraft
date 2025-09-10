@@ -58,10 +58,22 @@ public class ChemistryStationRecipes {
     }
 
     private static ItemStack createLiquidMeth(String quality) {
-        ItemStack result = new ItemStack(ModItems.LIQUID_METH.get());
-        LiquidMethItem.setQuality(result, quality);
-        return result;
+        ItemStack stack = new ItemStack(ModItems.LIQUID_METH.get());
+        LiquidMethItem.setQuality(stack, quality);
+
+        Random rand = new Random();
+        int purity = switch (quality) {
+            case "high" -> 80 + rand.nextInt(21);   // 80–100
+            case "medium" -> 50 + rand.nextInt(31); // 50–80
+            case "low" -> 30 + rand.nextInt(31);    // 30–60
+            case "burnt" -> rand.nextInt(21);       // 0–20
+            default -> 0;
+        };
+        LiquidMethItem.setPurity(stack, purity);
+
+        return stack;
     }
+
 
 
 

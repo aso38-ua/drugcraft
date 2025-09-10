@@ -54,6 +54,17 @@ public class LiquidMethItem extends Item {
         return "Burnt";
     }
 
+    public static void setPurity(ItemStack stack, int purity) {
+        stack.getOrCreateTag().putInt("Purity", purity);
+    }
+
+    public static int getPurity(ItemStack stack) {
+        return stack.hasTag() && stack.getTag().contains("Purity")
+                ? stack.getTag().getInt("Purity")
+                : 0;
+    }
+
+
     // --- TOOLTIP ---
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
@@ -67,6 +78,8 @@ public class LiquidMethItem extends Item {
         }
 
         tooltip.add(Component.literal("Estado: " + getCookedState(stack)).withStyle(ChatFormatting.AQUA));
+        tooltip.add(Component.literal("Pureza: " + getPurity(stack) + "%").withStyle(ChatFormatting.BLUE));
+
     }
 
     // --- USE (Click derecho) ---

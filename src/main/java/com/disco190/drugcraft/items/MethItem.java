@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
+
 public class MethItem extends Item {
 
     public MethItem(Properties properties) {
@@ -48,6 +49,17 @@ public class MethItem extends Item {
         return "Burnt";
     }
 
+    public static void setPurity(ItemStack stack, int purity) {
+        stack.getOrCreateTag().putInt("Purity", purity);
+    }
+
+    public static int getPurity(ItemStack stack) {
+        return stack.hasTag() && stack.getTag().contains("Purity")
+                ? stack.getTag().getInt("Purity")
+                : 0;
+    }
+
+
     // --- TOOLTIP ---
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
@@ -61,6 +73,8 @@ public class MethItem extends Item {
         }
 
         tooltip.add(Component.literal("Estado: " + getCookedState(stack)).withStyle(ChatFormatting.AQUA));
+        tooltip.add(Component.literal("Pureza: " + getPurity(stack) + "%").withStyle(ChatFormatting.BLUE));
+
     }
 
     // --- USE (Click derecho = consumir) ---
@@ -103,6 +117,15 @@ public class MethItem extends Item {
                 player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20 * 30, 1));
             }
         }
+
+        int purity = getPurity(stack);
+
+        if (quality.equals("high")) {
+            int amp = purity >= 95 ? 2 : 1; // más potencia si purity es >95
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * (purity/2), amp));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * (purity/3), amp));
+        }
+
 
         // Ajuste por cocinado
         if (cooked <= 3)

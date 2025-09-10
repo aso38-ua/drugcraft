@@ -69,6 +69,16 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
                 popResource(level, pos, meth); // suelta la meth con NBT conservado
                 tray.clearStoredMeth();
 
+                // Sonido de romper vidrio
+                level.playSound(
+                        null, // null = todos los jugadores oyen el sonido
+                        pos,
+                        net.minecraft.sounds.SoundEvents.GLASS_BREAK,
+                        net.minecraft.sounds.SoundSource.BLOCKS,
+                        1.0f, // volumen
+                        1.0f  // pitch
+                );
+
                 // Vuelve a la bandeja vacía
                 level.setBlock(pos, com.disco190.drugcraft.blocks.ModBlocks.TRAY.get().defaultBlockState(), 3);
                 return InteractionResult.SUCCESS;
