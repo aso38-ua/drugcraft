@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GMG",
+    "GGG"
+  ],
+  "key": {
+    "M": {
+      "item": "drugcraft:pack_of_malmoro"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result": {
+    "item": "drugcraft:pack_of_malmoro_gold",
+    "count": 1
+  }
+}

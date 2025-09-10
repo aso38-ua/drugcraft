@@ -27,13 +27,39 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PURPLE_HAZE_JOINT.get());
                         pOutput.accept(ModItems.FUJIYAMA_JOINT.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
-                        pOutput.accept(ModItems.VOLADO_LEAF.get());
-                        pOutput.accept(ModItems.LIGERO_LEAF.get());
-                        pOutput.accept(ModItems.SECO_LEAF.get());
-                        pOutput.accept(ModItems.CORONA_LEAF.get());
+                        pOutput.accept(ModItems.TRIPA.get());
+                        pOutput.accept(ModItems.CAPOTE.get());
+                        pOutput.accept(ModItems.CAPA.get());
+                        pOutput.accept(ModItems.CURED_TRIPA.get());
+                        pOutput.accept(ModItems.CURED_CAPOTE.get());
+                        pOutput.accept(ModItems.CURED_CAPA.get());
+
                         pOutput.accept(ModItems.CIGARETTE.get());
+                        pOutput.accept(ModItems.MALMORO_CIGARETTE.get());
+                        pOutput.accept(ModItems.MALMORO_GOLD_CIGARETTE.get());
+                        pOutput.accept(ModItems.CAMELLO_CIGARETTE.get());
+                        pOutput.accept(ModItems.LUCKY_STROKE_CIGARETTE.get());
+                        pOutput.accept(ModItems.HORIZONTE_CIGARETTE.get());
+
                         pOutput.accept(ModItems.CARDBOARD.get());
+                        pOutput.accept(ModItems.ROLLING_TOBACCO.get());
+                        pOutput.accept(ModItems.ROLLING_CIGARETTE.get());
+                        pOutput.accept(ModItems.WOOD_PIPE.get());
+                        pOutput.accept(ModItems.WISDOM_PIPE.get());
+                        pOutput.accept(ModItems.LOADED_WOOD_PIPE.get());
+                        pOutput.accept(ModItems.LOADED_WISDOM_PIPE.get());
+
                         pOutput.accept(ModItems.PACK_OF_CIGARETTES.get());
+                        pOutput.accept(ModItems.PACK_OF_MALMORO.get());
+                        pOutput.accept(ModItems.PACK_OF_MALMORO_GOLD.get());
+                        pOutput.accept(ModItems.PACK_OF_CAMELLO.get());
+                        pOutput.accept(ModItems.PACK_OF_LUCKY_STROKE.get());
+                        pOutput.accept(ModItems.PACK_OF_HORIZONTE.get());
+
+                        pOutput.accept(ModItems.ESPLENDIDO_CIGAR.get());
+                        pOutput.accept(ModItems.DON_JAVIER_CIGAR.get());
+                        pOutput.accept(ModItems.TORITO_CIGAR.get());
+
                         pOutput.accept(ModItems.MOOSHROOMS.get());
                         pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());
                         pOutput.accept(ModItems.EPHEDRA_BERRIES.get());
@@ -51,6 +77,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.LIQUID_METH.get());
                         pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
                         pOutput.accept(ModItems.TRAY_ITEM.get());
+
+                        pOutput.accept(ModItems.HORSE_SEMEN.get());
+
+                        pOutput.accept(ModItems.IRON_LIGHTER.get());
+                        pOutput.accept(ModItems.GOLD_LIGHTER.get());
+                        pOutput.accept(ModItems.DIAMOND_LIGHTER.get());
 
                     })
                     .build());

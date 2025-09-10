@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "drugcraft:capote"
+  },
+  "result": "drugcraft:cured_capote",
+  "experience": 0.35,
+  "cookingtime": 200
+}

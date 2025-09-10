@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F  ",
+    "GCG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "tag": "drugcraft:coal"
+    }
+  },
+  "result": {
+    "item": "drugcraft:gold_lighter",
+    "count": 1
+  }
+}

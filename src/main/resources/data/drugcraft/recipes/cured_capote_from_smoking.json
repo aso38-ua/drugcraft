@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "drugcraft:capote"
+  },
+  "result": "drugcraft:cured_capote",
+  "experience": 0.35,
+  "cookingtime": 100
+}

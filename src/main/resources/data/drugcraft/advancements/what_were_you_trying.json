@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:horse_semen" },
+    "title": { "translate": "advancement.drugcraft.what_were_you_trying" },
+    "description": { "translate": "advancement.drugcraft.what_were_you_trying.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_lean": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["drugcraft:horse_semen"]
+          }
+        ]
+      }
+    }
+  }
+}

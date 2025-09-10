@@ -77,21 +77,27 @@ public class ModItems {
     public static final RegistryObject<Item> TOBACCO_SEEDS = ITEMS.register("tobacco_seeds",
             () -> new ItemNameBlockItem(ModBlocks.TOBACCO_CROP.get(), new Item.Properties()));
 
-    public static final RegistryObject<Item> VOLADO_LEAF = ITEMS.register("volado_leaf",
+    public static final RegistryObject<Item> TRIPA = ITEMS.register("tripa",
+        () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CAPOTE = ITEMS.register("capote",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> SECO_LEAF = ITEMS.register("seco_leaf",
+    public static final RegistryObject<Item> CAPA = ITEMS.register("capa",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> LIGERO_LEAF = ITEMS.register("ligero_leaf",
+    public static final RegistryObject<Item> CURED_TRIPA = ITEMS.register("cured_tripa",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> CORONA_LEAF = ITEMS.register("corona_leaf",
+    public static final RegistryObject<Item> CURED_CAPOTE = ITEMS.register("cured_capote",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CURED_CAPA = ITEMS.register("cured_capa",
+            () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> CIGARETTE = ITEMS.register("cigarette",
             () -> new CigaretteItem(new Item.Properties()
-                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -99,11 +105,104 @@ public class ModItems {
                             .build())
             ));
 
-    public static final RegistryObject<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
-            () -> new PackOfCigaretteItem(new Item.Properties()));
+    public static final RegistryObject<Item> MALMORO_CIGARETTE = ITEMS.register("malmoro_cigarette",
+            () -> new MalmoroCigaretteItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> MALMORO_GOLD_CIGARETTE = ITEMS.register("malmoro_gold_cigarette",
+            () -> new MalmoroGoldCigaretteItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> CAMELLO_CIGARETTE = ITEMS.register("camello_cigarette",
+            () -> new CamelloCigaretteItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> LUCKY_STROKE_CIGARETTE = ITEMS.register("lucky_stroke_cigarette",
+            () -> new LuckyStrokeCigaretteItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> HORIZONTE_CIGARETTE = ITEMS.register("horizonte_cigarette",
+            () -> new HorizonteCigaretteItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(2)       // cura el hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+
 
     public static final RegistryObject<Item> CARDBOARD = ITEMS.register("cardboard",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ROLLING_TOBACCO = ITEMS.register("rolling_tobacco",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WOOD_PIPE = ITEMS.register("wood_pipe",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WISDOM_PIPE = ITEMS.register("wisdom_pipe",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LOADED_WOOD_PIPE = ITEMS.register("loaded_wood_pipe",
+            () -> new LoadedWoodPipeItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> LOADED_WISDOM_PIPE = ITEMS.register("loaded_wisdom_pipe",
+            () -> new LoadedWisdomPipeItem(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> PACK_OF_CIGARETTES = ITEMS.register("pack_of_cigarettes",
+            () -> new PackOfCigaretteItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_MALMORO = ITEMS.register("pack_of_malmoro",
+            () -> new PackOfMalmoroItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_MALMORO_GOLD = ITEMS.register("pack_of_malmoro_gold",
+            () -> new PackOfMalmoroGoldItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_CAMELLO = ITEMS.register("pack_of_camello",
+            () -> new PackOfCamelloItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_LUCKY_STROKE = ITEMS.register("pack_of_lucky_stroke",
+            () -> new PackOfLuckyStrokeItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PACK_OF_HORIZONTE = ITEMS.register("pack_of_horizonte",
+            () -> new PackOfHorizonteItem(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> ESPLENDIDO_CIGAR = ITEMS.register("esplendido_cigar",
+            () -> new EsplendidoCigarItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> DON_JAVIER_CIGAR = ITEMS.register("don_javier_cigar",
+            () -> new DonJavierCigarItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> TORITO_CIGAR = ITEMS.register("torito_cigar",
+            () -> new ToritoCigarItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> ROLLING_CIGARETTE = ITEMS.register("rolling_cigarette",
+            () -> new RollingCigaretteItem(new Item.Properties()));
+
+
   
     //======================= LEAN ===========================================
 
@@ -237,4 +336,29 @@ public class ModItems {
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+
+
+    //========================== SEMEN ========================================================
+
+    public static final RegistryObject<Item> HORSE_SEMEN = ITEMS.register("horse_semen",
+            () -> new HorseSemenItem(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(20)       // cura el hambre
+                            .saturationMod(1f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+
+    //=========================== LIGHTERS ========================================================
+    public static final RegistryObject<Item> IRON_LIGHTER = ITEMS.register("iron_lighter",
+            () -> new IronLighterItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> GOLD_LIGHTER = ITEMS.register("gold_lighter",
+            () -> new GoldLighterItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> DIAMOND_LIGHTER = ITEMS.register("diamond_lighter",
+            () -> new DiamondLighterItem(new Item.Properties()));
 }
+
+
