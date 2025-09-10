@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "drugcraft:blocks/wild_mooshrooms",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "drugcraft:mooshrooms_seeds"
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "drugcraft:mooshrooms"
+        }
+      ]
+    }
+  ]
+}

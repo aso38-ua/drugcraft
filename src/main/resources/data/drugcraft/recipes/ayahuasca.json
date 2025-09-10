@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:bowl" },
+    { "item": "drugcraft:mooshrooms" },
+    { "item": "minecraft:vine" },
+    { "item": "minecraft:jungle_sapling" }
+  ],
+  "result": {
+    "item": "drugcraft:ayahuasca",
+    "count": 1
+  }
+}

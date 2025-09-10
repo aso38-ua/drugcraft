@@ -1,0 +1,7 @@
+{
+  "type": "drugcraft:bud_infusion",
+  "ingredients": [
+    { "item": "drugcraft:purple_haze" },
+    { "item": "minecraft:glowstone_dust" }
+  ]
+}

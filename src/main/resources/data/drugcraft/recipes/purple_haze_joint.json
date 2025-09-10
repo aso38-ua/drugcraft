@@ -1,20 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "drugcraft:modular_joint",
   "pattern": [
     "CP ",
     "PP ",
     "   "
   ],
   "key": {
-    "C": {
-      "item": "drugcraft:purple_haze"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    }
+    "C": { "item": "drugcraft:purple_haze" },
+    "P": { "item": "minecraft:paper" }
   },
-  "result": {
-    "item": "drugcraft:purple_haze_joint",
-    "count": 1
-  }
+  "result": { "item": "drugcraft:purple_haze_joint" }
 }
