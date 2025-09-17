@@ -31,12 +31,13 @@ public class HallucinationOverlay {
     static {
         // Nivel 1
         FRAME_SETS.put(0, new String[][]{
-                {"lsd1_1","lsd1_2","lsd1_3","lsd1_4","lsd1_5",
-                        "lsd1_6","lsd1_7","lsd1_8","lsd1_9","lsd1_10"}
+                {"mushroom_1","mushroom_2","mushroom_3","mushroom_4","mushroom_5"}
         });
 
         // Nivel 2 → varios sub-sets
         FRAME_SETS.put(1, new String[][]{
+                {"lsd1_1","lsd1_2","lsd1_3","lsd1_4","lsd1_5",
+                        "lsd1_6","lsd1_7","lsd1_8","lsd1_9","lsd1_10"},
                 {"lsd3_1","lsd3_2","lsd3_3","lsd3_4","lsd3_5","lsd3_6","lsd3_7","lsd3_8","lsd3_9"},
                 {"lsd4_1","lsd4_2","lsd4_3","lsd4_4","lsd4_5","lsd4_6","lsd4_7","lsd4_8","lsd4_9","lsd4_10",
                         "lsd4_11","lsd4_12","lsd4_13","lsd4_14","lsd4_15","lsd4_16","lsd4_17","lsd4_18","lsd4_19","lsd4_20",

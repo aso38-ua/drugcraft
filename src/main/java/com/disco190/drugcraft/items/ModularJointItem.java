@@ -1,5 +1,6 @@
 package com.disco190.drugcraft.items;
 
+import com.disco190.drugcraft.effects.ModEffects;
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.sound.ModSounds;
 import net.minecraft.core.NonNullList;
@@ -126,12 +127,14 @@ public class ModularJointItem extends Item {
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 400, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 600, 0));
+                    player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
                 }
                 case "marijuana" -> {
                     player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 1));
                     player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
+                    player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
                 }
                 case "fujiyama" -> {
                     player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1600, 2));
@@ -139,6 +142,7 @@ public class ModularJointItem extends Item {
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 800, 1));
                     player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1));
                     player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 0));
+                    player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
                 }
 
             }

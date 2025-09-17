@@ -1,5 +1,6 @@
 package com.disco190.drugcraft.items;
 
+import com.disco190.drugcraft.effects.ModEffects;
 import com.disco190.drugcraft.sound.ModSounds;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
@@ -104,6 +105,7 @@ public class FujiyamaJointItem extends Item {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 800, 1));
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1));
             player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 0));
+            player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
 
             // 🔥 Leer modificadores del NBT
             if (stack.hasTag() && stack.getTag().contains("Modifier")) {
