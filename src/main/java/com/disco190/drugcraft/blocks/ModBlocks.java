@@ -2,11 +2,8 @@ package com.disco190.drugcraft.blocks;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.item.ModItems;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -38,7 +35,7 @@ public class ModBlocks {
             WildMooshroomsBlock::new);
 
     public static final RegistryObject<Block> TOBACCO_CROP = BLOCKS.register("tobacco_crop",
-            () -> new TobaccoCropBlock(ModItems.TOBACCO_SEEDS));
+            () -> new TobaccoCropBlock(ModItems.TOBACCO_SEEDS::get));
 
     public static final RegistryObject<Block> MOOSHROOMS_CROP = BLOCKS.register("mooshrooms_crop",
             () -> new MooshroomsCropBlock(ModItems.MOOSHROOMS_SEEDS));
