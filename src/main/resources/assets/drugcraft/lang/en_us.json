@@ -2,7 +2,9 @@
   "item.drugcraft.marijuana": "Marijuana Bud",
   "item.drugcraft.marijuanaseeds": "Marijuana Seeds",
   "item.drugcraft.cannabis_joint": "Cannabis Joint",
+  "item.drugcraft.fujiyama_joint": "Fujiyama Joint",
   "item.drugcraft.purple_haze": "Purple Haze Bud",
+  "item.drugcraft.fujiyama": "Fujiyama Bud",
   "item.drugcraft.purple_haze_seeds": "Purple Haze Seeds",
   "item.drugcraft.purple_haze_joint": "Purple Haze Joint",
   "block.drugcraft.wild_marijuana": "Wild Marijuana Plant",
@@ -55,6 +57,7 @@
   "advancement.drugcraft.magic_mushrooms.desc": "Get your hands on some shrooms",
 
   "item.drugcraft.ephedra_berries": "Ephedra Berries",
+  "item.drugcraft.ephedrine": "Ephedrine",
   "block.drugcraft.ephedra_bush": "Ephedra Bush",
   "item.drugcraft.cough_syrup": "Cough Syrup",
   "item.drugcraft.candy": "Candy",
@@ -76,8 +79,20 @@
   "advancement.drugcraft.lean_on": "Lean On",
   "advancement.drugcraft.lean_on.desc": "Craft some Lean",
 
+  "item.drugcraft.ayahuasca": "Ayahuasca",
+  "block.drugcraft.peyote_cactus": "Peyote Cactus",
+  "item.drugcraft.peyote": "Peyote",
+
+  "item.drugcraft.phosphor": "Phosphor",
+  "item.drugcraft.acid": "Acid",
+  "item.drugcraft.pseudo": "Pseudo",
+  "item.drugcraft.liquid_meth": "Liquid Meth",
+  "item.drugcraft.meth": "Meth",
+  "block.drugcraft.chemistry_station": "Chemistry Station",
+  "block.drugcraft.tray": "Tray",
 
   "effect.drugcraft.hallucination": "Hallucination",
+  "effect.drugcraft.smoked": "Smoked",
 
   "creativetab.drugcraft_tab": "DrugCraft Tab",
 

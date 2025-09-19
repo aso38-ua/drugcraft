@@ -20,10 +20,12 @@ public class ModCreativeModTabs {
                     .displayItems((itemDisplayParameters, pOutput) -> {
                         pOutput.accept(ModItems.MARIJUANA.get());
                         pOutput.accept(ModItems.PURPLE_HAZE.get());
+                        pOutput.accept(ModItems.FUJIYAMA.get());
                         pOutput.accept(ModItems.MARIJUANA_SEEDS.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_SEEDS.get());
                         pOutput.accept(ModItems.CANNABIS_JOINT.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_JOINT.get());
+                        pOutput.accept(ModItems.FUJIYAMA_JOINT.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
                         pOutput.accept(ModItems.TRIPA.get());
                         pOutput.accept(ModItems.CAPOTE.get());
@@ -61,10 +63,20 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MOOSHROOMS.get());
                         pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());
                         pOutput.accept(ModItems.EPHEDRA_BERRIES.get());
+                        pOutput.accept(ModItems.EPHEDRINE.get());
                         pOutput.accept(ModItems.COUGH_SYRUP.get());
                         pOutput.accept(ModItems.CANDY.get());
                         pOutput.accept(ModItems.REFRESHMENT.get());
                         pOutput.accept(ModItems.LEAN.get());
+                        pOutput.accept(ModItems.AYAHUASCA.get());
+                        pOutput.accept(ModItems.PEYOTE_CACTUS_ITEM.get());
+                        pOutput.accept(ModItems.PEYOTE.get());
+                        pOutput.accept(ModItems.ACID.get());
+                        pOutput.accept(ModItems.PHOSPHOR.get());
+                        pOutput.accept(ModItems.PSEUDO.get());
+                        pOutput.accept(ModItems.LIQUID_METH.get());
+                        pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
+                        pOutput.accept(ModItems.TRAY_ITEM.get());
 
                         pOutput.accept(ModItems.HORSE_SEMEN.get());
 

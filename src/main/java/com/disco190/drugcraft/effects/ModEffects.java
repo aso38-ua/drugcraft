@@ -18,4 +18,7 @@ public class ModEffects {
     public static void register(IEventBus bus) {
         EFFECTS.register(bus);
     }
+
+    public static final RegistryObject<MobEffect> SMOKED = EFFECTS.register("smoked", SmokedEffect::new);
+
 }

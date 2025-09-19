@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients":
+    { "item": "drugcraft:peyote_cactus" },
+  "result": {
+    "item": "drugcraft:peyote",
+    "count": 1
+  }
+}

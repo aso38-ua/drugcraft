@@ -37,39 +37,35 @@ public class PurpleHazeJointItem extends Item {
     @Override
     public void onUseTick(Level world, LivingEntity entity, ItemStack stack, int count) {
         if (world.isClientSide && entity instanceof Player player) {
-            if (world.random.nextFloat() < 0.3f) { // no cada tick, random
-                // Rotación del jugador
-                float yaw = player.getYRot() * ((float)Math.PI / 180F);
-                float pitch = player.getXRot() * ((float)Math.PI / 180F);
+            int color = stack.hasTag() ? stack.getTag().getInt("Color") : 0x6A0DAD; // morado por defecto
+            float r = ((color >> 16) & 0xFF) / 255f;
+            float g = ((color >> 8) & 0xFF) / 255f;
+            float b = (color & 0xFF) / 255f;
 
-                // Offset: adelante y a un lado
+            if (world.random.nextFloat() < 0.3f) {
+                double yaw = Math.toRadians(player.getYRot());
                 double forwardX = -Math.sin(yaw) * 0.3;
-                double forwardZ =  Math.cos(yaw) * 0.3;
-                double sideX    =  Math.cos(yaw) * 0.2;
-                double sideZ    =  Math.sin(yaw) * 0.2;
-
-                // Según mano principal
+                double forwardZ = Math.cos(yaw) * 0.3;
                 boolean rightHand = player.getUsedItemHand() == InteractionHand.MAIN_HAND;
+                double sideX = Math.cos(yaw) * 0.2;
+                double sideZ = Math.sin(yaw) * 0.2;
                 double offsetX = forwardX + (rightHand ? sideX : -sideX);
                 double offsetZ = forwardZ + (rightHand ? sideZ : -sideZ);
-
-                // Altura (cerca de la boca)
                 double x = player.getX() + offsetX;
                 double y = player.getY() + player.getEyeHeight() - 0.2;
                 double z = player.getZ() + offsetZ;
 
                 world.addParticle(
-                        new DustParticleOptions(new Vector3f(0.4f, 0.0f, 0.5f), 1.5f), // morado apagado
+                        new DustParticleOptions(new Vector3f(r, g, b), 1.5f),
                         x, y, z,
-                        (world.random.nextGaussian()) * 0.005,
+                        world.random.nextGaussian() * 0.005,
                         0.02,
-                        (world.random.nextGaussian()) * 0.005
+                        world.random.nextGaussian() * 0.005
                 );
-
             }
         }
-        super.onUseTick(world, entity, stack, count);
     }
+
 
 
 
@@ -102,10 +98,28 @@ public class PurpleHazeJointItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entityLiving) {
         if (!world.isClientSide && entityLiving instanceof Player player) {
-            // Efectos
+            // Efectos base del Purple Haze
             player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0));
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 400, 0));
+
+            // 🔥 Leer modificadores del NBT
+            if (stack.hasTag() && stack.getTag().contains("Modifier")) {
+                String modifier = stack.getTag().getString("Modifier");
+
+                switch (modifier) {
+                    case "glowing" -> {
+                        player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 400, 0));
+                    }
+                    case "speedy" -> {
+                        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 1));
+                    }
+                    case "strong" -> {
+                        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 400, 1));
+                    }
+                    // aquí puedes añadir más modificadores
+                }
+            }
         }
 
         // Caladas
@@ -117,8 +131,8 @@ public class PurpleHazeJointItem extends Item {
             stack.shrink(1);
         }
 
-
         return stack;
     }
+
 
 }
