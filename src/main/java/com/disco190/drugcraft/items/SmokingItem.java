@@ -1,5 +1,7 @@
 package com.disco190.drugcraft.items;
 
+import com.disco190.drugcraft.Drugcraft;
+import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
@@ -34,7 +36,7 @@ public class SmokingItem extends Item {
         //if (stack.getDamageValue() == 0) {              //Solo necesitas mechero la primera calada
             ItemStack otherHand = player.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
 
-            if (otherHand.getItem() != Items.FLINT_AND_STEEL) {
+            if (otherHand.getItem() != Items.FLINT_AND_STEEL && otherHand.getItem() != ModItems.IRON_LIGHTER.get() && otherHand.getItem() != ModItems.GOLD_LIGHTER.get() && otherHand.getItem() != ModItems.DIAMOND_LIGHTER.get()) {
                 if (!world.isClientSide) {
                     player.displayClientMessage(Component.literal("Necesitas un mechero en la otra mano!"), true);
                 }
