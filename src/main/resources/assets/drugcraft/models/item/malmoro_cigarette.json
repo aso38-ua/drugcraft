@@ -2,7 +2,7 @@
   "parent": "minecraft:item/handheld",
   "loader": "forge:separate_transforms",
   "base": {
-    "parent": "drugcraft:item/malmoro_cigarette_2d"
+    "parent": "drugcraft:item/malmoro_cigarette_3d"
   },
   "perspectives": {
     "gui": {

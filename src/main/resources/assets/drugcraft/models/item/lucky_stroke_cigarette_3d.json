@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "drugcraft:item/cigarette_3d",
-		"particle": "drugcraft:item/cigarette_3d"
+		"0": "drugcraft:item/lucky_stroke_cigarette_3d",
+		"particle": "drugcraft:item/lucky_stroke_cigarette_3d"
 	},
 	"elements": [
 		{

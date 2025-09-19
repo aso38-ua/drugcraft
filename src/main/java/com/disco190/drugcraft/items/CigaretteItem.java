@@ -1,13 +1,15 @@
 package com.disco190.drugcraft.items;
 
 import com.disco190.drugcraft.ModDamageSources;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class CigaretteItem extends SmokingItem{
+public class CigaretteItem extends SmokingItem implements Equipable {
     public CigaretteItem(Item.Properties properties) {
         super(properties.stacksTo(64)); // hasta 64 cigarros por stack
     }
@@ -23,5 +25,11 @@ public class CigaretteItem extends SmokingItem{
         }
 
         return result;
+    }
+
+    // --- Equipable ---
+    @Override
+    public EquipmentSlot getEquipmentSlot() {
+        return EquipmentSlot.HEAD; // Slot de la cabeza
     }
 }
