@@ -8,14 +8,23 @@ import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.recipes.ModRecipes;
 import com.disco190.drugcraft.registry.ModMenuTypes;
 import com.disco190.drugcraft.sound.ModSounds;
+import com.disco190.drugcraft.worldgen.ModConfiguredFeatures;
+import com.disco190.drugcraft.worldgen.ModPlacedFeatures;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -31,6 +40,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import com.disco190.drugcraft.screens.ChemistryStationScreen;
+import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -80,7 +90,6 @@ public class Drugcraft {
 
 
 
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -98,14 +107,17 @@ public class Drugcraft {
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
+
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
+
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+
 
         if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
 
@@ -137,8 +149,27 @@ public class Drugcraft {
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
             event.enqueueWork(() -> {
+                // Pantallas de menús
                 MenuScreens.register(ModMenuTypes.CHEMISTRY_STATION.get(), ChemistryStationScreen::new);
+
+                // Render y color de hojas de mimosa
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.MIMOSA_LEAVES.get(), RenderType.cutoutMipped());
+
+                Minecraft.getInstance().getBlockColors().register(
+                        (state, reader, pos, tintIndex) ->
+                                reader != null && pos != null
+                                        ? BiomeColors.getAverageFoliageColor(reader, pos)  // color dinámico del bioma
+                                        : FoliageColor.getDefaultColor(),                  // fallback verde
+                        ModBlocks.MIMOSA_LEAVES.get()
+                );
+
+                Minecraft.getInstance().getItemColors().register(
+                        (stack, tintIndex) -> FoliageColor.getDefaultColor(), // item en inventario
+                        ModBlocks.MIMOSA_LEAVES.get()
+                );
             });
+
         }
     }
+
 }

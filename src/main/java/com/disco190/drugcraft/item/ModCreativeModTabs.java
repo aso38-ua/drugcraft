@@ -84,6 +84,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.GOLD_LIGHTER.get());
                         pOutput.accept(ModItems.DIAMOND_LIGHTER.get());
 
+                        pOutput.accept(ModItems.MIMOSA_SAPLING_ITEM.get());
+                        pOutput.accept(ModItems.MIMOSA_LEAVES_ITEM.get());
+
+
                     })
                     .build());
 

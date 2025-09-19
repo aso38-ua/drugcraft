@@ -2,8 +2,8 @@ package com.disco190.drugcraft.blocks;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.item.ModItems;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import com.disco190.drugcraft.worldgen.tree.MimosaTreeGrower;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -59,6 +59,17 @@ public class ModBlocks {
     public static final RegistryObject<Block> TRAY_WITH_SOLID = BLOCKS.register("tray_with_solid",
             TrayWithSolidBlock::new);
 
+    // MIMOSA LEAVES
+    public static final RegistryObject<Block> MIMOSA_LEAVES = BLOCKS.register("mimosa_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+
+    // MIMOSA SAPLING
+    public static final RegistryObject<Block> MIMOSA_SAPLING = BLOCKS.register("mimosa_sapling",
+            () -> new SaplingBlock(new MimosaTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    // MIMOSA LOG
+    public static final RegistryObject<Block> MIMOSA_LOG = BLOCKS.register("mimosa_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
 
 
     public static void register(IEventBus eventBus) {

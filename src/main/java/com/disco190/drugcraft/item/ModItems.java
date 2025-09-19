@@ -359,6 +359,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> DIAMOND_LIGHTER = ITEMS.register("diamond_lighter",
             () -> new DiamondLighterItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_LEAVES_ITEM = ITEMS.register("mimosa_leaves",
+            () -> new BlockItem(ModBlocks.MIMOSA_LEAVES.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_SAPLING_ITEM = ITEMS.register("mimosa_sapling",
+            () -> new BlockItem(ModBlocks.MIMOSA_SAPLING.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_LOG_ITEM = ITEMS.register("mimosa_log",
+            () -> new BlockItem(ModBlocks.MIMOSA_LOG.get(), new Item.Properties()));
 }
 
 
