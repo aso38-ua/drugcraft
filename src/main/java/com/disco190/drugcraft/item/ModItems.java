@@ -11,7 +11,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -368,6 +367,12 @@ public class ModItems {
 
     public static final RegistryObject<Item> MIMOSA_LOG_ITEM = ITEMS.register("mimosa_log",
             () -> new BlockItem(ModBlocks.MIMOSA_LOG.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_BARK = ITEMS.register("mimosa_bark",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LIQUID_DMT = ITEMS.register("liquid_dmt",
+            () -> new Item(new Item.Properties().stacksTo(16)));
 }
 
 

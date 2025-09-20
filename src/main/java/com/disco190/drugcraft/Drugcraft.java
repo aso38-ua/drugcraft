@@ -20,6 +20,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -42,6 +45,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import com.disco190.drugcraft.screens.ChemistryStationScreen;
 import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.registries.ForgeRegistries;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Drugcraft.MODID)
@@ -124,6 +130,22 @@ public class Drugcraft {
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+
+        event.enqueueWork(() -> {
+            // Obtenemos un ItemStack de la poción de veneno
+            net.minecraft.world.item.ItemStack poisonPotion = PotionUtils.setPotion(new net.minecraft.world.item.ItemStack(Items.POTION), Potions.POISON);
+
+            // Añade esta línea para registrar la poción de DMT
+            // Ingrediente: mimosa_bark
+            // Base: Poción de Veneno (ahora como un Ingredient)
+            // Resultado: liquid_dmt
+            BrewingRecipeRegistry.addRecipe(
+                    Ingredient.of(poisonPotion),
+                    Ingredient.of(ModItems.MIMOSA_BARK.get().getDefaultInstance()),
+                    ModItems.LIQUID_DMT.get().getDefaultInstance()
+            );
+        });
+
     }
 
     // Add the example block item to the building blocks tab

@@ -86,6 +86,8 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.MIMOSA_SAPLING_ITEM.get());
                         pOutput.accept(ModItems.MIMOSA_LEAVES_ITEM.get());
+                        pOutput.accept(ModItems.MIMOSA_BARK.get());
+                        pOutput.accept(ModItems.LIQUID_DMT.get());
 
 
                     })
