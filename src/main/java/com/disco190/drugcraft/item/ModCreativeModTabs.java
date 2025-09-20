@@ -88,6 +88,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MIMOSA_LEAVES_ITEM.get());
                         pOutput.accept(ModItems.MIMOSA_BARK.get());
                         pOutput.accept(ModItems.LIQUID_DMT.get());
+                        pOutput.accept(ModItems.DMT.get());
+                        pOutput.accept(ModItems.DRUG_PIPE.get());
 
 
                     })

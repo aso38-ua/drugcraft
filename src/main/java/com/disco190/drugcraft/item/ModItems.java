@@ -373,6 +373,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> LIQUID_DMT = ITEMS.register("liquid_dmt",
             () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> DMT = ITEMS.register("dmt",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> DRUG_PIPE = ITEMS.register("drug_pipe",
+            () -> new DrugPipeItem(new Item.Properties().stacksTo(1).durability(64)));
+
 }
 
 

@@ -2,6 +2,7 @@ package com.disco190.drugcraft.blocks;
 
 import com.disco190.drugcraft.blockentities.TrayWithSolidBlockEntity;
 import com.disco190.drugcraft.registry.ModBlockEntities;
+import com.disco190.drugcraft.util.DrugType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,11 +17,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TrayWithSolidBlock extends BaseEntityBlock {
+
+    public static final EnumProperty<DrugType> DRUG_TYPE = EnumProperty.create("drug_type", DrugType.class);
 
     private static final VoxelShape SHAPE = Shapes.or(
             Block.box(1, 1, 3, 15, 2, 13), // base
@@ -32,6 +37,12 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
 
     public TrayWithSolidBlock() {
         super(Properties.of().strength(1.0f).sound(SoundType.WOOD).noOcclusion());
+        this.registerDefaultState(this.stateDefinition.any().setValue(DRUG_TYPE, DrugType.METH));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(DRUG_TYPE);
     }
 
     @Override
@@ -62,24 +73,18 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
 
         ItemStack held = player.getItemInHand(hand);
 
-        //SOLO funciona si el jugador tiene un palo en la mano
         if (held.getItem() == net.minecraft.world.item.Items.STICK) {
-            ItemStack meth = tray.getStoredMeth();
-            if (!meth.isEmpty()) {
-                popResource(level, pos, meth); // suelta la meth con NBT conservado
-                tray.clearStoredMeth();
+            ItemStack drug = tray.getStoredDrug();
+            if (!drug.isEmpty()) {
+                popResource(level, pos, drug);
+                tray.clearStoredDrug();
 
-                // Sonido de romper vidrio
-                level.playSound(
-                        null, // null = todos los jugadores oyen el sonido
-                        pos,
+                level.playSound(null, pos,
                         net.minecraft.sounds.SoundEvents.GLASS_BREAK,
                         net.minecraft.sounds.SoundSource.BLOCKS,
-                        1.0f, // volumen
-                        1.0f  // pitch
-                );
+                        1.0f, 1.0f);
 
-                // Vuelve a la bandeja vacía
+                // vuelve a la bandeja vacía
                 level.setBlock(pos, com.disco190.drugcraft.blocks.ModBlocks.TRAY.get().defaultBlockState(), 3);
                 return InteractionResult.SUCCESS;
             }

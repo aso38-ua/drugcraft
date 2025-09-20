@@ -1,8 +1,10 @@
 package com.disco190.drugcraft.blocks;
 
 import com.disco190.drugcraft.blockentities.TrayBlockEntity;
+import com.disco190.drugcraft.blockentities.TrayWithLiquidBlockEntity;
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.registry.ModBlockEntities;
+import com.disco190.drugcraft.util.DrugType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -66,15 +68,36 @@ public class TrayBlock extends BaseEntityBlock {
 
         ItemStack held = player.getItemInHand(hand);
 
-        // Colocar líquido: reemplaza bloque por TrayWithLiquidBlock
-        if(held.getItem() == ModItems.LIQUID_METH.get() && tray.isEmpty()) {
+        // Si mete líquido válido (meth o dmt)
+        if (held.getItem() == ModItems.LIQUID_METH.get() && tray.isEmpty()) {
+            level.setBlock(pos, ModBlocks.TRAY_WITH_LIQUID.get()
+                    .defaultBlockState().setValue(TrayWithLiquidBlock.DRUG_TYPE, DrugType.METH), 3);
+
+            BlockEntity liquidBE = level.getBlockEntity(pos);
+            if (liquidBE instanceof TrayWithLiquidBlockEntity entity) {
+                entity.setStoredLiquid(new ItemStack(ModItems.LIQUID_METH.get()));
+            }
+
             held.shrink(1);
-            level.setBlock(pos, ModBlocks.TRAY_WITH_LIQUID.get().defaultBlockState(), 3);
+            return InteractionResult.SUCCESS;
+        }
+
+        if (held.getItem() == ModItems.LIQUID_DMT.get() && tray.isEmpty()) {
+            level.setBlock(pos, ModBlocks.TRAY_WITH_LIQUID.get()
+                    .defaultBlockState().setValue(TrayWithLiquidBlock.DRUG_TYPE, DrugType.DMT), 3);
+
+            BlockEntity liquidBE = level.getBlockEntity(pos);
+            if (liquidBE instanceof TrayWithLiquidBlockEntity entity) {
+                entity.setStoredLiquid(new ItemStack(ModItems.LIQUID_DMT.get()));
+            }
+
+            held.shrink(1);
             return InteractionResult.SUCCESS;
         }
 
         return InteractionResult.PASS;
     }
+
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
