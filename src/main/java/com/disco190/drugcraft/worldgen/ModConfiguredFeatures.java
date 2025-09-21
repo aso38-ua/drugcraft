@@ -2,12 +2,16 @@ package com.disco190.drugcraft.worldgen;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blocks.ModBlocks;
+import com.disco190.drugcraft.blocks.EphedraBushBlock; // Asegúrate de importar tu clase de bloque
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
@@ -19,6 +23,8 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MIMOSA_KEY = registerKey("mimosa");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> EPHEDRA_BUSH_KEY = registerKey("ephedra_bush");
+
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         register(context, MIMOSA_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.MIMOSA_LOG.get()),
@@ -27,6 +33,26 @@ public class ModConfiguredFeatures {
                 new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 3),
                 new TwoLayersFeatureSize(1, 0, 2)).build()
         );
+
+        context.register(EPHEDRA_BUSH_KEY,
+                new ConfiguredFeature<>(Feature.RANDOM_PATCH,
+                        FeatureUtils.simpleRandomPatchConfiguration(
+                                1, // menos intentos dentro del parche
+                                PlacementUtils.onlyWhenEmpty(
+                                        Feature.SIMPLE_BLOCK,
+                                        new SimpleBlockConfiguration(
+                                                BlockStateProvider.simple(
+                                                        ModBlocks.EPHEDRA_BUSH.get()
+                                                                .defaultBlockState()
+                                                                .setValue(EphedraBushBlock.AGE, 3)
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+
+
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

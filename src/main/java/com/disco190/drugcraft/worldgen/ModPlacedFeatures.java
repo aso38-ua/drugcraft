@@ -1,11 +1,13 @@
 package com.disco190.drugcraft.worldgen;
 
 import com.disco190.drugcraft.Drugcraft;
+import com.disco190.drugcraft.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> MIMOSA_PLACED_KEY = registerKey("mimosa_placed");
+    public static final ResourceKey<PlacedFeature> EPHEDRA_BUSH_PLACED_KEY = registerKey("ephedra_bush_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -34,6 +37,25 @@ public class ModPlacedFeatures {
                         BiomeFilter.biome()
                 ));
 
+        register(context, EPHEDRA_BUSH_PLACED_KEY,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.EPHEDRA_BUSH_KEY),
+                List.of(
+                        CountPlacement.of(1),                    // 1 parche por chunk
+                        RarityFilter.onAverageOnceEvery(6),      // solo en 1 de cada 4 chunks
+                        InSquarePlacement.spread(),
+                        HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
+                        BlockPredicateFilter.forPredicate(
+                                BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0),
+                                        Blocks.SAND,
+                                        Blocks.RED_SAND,
+                                        Blocks.GRASS_BLOCK,
+                                        Blocks.DIRT,
+                                        Blocks.COARSE_DIRT
+                                )
+                        ),
+                        BiomeFilter.biome()
+                )
+        );
 
 
     }
