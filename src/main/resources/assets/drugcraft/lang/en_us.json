@@ -8,6 +8,9 @@
   "item.drugcraft.purple_haze_seeds": "Purple Haze Seeds",
   "item.drugcraft.purple_haze_joint": "Purple Haze Joint",
   "block.drugcraft.wild_marijuana": "Wild Marijuana Plant",
+  "item.drugcraft.blaze_kush": "Blaze Kush",
+  "item.drugcraft.blaze_kush_seeds": "Blaze Kush Seeds",
+  "item.drugcraft.blaze_kush_joint": "Blaze Kush Joint",
 
   "advancement.drugcraft.smoke_on_the_water": "Smoke on the Water",
   "advancement.drugcraft.smoke_on_the_water.desc": "Roll up and light one",
@@ -90,6 +93,14 @@
   "item.drugcraft.meth": "Meth",
   "block.drugcraft.chemistry_station": "Chemistry Station",
   "block.drugcraft.tray": "Tray",
+
+  "item.drugcraft.liquid_dmt": "Liquid DMT",
+  "item.drugcraft.dmt": "DMT",
+  "item.drugcraft.drug_pipe": "DMT",
+
+  "block.drugcraft.mimosa_leaves": "Mimosa Leaves",
+  "item.drugcraft.mimosa_sapling": "Mimosa Sapling",
+  "item.drugcraft.mimosa_bark": "Mimosa Bark",
 
   "effect.drugcraft.hallucination": "Hallucination",
   "effect.drugcraft.smoked": "Smoked",

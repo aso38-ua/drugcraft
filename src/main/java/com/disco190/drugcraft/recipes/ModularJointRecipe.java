@@ -56,6 +56,7 @@ public class ModularJointRecipe implements CraftingRecipe {
         switch (budType) {
             case "purple_haze" -> joint = new ItemStack(ModItems.PURPLE_HAZE_JOINT.get());
             case "fujiyama" -> joint = new ItemStack(ModItems.FUJIYAMA_JOINT.get());
+            case "blaze_kush" -> joint = new ItemStack(ModItems.BLAZE_KUSH_JOINT.get());
             default            -> joint = new ItemStack(ModItems.CANNABIS_JOINT.get());
         }
 

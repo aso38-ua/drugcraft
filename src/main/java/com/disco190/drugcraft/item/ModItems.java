@@ -30,6 +30,9 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_HAZE = ITEMS.register("purple_haze",
             () -> new ModularBudItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> BLAZE_KUSH = ITEMS.register("blaze_kush",
+            () -> new ModularBudItem(new Item.Properties()));
+
     public static final RegistryObject<Item> FUJIYAMA = ITEMS.register("fujiyama",
             () -> new ModularBudItem(new Item.Properties()));
 
@@ -39,6 +42,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> PURPLE_HAZE_SEEDS = ITEMS.register("purple_haze_seeds",
             () -> new ItemNameBlockItem(ModBlocks.PURPLE_HAZE_CROP.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> BLAZE_KUSH_SEEDS = ITEMS.register("blaze_kush_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.MARIJUANA_CROP.get(), new Item.Properties()));
 
     // Porro
     public static final RegistryObject<Item> CANNABIS_JOINT = ITEMS.register("cannabis_joint",
@@ -54,6 +60,16 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_HAZE_JOINT = ITEMS.register("purple_haze_joint",
             () -> new ModularJointItem(new Item.Properties()
                     .stacksTo(64) // tamaño del stack
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> BLAZE_KUSH_JOINT = ITEMS.register("blaze_kush_joint",
+            () -> new ModularJointItem(new Item.Properties()
+                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
