@@ -1,0 +1,7 @@
+{
+  "parent": "block/crop",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "drugcraft:block/blaze_kush_crop_3"
+  }
+}

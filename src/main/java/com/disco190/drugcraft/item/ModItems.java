@@ -44,7 +44,7 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.PURPLE_HAZE_CROP.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> BLAZE_KUSH_SEEDS = ITEMS.register("blaze_kush_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.MARIJUANA_CROP.get(), new Item.Properties()));
+            () -> new ItemNameBlockItem(ModBlocks.BLAZE_KUSH_CROP.get(), new Item.Properties()));
 
     // Porro
     public static final RegistryObject<Item> CANNABIS_JOINT = ITEMS.register("cannabis_joint",

@@ -22,6 +22,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> PURPLE_HAZE_CROP = BLOCKS.register("purple_haze_crop",
             () -> new PurpleHazeCropBlock(ModItems.PURPLE_HAZE_SEEDS));
 
+    public static final RegistryObject<Block> BLAZE_KUSH_CROP = BLOCKS.register("blaze_kush_crop",
+            () -> new BlazeKushCropBlock(ModItems.BLAZE_KUSH_SEEDS));
+
     // Registro del bloque
     public static final RegistryObject<Block> WILD_MARIJUANA = BLOCKS.register("wild_marijuana",
             WildMarijuanaBlock::new);

@@ -22,13 +22,15 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> MIMOSA_PLACED_KEY = registerKey("mimosa_placed");
     public static final ResourceKey<PlacedFeature> EPHEDRA_BUSH_PLACED_KEY = registerKey("ephedra_bush_placed");
+    public static final ResourceKey<PlacedFeature> BLAZE_KUSH_PLACED_KEY = registerKey("blaze_kush_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, MIMOSA_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.MIMOSA_KEY),
                 List.of(
-                        CountPlacement.of(6),
+                        CountPlacement.of(2),
+                        RarityFilter.onAverageOnceEvery(6),
                         InSquarePlacement.spread(),
                         HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
                         BlockPredicateFilter.forPredicate(
@@ -56,6 +58,29 @@ public class ModPlacedFeatures {
                         BiomeFilter.biome()
                 )
         );
+
+        register(context, BLAZE_KUSH_PLACED_KEY,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.BLAZE_KUSH_KEY),
+                List.of(
+                        CountPlacement.of(50),
+                        InSquarePlacement.spread(),
+                        // Usa una altura que es más fiable para el Nether
+                        HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
+                        // Un solo filtro para asegurar que el bloque de abajo es tierra
+                        BlockPredicateFilter.forPredicate(
+                                BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0),
+                                        Blocks.SOUL_SAND,
+                                        Blocks.NETHERRACK,
+                                        Blocks.CRIMSON_NYLIUM,
+                                        Blocks.WARPED_NYLIUM,
+                                        Blocks.SOUL_SOIL
+                                )
+                        ),
+                        BiomeFilter.biome()
+                )
+        );
+
+
 
 
     }

@@ -1,6 +1,7 @@
 package com.disco190.drugcraft.worldgen;
 
 import com.disco190.drugcraft.Drugcraft;
+import com.disco190.drugcraft.blocks.BlazeKushCropBlock;
 import com.disco190.drugcraft.blocks.ModBlocks;
 import com.disco190.drugcraft.blocks.EphedraBushBlock; // Asegúrate de importar tu clase de bloque
 import net.minecraft.core.registries.Registries;
@@ -25,6 +26,8 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> EPHEDRA_BUSH_KEY = registerKey("ephedra_bush");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLAZE_KUSH_KEY = registerKey("blaze_kush");
+
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         register(context, MIMOSA_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.MIMOSA_LOG.get()),
@@ -45,6 +48,24 @@ public class ModConfiguredFeatures {
                                                         ModBlocks.EPHEDRA_BUSH.get()
                                                                 .defaultBlockState()
                                                                 .setValue(EphedraBushBlock.AGE, 3)
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+
+        context.register(BLAZE_KUSH_KEY,
+                new ConfiguredFeature<>(Feature.RANDOM_PATCH,
+                        FeatureUtils.simpleRandomPatchConfiguration(
+                                3, // intentos por parche
+                                PlacementUtils.onlyWhenEmpty(
+                                        Feature.SIMPLE_BLOCK,
+                                        new SimpleBlockConfiguration(
+                                                BlockStateProvider.simple(
+                                                        ModBlocks.BLAZE_KUSH_CROP.get()
+                                                                .defaultBlockState()
+                                                                .setValue(BlazeKushCropBlock.AGE, 7) // spawnea maduro
                                                 )
                                         )
                                 )
