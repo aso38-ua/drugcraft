@@ -1,6 +1,18 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "drugcraft:item/horizonte_cigarette"
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "drugcraft:item/horizonte_cigarette_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "drugcraft:item/horizonte_cigarette_2d"
+    },
+    "ground": {
+      "parent": "drugcraft:item/horizonte_cigarette_2d"
+    },
+    "fixed": {
+      "parent": "drugcraft:item/horizonte_cigarette_2d"
+    }
   }
 }
