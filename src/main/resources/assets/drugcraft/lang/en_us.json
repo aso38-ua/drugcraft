@@ -96,10 +96,10 @@
 
   "item.drugcraft.liquid_dmt": "Liquid DMT",
   "item.drugcraft.dmt": "DMT",
-  "item.drugcraft.drug_pipe": "DMT",
+  "item.drugcraft.drug_pipe": "Drug Pipe",
 
   "block.drugcraft.mimosa_leaves": "Mimosa Leaves",
-  "item.drugcraft.mimosa_sapling": "Mimosa Sapling",
+  "block.drugcraft.mimosa_sapling": "Mimosa Sapling",
   "item.drugcraft.mimosa_bark": "Mimosa Bark",
 
   "effect.drugcraft.hallucination": "Hallucination",

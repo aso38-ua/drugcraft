@@ -30,10 +30,6 @@ public class BlazeKushCropBlock extends CropBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
         // Ahora se puede plantar en todos los bloques del Nether especificados
-        return state.is(Blocks.SOUL_SAND) ||
-                state.is(Blocks.NETHERRACK) ||
-                state.is(Blocks.CRIMSON_NYLIUM) ||
-                state.is(Blocks.WARPED_NYLIUM) ||
-                state.is(Blocks.SOUL_SOIL);
+        return state.is(Blocks.SOUL_SAND);
     }
 }

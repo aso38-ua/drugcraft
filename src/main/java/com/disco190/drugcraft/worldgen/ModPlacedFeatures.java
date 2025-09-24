@@ -11,6 +11,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -62,23 +63,20 @@ public class ModPlacedFeatures {
         register(context, BLAZE_KUSH_PLACED_KEY,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.BLAZE_KUSH_KEY),
                 List.of(
-                        CountPlacement.of(50),
+                        RarityFilter.onAverageOnceEvery(5), // más raro
+                        CountPlacement.of(2),               // hasta 3 por chunk
                         InSquarePlacement.spread(),
-                        // Usa una altura que es más fiable para el Nether
-                        HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
-                        // Un solo filtro para asegurar que el bloque de abajo es tierra
-                        BlockPredicateFilter.forPredicate(
-                                BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0),
-                                        Blocks.SOUL_SAND,
-                                        Blocks.NETHERRACK,
-                                        Blocks.CRIMSON_NYLIUM,
-                                        Blocks.WARPED_NYLIUM,
-                                        Blocks.SOUL_SOIL
-                                )
+                        HeightRangePlacement.uniform(
+                                VerticalAnchor.aboveBottom(32),
+                                VerticalAnchor.aboveBottom(128)
                         ),
                         BiomeFilter.biome()
                 )
+
         );
+
+
+
 
 
 

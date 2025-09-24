@@ -11,4 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries; // <-- Añadida esta impor
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> MIMOSA_MODIFIER_KEY =
             ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(Drugcraft.MODID, "mimosa_modifier")); // <-- Corrección
+
+    public static final ResourceKey<BiomeModifier> BLAZE_KUSH_MODIFIER_KEY =
+            ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(Drugcraft.MODID, "add_blaze_kush_natural"));
 }

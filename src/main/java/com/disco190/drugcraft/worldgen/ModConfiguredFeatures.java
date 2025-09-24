@@ -56,22 +56,24 @@ public class ModConfiguredFeatures {
         );
 
         context.register(BLAZE_KUSH_KEY,
-                new ConfiguredFeature<>(Feature.RANDOM_PATCH,
+                new ConfiguredFeature<>(
+                        Feature.RANDOM_PATCH,
                         FeatureUtils.simpleRandomPatchConfiguration(
-                                3, // intentos por parche
+                                12, // número de intentos como en el JSON
                                 PlacementUtils.onlyWhenEmpty(
                                         Feature.SIMPLE_BLOCK,
                                         new SimpleBlockConfiguration(
                                                 BlockStateProvider.simple(
-                                                        ModBlocks.BLAZE_KUSH_CROP.get()
+                                                        ModBlocks.BLAZE_KUSH_NATURAL.get()
                                                                 .defaultBlockState()
-                                                                .setValue(BlazeKushCropBlock.AGE, 7) // spawnea maduro
                                                 )
                                         )
                                 )
                         )
                 )
         );
+
+
 
 
     }
