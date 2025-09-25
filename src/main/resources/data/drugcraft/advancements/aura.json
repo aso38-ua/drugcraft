@@ -12,7 +12,7 @@
     "has_lean": {
       "trigger": "minecraft:consume_item",
       "conditions": {
-        "item": [
+        "items": [
           {
             "items": ["drugcraft:cigarette"]
           }
