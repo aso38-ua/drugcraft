@@ -28,7 +28,7 @@
 
   "item.drugcraft.cigarette": "Cigarette",
   "item.drugcraft.malmoro_cigarette": "Malmoro Cigarette",
-  "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD",
+  "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD cigarette",
   "item.drugcraft.camello_cigarette": "Camello Cigarette",
   "item.drugcraft.lucky_stroke_cigarette": "Lucky Stroke Cigarette",
   "item.drugcraft.horizonte_cigarette": "Horizonte Cigarette",
@@ -105,7 +105,7 @@
   "effect.drugcraft.hallucination": "Hallucination",
   "effect.drugcraft.smoked": "Smoked",
 
-  "creativetab.drugcraft_tab": "DrugCraft Tab",
+  "creativetab.drugcraft_tab": "DrugCraft",
 
   "death.attack.cigarette": "%1$s died of natural causes",
 
