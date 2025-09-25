@@ -109,18 +109,6 @@
 
   "death.attack.cigarette": "%1$s died of natural causes",
 
-  "advancement.drugcraft.eleganto": "Very Eleganto",
-  "advancement.drugcraft.eleganto.desc": "Get the WISDOM PIPE",
-
-  "advancement.drugcraft.time_to_cook": "It's Time to Cook, Jesse",
-  "advancement.drugcraft.time_to_cook.desc": "Obtain Liquid Meth",
-
-  "advancement.drugcraft.breaking_bad": "Breaking Bad",
-  "advancement.drugcraft.breaking_bad.desc": "Obtain Meta",
-
-  "advancement.drugcraft.into_the_spirit_realm": "Into the Spirit Realm",
-  "advancement.drugcraft.into_the_spirit_realm.desc": "Obtain DMT",
-
-  "advancement.drugcraft.la_soga_del_muerto": "The Rope of the Dead",
-  "advancement.drugcraft.la_soga_del_muerto.desc": "Obtain Ayahuasca"
+  "advancement.drugcraft.eleganto": "Very eleganto",
+  "advancement.drugcraft.eleganto.desc": "Get the WISDOM PIPE"
 }
