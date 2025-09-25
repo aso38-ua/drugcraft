@@ -6,25 +6,42 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "drugcraft:tobacco_leaf",
-          "conditions": [
-            {
-              "condition": "minecraft:block_state_property",
-              "block": "drugcraft:tobacco_crop",
-              "properties": { "age": "7" }
-            }
-          ]
+          "name": "drugcraft:tobacco_seeds"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "drugcraft:tobacco_crop",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "drugcraft:tripa"
         },
         {
           "type": "minecraft:item",
-          "name": "drugcraft:tobacco_seeds",
-          "conditions": [
-            {
-              "condition": "minecraft:block_state_property",
-              "block": "drugcraft:tobacco_crop",
-              "properties": { "age": "7" }
-            }
-          ]
+          "name": "drugcraft:capote"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "drugcraft:capa"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "drugcraft:tobacco_crop",
+          "properties": {
+            "age": "7"
+          }
         }
       ]
     }

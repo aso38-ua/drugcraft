@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_jungle",
+  "features": "drugcraft:mimosa_placed",
+  "step": "vegetal_decoration"
+}

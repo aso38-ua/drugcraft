@@ -106,6 +106,7 @@ public class ModularJointItem extends Item {
             if (this == ModItems.PURPLE_HAZE_JOINT.get()) setBudType(stack, "purple_haze");
             else if (this == ModItems.CANNABIS_JOINT.get()) setBudType(stack, "marijuana");
             else if (this == ModItems.FUJIYAMA_JOINT.get()) setBudType(stack, "fujiyama");
+            else if (this == ModItems.BLAZE_KUSH_JOINT.get()) setBudType(stack, "blaze_kush");
         }
         if (getColor(stack) == 0) stack.getOrCreateTag().putInt("Color", 0x6A0DAD);
 
@@ -130,8 +131,8 @@ public class ModularJointItem extends Item {
                     player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
                 }
                 case "marijuana" -> {
-                    player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 1));
-                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
+                    player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 600, 1));
+                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0));
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
                     player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
@@ -145,16 +146,64 @@ public class ModularJointItem extends Item {
                     player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));
                 }
 
+                case "blaze_kush" -> {
+                    player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1600, 0)); // protección fuego
+                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 800, 1));    // regeneración suave
+                    player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 0));       // ligero mareo
+                    player.addEffect(new MobEffectInstance(ModEffects.SMOKED.get(), 1600, 0));   // tu efecto custom
+                }
+
+
             }
 
             // Efectos de modificadores
+            // -------------------- Efectos de modificadores --------------------
             switch (getModifier(stack)) {
-                case "glowing" -> player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 400, 0));
-                case "speedy" -> player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 1));
-                case "strong" -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 400, 1));
+                case "glowing" -> player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 600, 0));
+                case "speedy" -> player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 1));
+                case "strong" -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 1));
+                case "regenerative" -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 1));
+                case "infernal" -> {
+                    player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1200, 0));
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 0));
+                }
+                case "resistant" -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 800, 1));
+                case "warped" -> player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 800, 0));
+                case "dreamy" -> {
+                    player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 1200, 0));
+                    player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 400, 0));
+                }
+                case "warping" -> {
+                    player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
+                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 2));
+                }
+                case "chaotic" -> {
+                    // Aleatorio: cada vez aplica un efecto diferente
+                    int roll = world.random.nextInt(16);
+                    switch (roll) {
+                        case 0 -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 2));
+                        case 1 -> player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 600, 1));
+                        case 2 -> player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 600, 2));
+                        case 3 -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 1));
+                        case 4 -> player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0));
+                        case 5 -> player.addEffect(new MobEffectInstance(MobEffects.BAD_OMEN, 600, 0));
+                        case 6 -> player.addEffect(new MobEffectInstance(MobEffects.LUCK, 600, 1));
+                        case 7 -> player.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 600, 1));
+                        case 8 -> player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 600, 0));
+                        case 9 -> player.addEffect(new MobEffectInstance(MobEffects.JUMP, 600, 2));
+                        case 10 -> player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 600, 2));
+                        case 11 -> player.addEffect(new MobEffectInstance(MobEffects.WITHER, 600, 1));
+                        case 12 -> player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600, 0));
+                        case 13 -> player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 600, 2));
+                        case 14 -> player.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 1));
+                        case 15 -> player.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 600, 1));
+                    }
+                }
             }
 
-            if (caladas >= 3) stack.shrink(1);
+
+            stack.shrink(1);
         }
         return stack;
     }
@@ -187,9 +236,25 @@ public class ModularJointItem extends Item {
         return stack.hasTag() ? stack.getTag().getString("BudType") : "";
     }
 
-    public static int getColor(ItemStack stack) {
-        return stack.hasTag() ? stack.getTag().getInt("Color") : 0x6A0DAD;
+    public static int getDefaultColor(String budType) {
+        return switch (budType) {
+            case "purple_haze" -> 0x6A0DAD; // morado
+            case "marijuana"   -> 0x808080; // gris
+            case "blaze_kush"  -> 0xFF6600; // naranja fuego
+            case "fujiyama"    -> 0x87CEEB; // azul celeste
+            default            -> 0x808080; // fallback gris
+        };
     }
+
+
+    public static int getColor(ItemStack stack) {
+        if (stack.hasTag() && stack.getTag().contains("Color")) {
+            return stack.getTag().getInt("Color");
+        }
+        String budType = getBudType(stack);
+        return getDefaultColor(budType);
+    }
+
 
     @Override
     public ItemStack getDefaultInstance() {
@@ -198,9 +263,13 @@ public class ModularJointItem extends Item {
             if (this == ModItems.PURPLE_HAZE_JOINT.get()) setBudType(stack, "purple_haze");
             else if (this == ModItems.CANNABIS_JOINT.get()) setBudType(stack, "marijuana");
             else if (this == ModItems.FUJIYAMA_JOINT.get()) setBudType(stack, "fujiyama");
+            else if (this == ModItems.BLAZE_KUSH_JOINT.get()) setBudType(stack, "blaze_kush");
         }
-        if (getColor(stack) == 0) stack.getOrCreateTag().putInt("Color", 0x6A0DAD);
+        // aplicar color por defecto del tipo
+        String budType = getBudType(stack);
+        stack.getOrCreateTag().putInt("Color", getDefaultColor(budType));
         return stack;
     }
+
 
 }

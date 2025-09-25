@@ -11,7 +11,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,6 +30,9 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_HAZE = ITEMS.register("purple_haze",
             () -> new ModularBudItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> BLAZE_KUSH = ITEMS.register("blaze_kush",
+            () -> new ModularBudItem(new Item.Properties()));
+
     public static final RegistryObject<Item> FUJIYAMA = ITEMS.register("fujiyama",
             () -> new ModularBudItem(new Item.Properties()));
 
@@ -40,6 +42,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> PURPLE_HAZE_SEEDS = ITEMS.register("purple_haze_seeds",
             () -> new ItemNameBlockItem(ModBlocks.PURPLE_HAZE_CROP.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> BLAZE_KUSH_SEEDS = ITEMS.register("blaze_kush_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.BLAZE_KUSH_CROP.get(), new Item.Properties()));
 
     // Porro
     public static final RegistryObject<Item> CANNABIS_JOINT = ITEMS.register("cannabis_joint",
@@ -55,6 +60,16 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_HAZE_JOINT = ITEMS.register("purple_haze_joint",
             () -> new ModularJointItem(new Item.Properties()
                     .stacksTo(64) // tamaño del stack
+                    .food(new FoodProperties.Builder()
+                            .nutrition(0)       // no afecta hambre
+                            .saturationMod(0f)  // no da saturación
+                            .alwaysEat()        // permite usar siempre
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> BLAZE_KUSH_JOINT = ITEMS.register("blaze_kush_joint",
+            () -> new ModularJointItem(new Item.Properties()
+                    // 3 caladas
                     .food(new FoodProperties.Builder()
                             .nutrition(0)       // no afecta hambre
                             .saturationMod(0f)  // no da saturación
@@ -359,6 +374,28 @@ public class ModItems {
 
     public static final RegistryObject<Item> DIAMOND_LIGHTER = ITEMS.register("diamond_lighter",
             () -> new DiamondLighterItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_LEAVES_ITEM = ITEMS.register("mimosa_leaves",
+            () -> new BlockItem(ModBlocks.MIMOSA_LEAVES.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_SAPLING_ITEM = ITEMS.register("mimosa_sapling",
+            () -> new BlockItem(ModBlocks.MIMOSA_SAPLING.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_LOG_ITEM = ITEMS.register("mimosa_log",
+            () -> new BlockItem(ModBlocks.MIMOSA_LOG.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> MIMOSA_BARK = ITEMS.register("mimosa_bark",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LIQUID_DMT = ITEMS.register("liquid_dmt",
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> DMT = ITEMS.register("dmt",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> DRUG_PIPE = ITEMS.register("drug_pipe",
+            () -> new DrugPipeItem(new Item.Properties().stacksTo(1).durability(64)));
+
 }
 
 

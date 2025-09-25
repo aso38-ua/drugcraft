@@ -1,6 +1,7 @@
 package com.disco190.drugcraft.blockentities;
 
 import com.disco190.drugcraft.registry.ModBlockEntities;
+import com.disco190.drugcraft.util.DrugType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
@@ -9,43 +10,61 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class TrayWithSolidBlockEntity extends BlockEntity {
 
-    private ItemStack storedMeth = ItemStack.EMPTY; // Aquí guardamos la meth sólida con NBT
+    private ItemStack storedDrug = ItemStack.EMPTY;
+    private DrugType drugType = DrugType.METH; // por defecto METH
 
     public TrayWithSolidBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.TRAY_WITH_SOLID.get(), pos, state);
     }
 
-    // Guardar los datos en NBT del bloque
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
-        if (!storedMeth.isEmpty()) {
-            tag.put("StoredMeth", storedMeth.save(new CompoundTag()));
+        if (!storedDrug.isEmpty()) {
+            tag.put("StoredDrug", storedDrug.save(new CompoundTag()));
         }
+        tag.putString("DrugType", drugType.getSerializedName());
     }
 
-    // Cargar los datos al entrar al mundo
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        if (tag.contains("StoredMeth")) {
-            storedMeth = ItemStack.of(tag.getCompound("StoredMeth"));
+        if (tag.contains("StoredDrug")) {
+            storedDrug = ItemStack.of(tag.getCompound("StoredDrug"));
+        }
+        if (tag.contains("DrugType")) {
+            try {
+                drugType = DrugType.valueOf(tag.getString("DrugType").toUpperCase());
+            } catch (IllegalArgumentException ignored) {
+                drugType = DrugType.METH; // fallback
+            }
         }
     }
 
-    public void setStoredMeth(ItemStack stack) {
-        this.storedMeth = stack.copy();
+    public void setStoredDrug(ItemStack stack, DrugType type) {
+        this.storedDrug = stack.copy();
+        this.drugType = type;
+        setChanged();
     }
 
-    public ItemStack getStoredMeth() {
-        return storedMeth.copy();
+    public ItemStack getStoredDrug() {
+        return storedDrug.copy();
     }
 
-    public void clearStoredMeth() {
-        this.storedMeth = ItemStack.EMPTY;
+    public void clearStoredDrug() {
+        this.storedDrug = ItemStack.EMPTY;
+        setChanged();
+    }
+
+    public boolean isEmpty() {
+        return storedDrug.isEmpty();
+    }
+
+    public DrugType getDrugType() {
+        return drugType;
     }
 
     public void tick() {
-        // Aquí podrías meter lógica de secado si quieres (contadores, tiempo, etc.)
+        // lógica extra si quieres
     }
 }

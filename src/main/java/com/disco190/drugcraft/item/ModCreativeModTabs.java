@@ -20,11 +20,14 @@ public class ModCreativeModTabs {
                     .displayItems((itemDisplayParameters, pOutput) -> {
                         pOutput.accept(ModItems.MARIJUANA.get());
                         pOutput.accept(ModItems.PURPLE_HAZE.get());
+                        pOutput.accept(ModItems.BLAZE_KUSH.get());
                         pOutput.accept(ModItems.FUJIYAMA.get());
                         pOutput.accept(ModItems.MARIJUANA_SEEDS.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_SEEDS.get());
+                        pOutput.accept(ModItems.BLAZE_KUSH_SEEDS.get());
                         pOutput.accept(ModItems.CANNABIS_JOINT.get());
                         pOutput.accept(ModItems.PURPLE_HAZE_JOINT.get());
+                        pOutput.accept(ModItems.BLAZE_KUSH_JOINT.get());
                         pOutput.accept(ModItems.FUJIYAMA_JOINT.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
                         pOutput.accept(ModItems.TRIPA.get());
@@ -83,6 +86,14 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.IRON_LIGHTER.get());
                         pOutput.accept(ModItems.GOLD_LIGHTER.get());
                         pOutput.accept(ModItems.DIAMOND_LIGHTER.get());
+
+                        pOutput.accept(ModItems.MIMOSA_SAPLING_ITEM.get());
+                        pOutput.accept(ModItems.MIMOSA_LEAVES_ITEM.get());
+                        pOutput.accept(ModItems.MIMOSA_BARK.get());
+                        pOutput.accept(ModItems.LIQUID_DMT.get());
+                        pOutput.accept(ModItems.DMT.get());
+                        pOutput.accept(ModItems.DRUG_PIPE.get());
+
 
                     })
                     .build());
