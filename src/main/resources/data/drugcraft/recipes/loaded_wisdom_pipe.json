@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PT ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "P": {
+      "item": "drugcraft:wisdom_pipe"
+    },
+    "T": {
+      "item": "drugcraft:rolling_tobacco"
+    }
+  },
+  "result": {
+    "item": "drugcraft:loaded_wisdom_pipe",
+    "count": 1
+  }
+}

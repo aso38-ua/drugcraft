@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "drugcraft:item/bong_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "drugcraft:item/bong_2d"
+    },
+    "ground": {
+      "parent": "drugcraft:item/bong_2d"
+    },
+    "fixed": {
+      "parent": "drugcraft:item/bong_2d"
+    }
+  }
+}

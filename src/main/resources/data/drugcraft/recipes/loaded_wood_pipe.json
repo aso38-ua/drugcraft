@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PT ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "P": {
+      "item": "drugcraft:wood_pipe"
+    },
+    "T": {
+      "item": "drugcraft:rolling_tobacco"
+    }
+  },
+  "result": {
+    "item": "drugcraft:loaded_wood_pipe",
+    "count": 1
+  }
+}

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    { "item": "drugcraft:ephedra_berries" },
+    { "item": "drugcraft:ephedrine" },
     { "item": "minecraft:sugar" },
     { "item": "minecraft:potion", "nbt": "{Potion:\"minecraft:water\"}" }
   ],

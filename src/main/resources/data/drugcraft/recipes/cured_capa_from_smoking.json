@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "drugcraft:capa"
+  },
+  "result": "drugcraft:cured_capa",
+  "experience": 0.35,
+  "cookingtime": 100
+}

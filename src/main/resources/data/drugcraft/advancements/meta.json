@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:meth" },
+    "title": { "translate": "advancement.drugcraft.breaking_bad" },
+    "description": { "translate": "advancement.drugcraft.breaking_bad.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_meta": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["drugcraft:meth"] }
+        ]
+      }
+    }
+  }
+}

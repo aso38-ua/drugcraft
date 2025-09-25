@@ -18,4 +18,10 @@ public class ModEffects {
     public static void register(IEventBus bus) {
         EFFECTS.register(bus);
     }
+
+    public static final RegistryObject<MobEffect> DMT_EFFECT =
+            EFFECTS.register("dmt", HallucinationEffect::new);
+
+    public static final RegistryObject<MobEffect> SMOKED = EFFECTS.register("smoked", SmokedEffect::new);
+
 }

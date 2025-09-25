@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:dmt" },
+    "title": { "translate": "advancement.drugcraft.into_the_spirit_realm" },
+    "description": { "translate": "advancement.drugcraft.into_the_spirit_realm.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_dmt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["drugcraft:dmt"] }
+        ]
+      }
+    }
+  }
+}

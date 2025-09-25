@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "drugcraft:item/loaded_wood_pipe_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "drugcraft:item/loaded_wood_pipe_2d"
+    },
+    "ground": {
+      "parent": "drugcraft:item/loaded_wood_pipe_2d"
+    },
+    "fixed": {
+      "parent": "drugcraft:item/loaded_wood_pipe_2d"
+    }
+  }
+}

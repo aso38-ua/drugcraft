@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:desert",
+    "minecraft:badlands",
+    "minecraft:savanna"
+  ],
+  "features": "drugcraft:ephedra_bush_placed",
+  "step": "vegetal_decoration"
+}

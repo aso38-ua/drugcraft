@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 
 public class PackOfCigaretteItem extends Item {
     public PackOfCigaretteItem(Item.Properties properties) {
-        super(properties.stacksTo(64).durability(20)); // hasta 64 paquetes por stack y se usa 20 veces
+        super(properties.durability(20)); //  se usa 20 veces
     }
 
     @Override

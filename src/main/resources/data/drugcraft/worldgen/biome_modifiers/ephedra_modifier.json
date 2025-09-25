@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_desert",
+  "features": "drugcraft:mimosa_placed",
+  "step": "vegetal_decoration"
+}

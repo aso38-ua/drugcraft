@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -31,6 +32,26 @@ public class EphedraBushBlock extends BushBlock implements BonemealableBlock {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
+
+    @Override
+    protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
+        // permitir arena y tipo de roca además de la implementación por defecto
+        return state.is(Blocks.SAND) ||
+                state.is(Blocks.RED_SAND) ||
+                state.is(Blocks.DIRT) ||
+                state.is(Blocks.GRASS_BLOCK) ||
+                super.mayPlaceOn(state, world, pos);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        int age = state.getValue(AGE);
+        if (age < 3 && random.nextInt(5) == 0) { // 20% de probabilidad por tick
+            world.setBlock(pos, state.setValue(AGE, age + 1), 2);
+        }
+    }
+
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<net.minecraft.world.level.block.Block, BlockState> builder) {

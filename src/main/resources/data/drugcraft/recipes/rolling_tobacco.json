@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "tag": "drugcraft:smoking_leaves"
+    }
+  },
+  "result": {
+    "item": "drugcraft:rolling_tobacco",
+    "count": 3
+  }
+}

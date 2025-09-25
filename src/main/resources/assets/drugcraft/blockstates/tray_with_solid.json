@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "drug_type=meth": { "model": "drugcraft:block/tray_with_solid" },
+    "drug_type=dmt":  { "model": "drugcraft:block/tray_with_solid_dmt" }
+  }
+}

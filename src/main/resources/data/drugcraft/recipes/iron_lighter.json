@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F  ",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "tag": "drugcraft:coal"
+    }
+  },
+  "result": {
+    "item": "drugcraft:iron_lighter",
+    "count": 1
+  }
+}

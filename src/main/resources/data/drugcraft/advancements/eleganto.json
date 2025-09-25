@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:wisdom_pipe" },
+    "title": { "translate": "advancement.drugcraft.eleganto" },
+    "description": { "translate": "advancement.drugcraft.eleganto.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_wisdom_pipe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["drugcraft:wisdom_pipe"] }
+        ]
+      }
+    }
+  }
+}

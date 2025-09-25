@@ -2,20 +2,56 @@
   "item.drugcraft.marijuana": "Marijuana Bud",
   "item.drugcraft.marijuanaseeds": "Marijuana Seeds",
   "item.drugcraft.cannabis_joint": "Cannabis Joint",
+  "item.drugcraft.fujiyama_joint": "Fujiyama Joint",
+  "item.drugcraft.purple_haze": "Purple Haze Bud",
+  "item.drugcraft.fujiyama": "Fujiyama Bud",
+  "item.drugcraft.purple_haze_seeds": "Purple Haze Seeds",
+  "item.drugcraft.purple_haze_joint": "Purple Haze Joint",
   "block.drugcraft.wild_marijuana": "Wild Marijuana Plant",
+  "item.drugcraft.blaze_kush": "Blaze Kush",
+  "item.drugcraft.blaze_kush_seeds": "Blaze Kush Seeds",
+  "item.drugcraft.blaze_kush_joint": "Blaze Kush Joint",
 
   "advancement.drugcraft.smoke_on_the_water": "Smoke on the Water",
   "advancement.drugcraft.smoke_on_the_water.desc": "Roll up and light one",
+  "advancement.drugcraft.jimi_hendrix": "Jimi Hendrix",
+  "advancement.drugcraft.jimi_hendrix.desc": "Roll up and light one purple haze",
 
 
   "item.drugcraft.tobacco_seeds": "Tobacco Seeds",
-  "item.drugcraft.volado_leaf": "Volado Leaf",
-  "item.drugcraft.seco_leaf": "Seco Leaf",
-  "item.drugcraft.ligero_leaf": "Ligero Leaf",
-  "item.drugcraft.corona_leaf": "Corona Leaf",
+  "item.drugcraft.tripa": "Tripa",
+  "item.drugcraft.capote": "Capote",
+  "item.drugcraft.capa": "Capa",
+  "item.drugcraft.cured_tripa": "Cured Tripa",
+  "item.drugcraft.cured_capote": "Cured Capote",
+  "item.drugcraft.cured_capa": "Cured Capa",
+
   "item.drugcraft.cigarette": "Cigarette",
-  "item.drugcraft.pack_of_cigarettes": "Pack of cigarettes",
+  "item.drugcraft.malmoro_cigarette": "Malmoro Cigarette",
+  "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD cigarette",
+  "item.drugcraft.camello_cigarette": "Camello Cigarette",
+  "item.drugcraft.lucky_stroke_cigarette": "Lucky Stroke Cigarette",
+  "item.drugcraft.horizonte_cigarette": "Horizonte Cigarette",
+
+  "item.drugcraft.pack_of_cigarettes": "Pack of Cigarettes",
+  "item.drugcraft.pack_of_malmoro": "Pack of Malmoro",
+  "item.drugcraft.pack_of_malmoro_gold": "Pack of Malmoro GOLD",
+  "item.drugcraft.pack_of_camello": "Pack of Camello",
+  "item.drugcraft.pack_of_lucky_stroke": "Pack of Lucky Stroke",
+  "item.drugcraft.pack_of_horizonte": "Pack of Horizonte",
+
+  "item.drugcraft.esplendido_cigar": "Espléndido",
+  "item.drugcraft.don_javier_cigar": "Don Javier",
+  "item.drugcraft.torito_cigar": "Torito",
+
   "item.drugcraft.cardboard": "Cardboard",
+  "item.drugcraft.rolling_tobacco": "Rolling Tobacco",
+  "item.drugcraft.rolling_cigarette": "Rolling Cigarette",
+  "item.drugcraft.wood_pipe": "Wood Pipe",
+  "item.drugcraft.wisdom_pipe": "Wisdom pipe",
+  "item.drugcraft.loaded_wood_pipe": "Loaded Wood Pipe",
+  "item.drugcraft.loaded_wisdom_pipe": "Loaded Wisdom Pipe",
+
 
   "item.drugcraft.mooshrooms": "Magic Mushroom",
   "item.drugcraft.mooshrooms_seeds": "Mushroom Spores",
@@ -24,19 +60,73 @@
   "advancement.drugcraft.magic_mushrooms.desc": "Get your hands on some shrooms",
 
   "item.drugcraft.ephedra_berries": "Ephedra Berries",
+  "item.drugcraft.ephedrine": "Ephedrine",
   "block.drugcraft.ephedra_bush": "Ephedra Bush",
   "item.drugcraft.cough_syrup": "Cough Syrup",
   "item.drugcraft.candy": "Candy",
   "item.drugcraft.refreshment": "Refreshment",
   "item.drugcraft.lean": "Lean",
 
+  "item.drugcraft.horse_semen": "Horse Semen",
+
+  "item.drugcraft.iron_lighter": "Iron Lighter",
+  "item.drugcraft.gold_lighter": "Gold Lighter",
+  "item.drugcraft.diamond_lighter": "Diamond Lighter",
+
+  "advancement.drugcraft.what_were_you_trying": "What were you trying?",
+  "advancement.drugcraft.what_were_you_trying.desc": "Get a horse to ejaculate into a bucket",
+
+  "advancement.drugcraft.why": "Why?",
+  "advancement.drugcraft.why.desc": "Swallow horse semen (creep)",
+
   "advancement.drugcraft.lean_on": "Lean On",
   "advancement.drugcraft.lean_on.desc": "Craft some Lean",
 
+  "item.drugcraft.ayahuasca": "Ayahuasca",
+  "block.drugcraft.peyote_cactus": "Peyote Cactus",
+  "item.drugcraft.peyote": "Peyote",
+
+  "item.drugcraft.phosphor": "Phosphor",
+  "item.drugcraft.acid": "Acid",
+  "item.drugcraft.pseudo": "Pseudo",
+  "item.drugcraft.liquid_meth": "Liquid Meth",
+  "item.drugcraft.meth": "Meth",
+  "block.drugcraft.chemistry_station": "Chemistry Station",
+  "block.drugcraft.tray": "Tray",
+
+  "item.drugcraft.liquid_dmt": "Liquid DMT",
+  "item.drugcraft.dmt": "DMT",
+  "item.drugcraft.drug_pipe": "Drug Pipe",
+
+  "block.drugcraft.mimosa_leaves": "Mimosa Leaves",
+  "block.drugcraft.mimosa_sapling": "Mimosa Sapling",
+  "item.drugcraft.mimosa_bark": "Mimosa Bark",
 
   "effect.drugcraft.hallucination": "Hallucination",
+  "effect.drugcraft.smoked": "Smoked",
 
   "creativetab.drugcraft_tab": "DrugCraft Tab",
 
-  "death.attack.cigarette": "%1$s murió por causas naturales"
+  "death.attack.cigarette": "%1$s died of natural causes",
+
+  "advancement.drugcraft.eleganto": "Very eleganto",
+    "advancement.drugcraft.eleganto.desc": "Get the WISDOM PIPE",
+
+  "advancement.drugcraft.time_to_cook": "It's Time to Cook, Jesse",
+  "advancement.drugcraft.time_to_cook.desc": "Obtain Liquid Meth",
+
+  "advancement.drugcraft.breaking_bad": "Breaking Bad",
+  "advancement.drugcraft.breaking_bad.desc": "Obtain Meta",
+
+  "advancement.drugcraft.into_the_spirit_realm": "Into the Spirit Realm",
+  "advancement.drugcraft.into_the_spirit_realm.desc": "Obtain DMT",
+
+  "advancement.drugcraft.la_soga_del_muerto": "The Rope of the Dead",
+  "advancement.drugcraft.la_soga_del_muerto.desc": "Obtain Ayahuasca",
+  
+  "advancement.drugcraft.arnold": "Arnold",
+  "advancement.drugcraft.arnold.desc": "Get the favourite cigar of Arnold Schwarzenegger",
+
+  "advancement.drugcraft.aura": "Aura",
+  "advancement.drugcraft.aura.desc": "Smoke like a boss"
 }

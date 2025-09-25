@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:desert",
+    "minecraft:savanna",
+    "minecraft:badlands"
+  ],
+  "features": "drugcraft:wild_peyote_cactus_placed",
+  "step": "vegetal_decoration"
+}
