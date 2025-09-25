@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:cigarette" },
+    "title": { "translate": "advancement.drugcraft.aura" },
+    "description": { "translate": "advancement.drugcraft.aura.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_lean": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": [
+          {
+            "items": ["drugcraft:cigarette"]
+          }
+        ]
+      }
+    }
+  }
+}
