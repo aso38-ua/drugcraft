@@ -107,5 +107,8 @@
 
   "creativetab.drugcraft_tab": "DrugCraft Tab",
 
-  "death.attack.cigarette": "%1$s died of natural causes"
+  "death.attack.cigarette": "%1$s died of natural causes",
+
+  "advancement.drugcraft.eleganto": "Very eleganto",
+  "advancement.drugcraft.eleganto.desc": "Get the WISDOM PIPE"
 }

@@ -1,6 +1,18 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "drugcraft:item/malmoro_gold_cigarette"
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "drugcraft:item/malmoro_gold_cigarette_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "drugcraft:item/malmoro_gold_cigarette_2d"
+    },
+    "ground": {
+      "parent": "drugcraft:item/malmoro_gold_cigarette_2d"
+    },
+    "fixed": {
+      "parent": "drugcraft:item/malmoro_gold_cigarette_2d"
+    }
   }
 }
