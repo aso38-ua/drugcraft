@@ -80,6 +80,7 @@ public class ModPlacedFeatures {
         register(context, WILD_TOBACCO_PLACED_KEY,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.WILD_TOBACCO_KEY),
                 List.of(
+                        RarityFilter.onAverageOnceEvery(4),
                         CountPlacement.of(5), // densidad
                         InSquarePlacement.spread(),
                         HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
