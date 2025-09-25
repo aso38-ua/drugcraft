@@ -32,7 +32,7 @@
 ---
 
 ## 🛠 Compatibility  
-- Designed for modern versions of Minecraft (specify version here)  
+- Designed for version of Minecraft 1.20.1 
 - Works alongside most content mods  
 
 ---
