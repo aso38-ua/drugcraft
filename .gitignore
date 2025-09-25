@@ -31,3 +31,4 @@ random_sequences.dat
 # === Recursos del sistema / macOS / Windows ===
 *.DS_Store
 Thumbs.db
+/run-data/config/fml.toml
