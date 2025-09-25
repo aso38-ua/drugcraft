@@ -15,12 +15,12 @@ public class ChemistryStationRecipes {
     static {
         // --- Receta de baja calidad ---
         {
-            ItemStack low = new ItemStack(ModItems.LIQUID_METH.get());
-            LiquidMethItem.setQuality(low, "low");
+            ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
+            LiquidMethItem.setQuality(medium, "medium");
 
             recipes.put(
                     Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.EPHEDRINE.get()),
-                    createLiquidMeth("low")
+                    createLiquidMeth("medium")
             );
         }
 
@@ -64,9 +64,9 @@ public class ChemistryStationRecipes {
         Random rand = new Random();
         int purity = switch (quality) {
             case "high" -> 80 + rand.nextInt(21);   // 80–100
-            case "medium" -> 50 + rand.nextInt(31); // 50–80
-            case "low" -> 30 + rand.nextInt(31);    // 30–60
-            case "burnt" -> rand.nextInt(21);       // 0–20
+            case "medium" -> 40 + rand.nextInt(41); // 50–80
+            case "low" -> 10 + rand.nextInt(31);    // 10–40
+            case "burnt" -> rand.nextInt(10);       // 0–10
             default -> 0;
         };
         LiquidMethItem.setPurity(stack, purity);

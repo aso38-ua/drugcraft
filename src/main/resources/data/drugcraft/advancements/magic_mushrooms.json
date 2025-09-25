@@ -1,6 +1,6 @@
 {
   "display": {
-    "icon": { "item": "drugcraft:shrooms" },
+    "icon": { "item": "drugcraft:mooshrooms" },
     "title": { "translate": "advancement.drugcraft.magic_mushrooms" },
     "description": { "translate": "advancement.drugcraft.magic_mushrooms.desc" },
     "frame": "task",
@@ -13,7 +13,7 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          { "items": ["drugcraft:shrooms"] }
+          { "items": ["drugcraft:mooshrooms"] }
         ]
       }
     }
