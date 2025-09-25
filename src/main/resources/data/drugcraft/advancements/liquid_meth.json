@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:liquid_meth" },
+    "title": { "translate": "advancement.drugcraft.time_to_cook" },
+    "description": { "translate": "advancement.drugcraft.time_to_cook.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_liquid_meth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["drugcraft:liquid_meth"] }
+        ]
+      }
+    }
+  }
+}

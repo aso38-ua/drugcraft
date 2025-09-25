@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "B B",
+    "C C"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "B": { "item": "minecraft:brewing_stand" },
+    "C": { "item": "minecraft:chest" }
+  },
+  "result": {
+    "item": "drugcraft:chemistry_station"
+  }
+}
