@@ -122,5 +122,11 @@
   "advancement.drugcraft.into_the_spirit_realm.desc": "Obtain DMT",
 
   "advancement.drugcraft.la_soga_del_muerto": "The Rope of the Dead",
-  "advancement.drugcraft.la_soga_del_muerto.desc": "Obtain Ayahuasca"
+  "advancement.drugcraft.la_soga_del_muerto.desc": "Obtain Ayahuasca",
+  
+  "advancement.drugcraft.arnold": "Arnold",
+  "advancement.drugcraft.arnold.desc": "Get the favourite cigar of Arnold Schwarzenegger",
+
+  "advancement.drugcraft.aura": "Aura",
+  "advancement.drugcraft.aura.desc": "Smoke like a boss"
 }
