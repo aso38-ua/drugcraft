@@ -43,6 +43,15 @@ public class EphedraBushBlock extends BushBlock implements BonemealableBlock {
                 super.mayPlaceOn(state, world, pos);
     }
 
+    @Override
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        int age = state.getValue(AGE);
+        if (age < 3 && random.nextInt(5) == 0) { // 20% de probabilidad por tick
+            world.setBlock(pos, state.setValue(AGE, age + 1), 2);
+        }
+    }
+
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<net.minecraft.world.level.block.Block, BlockState> builder) {

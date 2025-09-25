@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:ayahuasca" },
+    "title": { "translate": "advancement.drugcraft.la_soga_del_muerto" },
+    "description": { "translate": "advancement.drugcraft.la_soga_del_muerto.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_ayahuasca": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["drugcraft:ayahuasca"] }
+        ]
+      }
+    }
+  }
+}
