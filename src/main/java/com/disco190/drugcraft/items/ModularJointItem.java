@@ -89,7 +89,7 @@ public class ModularJointItem extends Item {
         ItemStack otherHand = player.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
 
         // Comprobar mechero
-        if (otherHand.getItem() != Items.FLINT_AND_STEEL) {
+        if (otherHand.getItem() != Items.FLINT_AND_STEEL && otherHand.getItem() != ModItems.IRON_LIGHTER.get() && otherHand.getItem() != ModItems.GOLD_LIGHTER.get() && otherHand.getItem() != ModItems.DIAMOND_LIGHTER.get()) {
             if (!world.isClientSide)
                 player.displayClientMessage(Component.literal("Necesitas un mechero en la otra mano!"), true);
             return InteractionResultHolder.fail(stack);

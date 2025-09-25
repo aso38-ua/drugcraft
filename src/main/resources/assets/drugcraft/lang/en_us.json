@@ -28,7 +28,7 @@
 
   "item.drugcraft.cigarette": "Cigarette",
   "item.drugcraft.malmoro_cigarette": "Malmoro Cigarette",
-  "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD",
+  "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD cigarette",
   "item.drugcraft.camello_cigarette": "Camello Cigarette",
   "item.drugcraft.lucky_stroke_cigarette": "Lucky Stroke Cigarette",
   "item.drugcraft.horizonte_cigarette": "Horizonte Cigarette",
@@ -109,8 +109,8 @@
 
   "death.attack.cigarette": "%1$s died of natural causes",
 
-  "advancement.drugcraft.eleganto": "Very Eleganto",
-  "advancement.drugcraft.eleganto.desc": "Get the WISDOM PIPE",
+  "advancement.drugcraft.eleganto": "Very eleganto",
+    "advancement.drugcraft.eleganto.desc": "Get the WISDOM PIPE",
 
   "advancement.drugcraft.time_to_cook": "It's Time to Cook, Jesse",
   "advancement.drugcraft.time_to_cook.desc": "Obtain Liquid Meth",
@@ -122,5 +122,11 @@
   "advancement.drugcraft.into_the_spirit_realm.desc": "Obtain DMT",
 
   "advancement.drugcraft.la_soga_del_muerto": "The Rope of the Dead",
-  "advancement.drugcraft.la_soga_del_muerto.desc": "Obtain Ayahuasca"
+  "advancement.drugcraft.la_soga_del_muerto.desc": "Obtain Ayahuasca",
+  
+  "advancement.drugcraft.arnold": "Arnold",
+  "advancement.drugcraft.arnold.desc": "Get the favourite cigar of Arnold Schwarzenegger",
+
+  "advancement.drugcraft.aura": "Aura",
+  "advancement.drugcraft.aura.desc": "Smoke like a boss"
 }

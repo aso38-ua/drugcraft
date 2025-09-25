@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": { "item": "drugcraft:esplendido_cigar" },
+    "title": { "translate": "advancement.drugcraft.arnold" },
+    "description": { "translate": "advancement.drugcraft.arnold.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_lean": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "item": [
+          {
+            "items": ["drugcraft:esplendido_cigar"]
+          }
+        ]
+      }
+    }
+  }
+}
