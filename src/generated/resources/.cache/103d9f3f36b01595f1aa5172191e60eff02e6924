@@ -1,0 +1,9 @@
+// 1.20.1	2025-09-25T13:08:52.638336001	Registries
+cc85f74ce9f5131356253be06eb60dc79dc92dcf data/drugcraft/worldgen/configured_feature/blaze_kush.json
+c9ae4cff00c8466546027f00ae4e23cb5dc1f1f6 data/drugcraft/worldgen/configured_feature/ephedra_bush.json
+676412d31c8d948b440b488e4dead43c12211b17 data/drugcraft/worldgen/configured_feature/mimosa.json
+aedee2c7d65f3d6cd5da58924823315ea10dcd9f data/drugcraft/worldgen/configured_feature/wild_tobacco.json
+3e112982ef2b9e3db55030abd53018f7d617949d data/drugcraft/worldgen/placed_feature/blaze_kush_placed.json
+5f2d2663986ff68e00653d3e9b059dc211597fa9 data/drugcraft/worldgen/placed_feature/ephedra_bush_placed.json
+cb4cd3df4691e3f36c0c96991b4ff61c839ada35 data/drugcraft/worldgen/placed_feature/mimosa_placed.json
+fdf2d5f5ff7d5efb5ad879ae9fc84fa9531dce07 data/drugcraft/worldgen/placed_feature/wild_tobacco_placed.json
