@@ -36,6 +36,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLAZE_KUSH_NATURAL = BLOCKS.register("blaze_kush_natural",
             BlazeKushNaturalBlock::new);
 
+    public static final RegistryObject<Block> WILD_TOBACCO = BLOCKS.register("wild_tobacco",
+            WildTobaccoBlock::new);
+
     // Registro del bloque
     public static final RegistryObject<Block> WILD_MOOSHROOMS = BLOCKS.register("wild_mooshrooms",
             WildMooshroomsBlock::new);

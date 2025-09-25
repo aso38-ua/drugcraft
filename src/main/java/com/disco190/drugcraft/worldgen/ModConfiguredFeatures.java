@@ -28,6 +28,9 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLAZE_KUSH_KEY = registerKey("blaze_kush");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WILD_TOBACCO_KEY =
+            registerKey("wild_tobacco");
+
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         register(context, MIMOSA_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.MIMOSA_LOG.get()),
@@ -59,7 +62,7 @@ public class ModConfiguredFeatures {
                 new ConfiguredFeature<>(
                         Feature.RANDOM_PATCH,
                         FeatureUtils.simpleRandomPatchConfiguration(
-                                12, // número de intentos como en el JSON
+                                4, // número de intentos como en el JSON
                                 PlacementUtils.onlyWhenEmpty(
                                         Feature.SIMPLE_BLOCK,
                                         new SimpleBlockConfiguration(
@@ -67,6 +70,21 @@ public class ModConfiguredFeatures {
                                                         ModBlocks.BLAZE_KUSH_NATURAL.get()
                                                                 .defaultBlockState()
                                                 )
+                                        )
+                                )
+                        )
+                )
+        );
+
+        context.register(WILD_TOBACCO_KEY,
+                new ConfiguredFeature<>(
+                        Feature.RANDOM_PATCH,
+                        FeatureUtils.simpleRandomPatchConfiguration(
+                                6,
+                                PlacementUtils.onlyWhenEmpty(
+                                        Feature.SIMPLE_BLOCK,
+                                        new SimpleBlockConfiguration(
+                                                BlockStateProvider.simple(ModBlocks.WILD_TOBACCO.get().defaultBlockState())
                                         )
                                 )
                         )

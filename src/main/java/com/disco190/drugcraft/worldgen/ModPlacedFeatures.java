@@ -24,6 +24,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MIMOSA_PLACED_KEY = registerKey("mimosa_placed");
     public static final ResourceKey<PlacedFeature> EPHEDRA_BUSH_PLACED_KEY = registerKey("ephedra_bush_placed");
     public static final ResourceKey<PlacedFeature> BLAZE_KUSH_PLACED_KEY = registerKey("blaze_kush_placed");
+    public static final ResourceKey<PlacedFeature> WILD_TOBACCO_PLACED_KEY =
+            registerKey("wild_tobacco_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -63,7 +65,7 @@ public class ModPlacedFeatures {
         register(context, BLAZE_KUSH_PLACED_KEY,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.BLAZE_KUSH_KEY),
                 List.of(
-                        RarityFilter.onAverageOnceEvery(5), // más raro
+                        RarityFilter.onAverageOnceEvery(4), // más raro
                         CountPlacement.of(2),               // hasta 3 por chunk
                         InSquarePlacement.spread(),
                         HeightRangePlacement.uniform(
@@ -73,6 +75,16 @@ public class ModPlacedFeatures {
                         BiomeFilter.biome()
                 )
 
+        );
+
+        register(context, WILD_TOBACCO_PLACED_KEY,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.WILD_TOBACCO_KEY),
+                List.of(
+                        CountPlacement.of(5), // densidad
+                        InSquarePlacement.spread(),
+                        HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
+                        BiomeFilter.biome()
+                )
         );
 
 

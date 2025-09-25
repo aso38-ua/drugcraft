@@ -19,21 +19,21 @@
 
 
   "item.drugcraft.tobacco_seeds": "Tobacco Seeds",
-  "item.drugcraft.tripa": "tripa",
-  "item.drugcraft.capote": "capote",
-  "item.drugcraft.capa": "capa",
-  "item.drugcraft.cured_tripa": "cured_tripa",
-  "item.drugcraft.cured_capote": "cured_capote",
-  "item.drugcraft.cured_capa": "cured_capa",
+  "item.drugcraft.tripa": "Tripa",
+  "item.drugcraft.capote": "Capote",
+  "item.drugcraft.capa": "Capa",
+  "item.drugcraft.cured_tripa": "Cured Tripa",
+  "item.drugcraft.cured_capote": "Cured Capote",
+  "item.drugcraft.cured_capa": "Cured Capa",
 
   "item.drugcraft.cigarette": "Cigarette",
-  "item.drugcraft.malmoro_cigarette": "Malmoro cigarette",
+  "item.drugcraft.malmoro_cigarette": "Malmoro Cigarette",
   "item.drugcraft.malmoro_gold_cigarette": "Malmoro GOLD",
-  "item.drugcraft.camello_cigarette": "Camello cigarette",
-  "item.drugcraft.lucky_stroke_cigarette": "Lucky Stroke cigarette",
-  "item.drugcraft.horizonte_cigarette": "Horizonte cigarette",
+  "item.drugcraft.camello_cigarette": "Camello Cigarette",
+  "item.drugcraft.lucky_stroke_cigarette": "Lucky Stroke Cigarette",
+  "item.drugcraft.horizonte_cigarette": "Horizonte Cigarette",
 
-  "item.drugcraft.pack_of_cigarettes": "Pack of cigarettes",
+  "item.drugcraft.pack_of_cigarettes": "Pack of Cigarettes",
   "item.drugcraft.pack_of_malmoro": "Pack of Malmoro",
   "item.drugcraft.pack_of_malmoro_gold": "Pack of Malmoro GOLD",
   "item.drugcraft.pack_of_camello": "Pack of Camello",
@@ -45,12 +45,12 @@
   "item.drugcraft.torito_cigar": "Torito",
 
   "item.drugcraft.cardboard": "Cardboard",
-  "item.drugcraft.rolling_tobacco": "Rolling tobacco",
-  "item.drugcraft.rolling_cigarette": "Rolling cigarette",
-  "item.drugcraft.wood_pipe": "Wood pipe",
-  "item.drugcraft.wisdom_pipe": "WISDOM pipe",
-  "item.drugcraft.loaded_wood_pipe": "Loaded wood pipe",
-  "item.drugcraft.loaded_wisdom_pipe": "Loaded WISDOM pipe",
+  "item.drugcraft.rolling_tobacco": "Rolling Tobacco",
+  "item.drugcraft.rolling_cigarette": "Rolling Cigarette",
+  "item.drugcraft.wood_pipe": "Wood Pipe",
+  "item.drugcraft.wisdom_pipe": "Wisdom pipe",
+  "item.drugcraft.loaded_wood_pipe": "Loaded Wood Pipe",
+  "item.drugcraft.loaded_wisdom_pipe": "Loaded Wisdom Pipe",
 
 
   "item.drugcraft.mooshrooms": "Magic Mushroom",
@@ -67,11 +67,11 @@
   "item.drugcraft.refreshment": "Refreshment",
   "item.drugcraft.lean": "Lean",
 
-  "item.drugcraft.horse_semen": "Horse semen",
+  "item.drugcraft.horse_semen": "Horse Semen",
 
-  "item.drugcraft.iron_lighter": "Iron lighter",
-  "item.drugcraft.gold_lighter": "Gold lighter",
-  "item.drugcraft.diamond_lighter": "Diamond lighter",
+  "item.drugcraft.iron_lighter": "Iron Lighter",
+  "item.drugcraft.gold_lighter": "Gold Lighter",
+  "item.drugcraft.diamond_lighter": "Diamond Lighter",
 
   "advancement.drugcraft.what_were_you_trying": "What were you trying?",
   "advancement.drugcraft.what_were_you_trying.desc": "Get a horse to ejaculate into a bucket",

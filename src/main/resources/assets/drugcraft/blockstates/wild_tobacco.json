@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": { "model": "drugcraft:block/wild_tobacco_bottom" },
+    "half=upper": { "model": "drugcraft:block/wild_tobacco_top" }
+  }
+}
