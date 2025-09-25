@@ -81,7 +81,7 @@ public class ModPlacedFeatures {
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.WILD_TOBACCO_KEY),
                 List.of(
                         RarityFilter.onAverageOnceEvery(4),
-                        CountPlacement.of(5), // densidad
+                        CountPlacement.of(3), // densidad
                         InSquarePlacement.spread(),
                         HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
                         BiomeFilter.biome()

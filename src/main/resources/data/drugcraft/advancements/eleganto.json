@@ -9,13 +9,11 @@
     "hidden": false
   },
   "criteria": {
-    "has_lean": {
+    "has_wisdom_pipe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
-        "item": [
-          {
-            "items": ["drugcraft:wisdom_pipe"]
-          }
+        "items": [
+          { "items": ["drugcraft:wisdom_pipe"] }
         ]
       }
     }

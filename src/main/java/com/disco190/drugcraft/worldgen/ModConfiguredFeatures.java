@@ -62,7 +62,7 @@ public class ModConfiguredFeatures {
                 new ConfiguredFeature<>(
                         Feature.RANDOM_PATCH,
                         FeatureUtils.simpleRandomPatchConfiguration(
-                                4, // número de intentos como en el JSON
+                                2, // número de intentos como en el JSON
                                 PlacementUtils.onlyWhenEmpty(
                                         Feature.SIMPLE_BLOCK,
                                         new SimpleBlockConfiguration(
@@ -80,7 +80,7 @@ public class ModConfiguredFeatures {
                 new ConfiguredFeature<>(
                         Feature.RANDOM_PATCH,
                         FeatureUtils.simpleRandomPatchConfiguration(
-                                6,
+                                2,
                                 PlacementUtils.onlyWhenEmpty(
                                         Feature.SIMPLE_BLOCK,
                                         new SimpleBlockConfiguration(
