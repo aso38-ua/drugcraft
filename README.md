@@ -1,3 +1,5 @@
+![Drugcraft Banner](images/banner.png)
+
 # Drugcraft
 
 **Drugcraft** is an immersive Minecraft mod that introduces a wide range of drug-related content, adding new plants, consumables, and tools to enhance gameplay and roleplay experiences.  
