@@ -70,6 +70,7 @@ public class LiquidMethItem extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         String quality = getQuality(stack);
         switch (quality) {
+            case "very_high" -> tooltip.add(Component.literal("Calidad: Muy Alta").withStyle(ChatFormatting.DARK_AQUA));
             case "high" -> tooltip.add(Component.literal("Calidad: Alta").withStyle(ChatFormatting.GREEN));
             case "medium" -> tooltip.add(Component.literal("Calidad: Media").withStyle(ChatFormatting.YELLOW));
             case "low" -> tooltip.add(Component.literal("Calidad: Baja").withStyle(ChatFormatting.RED));
@@ -113,6 +114,11 @@ public class LiquidMethItem extends Item {
         String quality = getQuality(stack);
 
         switch (quality) {
+            case "very_high" -> {
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 60, 1));
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 30, 1));
+            }
+
             case "high" -> {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 60, 1));
                 player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 30, 0));

@@ -27,12 +27,13 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
 
     public static final EnumProperty<DrugType> DRUG_TYPE = EnumProperty.create("drug_type", DrugType.class);
 
+    // Definición de la forma del bloque (VoxelShape)
     private static final VoxelShape SHAPE = Shapes.or(
-            Block.box(1, 1, 3, 15, 2, 13), // base
-            Block.box(1, 2, 3, 15, 3, 4),   // norte pared
-            Block.box(1, 2, 12, 15, 3, 13), // sur pared
-            Block.box(1, 2, 3, 2, 3, 13),   // oeste pared
-            Block.box(14, 2, 3, 15, 3, 13)  // este pared
+            Block.box(1, 1, 3, 15, 2, 13), // Base de la bandeja
+            Block.box(1, 2, 3, 15, 3, 4),  // Borde delantero
+            Block.box(1, 2, 12, 15, 3, 13),// Borde trasero
+            Block.box(1, 2, 3, 2, 3, 13),  // Borde izquierdo
+            Block.box(14, 2, 3, 15, 3, 13) // Borde derecho
     );
 
     public TrayWithSolidBlock() {
@@ -51,15 +52,21 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
     }
 
     @Override
+    public VoxelShape getShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos,
+                               net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPE;
+    }
+
+    @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new TrayWithSolidBlockEntity(pos, state);
     }
 
+    // CORRECCIÓN: Se devuelve null aquí.
+    // La bandeja sólida no tiene lógica de tiempo (como secado o cocción), por lo que no necesita un ticker.
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.TRAY_WITH_SOLID.get()
-                ? (lvl, pos, st, be) -> ((TrayWithSolidBlockEntity) be).tick()
-                : null;
+        return null;
     }
 
     @Override
@@ -73,19 +80,23 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
 
         ItemStack held = player.getItemInHand(hand);
 
+        // Lógica para recoger el contenido con un stick (palo)
         if (held.getItem() == net.minecraft.world.item.Items.STICK) {
             ItemStack drug = tray.getStoredDrug();
+            System.out.println("[DEBUG] use(STICK): drug=" + drug + " NBT=" + drug.getTag());
             if (!drug.isEmpty()) {
-                popResource(level, pos, drug);
+                ItemStack drop = drug.copy(); // aseguramos que se dropea con NBT intacto
+                popResource(level, pos, drop);
                 tray.clearStoredDrug();
 
+                // Sonido de rompimiento/recolección
                 level.playSound(null, pos,
                         net.minecraft.sounds.SoundEvents.GLASS_BREAK,
                         net.minecraft.sounds.SoundSource.BLOCKS,
                         1.0f, 1.0f);
 
-                // vuelve a la bandeja vacía
-                level.setBlock(pos, com.disco190.drugcraft.blocks.ModBlocks.TRAY.get().defaultBlockState(), 3);
+                // Volver a la bandeja vacía
+                level.setBlock(pos, ModBlocks.TRAY.get().defaultBlockState(), 3);
                 return InteractionResult.SUCCESS;
             }
         }
@@ -94,8 +105,14 @@ public class TrayWithSolidBlock extends BaseEntityBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos,
-                               net.minecraft.world.phys.shapes.CollisionContext context) {
-        return SHAPE;
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.hasBlockEntity() && (!state.is(newState.getBlock()) || !newState.hasBlockEntity())) {
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof TrayWithSolidBlockEntity tray) {
+                // Al romper el bloque, dropea el contenido
+                popResource(level, pos, tray.getStoredDrug());
+            }
+        }
+        super.onRemove(state, level, pos, newState, isMoving);
     }
 }

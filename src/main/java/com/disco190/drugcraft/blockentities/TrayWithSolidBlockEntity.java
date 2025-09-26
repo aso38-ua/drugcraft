@@ -44,10 +44,14 @@ public class TrayWithSolidBlockEntity extends BlockEntity {
     public void setStoredDrug(ItemStack stack, DrugType type) {
         this.storedDrug = stack.copy();
         this.drugType = type;
+        System.out.println("[DEBUG] setStoredDrug: " + stack.getItem() + " NBT=" + stack.getTag());
         setChanged();
     }
 
+
+
     public ItemStack getStoredDrug() {
+        // Asegurarse de que la copia devuelta contenga el NBT
         return storedDrug.copy();
     }
 
@@ -58,13 +62,5 @@ public class TrayWithSolidBlockEntity extends BlockEntity {
 
     public boolean isEmpty() {
         return storedDrug.isEmpty();
-    }
-
-    public DrugType getDrugType() {
-        return drugType;
-    }
-
-    public void tick() {
-        // lógica extra si quieres
     }
 }

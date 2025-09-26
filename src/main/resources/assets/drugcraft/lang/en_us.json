@@ -61,6 +61,8 @@
 
   "item.drugcraft.ephedra_berries": "Ephedra Berries",
   "item.drugcraft.ephedrine": "Ephedrine",
+  "item.drugcraft.pure_ephedrine": "Pure Ephedrine",
+  "item.drugcraft.methylamine": "Methylamine",
   "block.drugcraft.ephedra_bush": "Ephedra Bush",
   "item.drugcraft.cough_syrup": "Cough Syrup",
   "item.drugcraft.candy": "Candy",
@@ -91,6 +93,8 @@
   "item.drugcraft.pseudo": "Pseudo",
   "item.drugcraft.liquid_meth": "Liquid Meth",
   "item.drugcraft.meth": "Meth",
+  "item.drugcraft.blue_liquid_meth": "Blue Liquid Meth",
+  "item.drugcraft.blue_meth": "Blue Meth",
   "block.drugcraft.chemistry_station": "Chemistry Station",
   "block.drugcraft.tray": "Tray",
 
