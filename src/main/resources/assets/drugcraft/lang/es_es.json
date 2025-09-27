@@ -59,6 +59,8 @@
 
   "item.drugcraft.ephedra_berries": "Bayas de efedra",
   "item.drugcraft.ephedrine": "Efedrina",
+  "item.drugcraft.pure_ephedrine": "Efedrina Pura",
+  "item.drugcraft.methylamine": "Metilamina",
   "block.drugcraft.ephedra_bush": "Arbusto de efedra",
   "item.drugcraft.cough_syrup": "Jarabe para la tos",
   "item.drugcraft.candy": "Caramelos",
@@ -120,7 +122,7 @@
   "advancement.drugcraft.into_the_spirit_realm.desc": "Consigue DMT",
 
   "advancement.drugcraft.la_soga_del_muerto": "La Soga del Muerto",
-  "advancement.drugcraft.la_soga_del_muerto.desc": "Consigue Ayahuasca"
+  "advancement.drugcraft.la_soga_del_muerto.desc": "Consigue Ayahuasca",
 
   "advancement.drugcraft.arnold": "Arnold",
   "advancement.drugcraft.arnold.desc": "Consigue el puro favorito de Arnold Schwarzenegger",

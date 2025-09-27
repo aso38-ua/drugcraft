@@ -67,6 +67,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MOOSHROOMS_SEEDS.get());
                         pOutput.accept(ModItems.EPHEDRA_BERRIES.get());
                         pOutput.accept(ModItems.EPHEDRINE.get());
+                        pOutput.accept(ModItems.PURE_EPHEDRINE.get());
+                        pOutput.accept(ModItems.METHYLAMINE.get());
                         pOutput.accept(ModItems.COUGH_SYRUP.get());
                         pOutput.accept(ModItems.CANDY.get());
                         pOutput.accept(ModItems.REFRESHMENT.get());
@@ -78,6 +80,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PHOSPHOR.get());
                         pOutput.accept(ModItems.LIQUID_METH.get());
                         pOutput.accept(ModItems.METH.get());
+                        pOutput.accept(ModItems.BLUE_LIQUID_METH.get());
+                        pOutput.accept(ModItems.BLUE_METH.get());
                         pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
                         pOutput.accept(ModItems.TRAY_ITEM.get());
 

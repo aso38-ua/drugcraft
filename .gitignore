@@ -32,3 +32,13 @@ random_sequences.dat
 *.DS_Store
 Thumbs.db
 /run-data/config/fml.toml
+/src/generated/resources/.cache/103d9f3f36b01595f1aa5172191e60eff02e6924
+/src/generated/resources/data/drugcraft/worldgen/configured_feature/blaze_kush.json
+/src/generated/resources/data/drugcraft/worldgen/placed_feature/blaze_kush_placed.json
+/src/generated/resources/data/drugcraft/worldgen/configured_feature/ephedra_bush.json
+/src/generated/resources/data/drugcraft/worldgen/placed_feature/ephedra_bush_placed.json
+/src/generated/resources/data/drugcraft/worldgen/configured_feature/mimosa.json
+/src/generated/resources/data/drugcraft/worldgen/placed_feature/mimosa_placed.json
+/src/generated/resources/data/drugcraft/worldgen/configured_feature/wild_tobacco.json
+/src/generated/resources/data/drugcraft/worldgen/placed_feature/wild_tobacco_placed.json
+/src/generated/resources/.cache/

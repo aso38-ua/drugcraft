@@ -14,4 +14,7 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> BLAZE_KUSH_MODIFIER_KEY =
             ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(Drugcraft.MODID, "add_blaze_kush_natural"));
+
+    public static final ResourceKey<BiomeModifier> WILD_TOBACCO_MODIFIER_KEY =
+            ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(Drugcraft.MODID, "wild_tobacco_modifier"));
 }

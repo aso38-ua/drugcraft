@@ -1,0 +1,23 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "blue_liquid_meth",
+		"particle": "blue_liquid_meth"
+	},
+	"elements": [
+		{
+			"from": [2, 1, 4],
+			"to": [14, 2, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 4]},
+			"faces": {
+				"north": {"uv": [0.39193, 0.66859, 15.34294, 15.08646], "texture": "#0"},
+				"east": {"uv": [0.7147, 0.80692, 15.10086, 14.99424], "texture": "#0"},
+				"south": {"uv": [0.43804, 0.66859, 15.38905, 15.38617], "texture": "#0"},
+				"west": {"uv": [0.57637, 0.80692, 14.96254, 14.76369], "texture": "#0"},
+				"up": {"uv": [0.48415, 0.39193, 15.11239, 15.81556], "texture": "#0"},
+				"down": {"uv": [0.48415, 0.43804, 15.29683, 15.10086], "texture": "#0"}
+			}
+		}
+	]
+}

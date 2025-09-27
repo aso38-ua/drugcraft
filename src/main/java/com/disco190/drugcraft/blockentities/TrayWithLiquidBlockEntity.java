@@ -1,10 +1,13 @@
 package com.disco190.drugcraft.blockentities;
 
 import com.disco190.drugcraft.blocks.ModBlocks;
+import com.disco190.drugcraft.blocks.TrayWithSolidBlock;
 import com.disco190.drugcraft.item.ModItems;
+import com.disco190.drugcraft.items.MethItem; // Necesario para usar setPurity
 import com.disco190.drugcraft.registry.ModBlockEntities;
 import com.disco190.drugcraft.util.DrugType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -33,30 +36,41 @@ public class TrayWithLiquidBlockEntity extends BlockEntity {
     }
 
     private void transformToSolid(Level level, BlockPos pos) {
-        // Cambiar bloque a sólido con drug_type correcto
-        level.setBlock(pos,
-                ModBlocks.TRAY_WITH_SOLID.get().defaultBlockState()
-                        .setValue(com.disco190.drugcraft.blocks.TrayWithSolidBlock.DRUG_TYPE, drugType),
+        System.out.println("[DEBUG] transformToSolid: drugType=" + drugType + " storedLiquid=" + storedLiquid + " NBT=" + storedLiquid.getTag());
+
+        level.setBlock(pos, ModBlocks.TRAY_WITH_SOLID.get()
+                        .defaultBlockState()
+                        .setValue(TrayWithSolidBlock.DRUG_TYPE, drugType),
                 3);
 
         BlockEntity newBE = level.getBlockEntity(pos);
         if (newBE instanceof TrayWithSolidBlockEntity solidBE) {
-            // Resultado sólido
             ItemStack result = switch (drugType) {
-                case METH -> new ItemStack(ModItems.METH.get(), 2);
-                case DMT  -> new ItemStack(ModItems.DMT.get(), 1);
+                case METH      -> new ItemStack(ModItems.METH.get(), 2);
+                case DMT       -> new ItemStack(ModItems.DMT.get(), 1);
+                case BLUE_METH -> new ItemStack(ModItems.BLUE_METH.get(), 2);
             };
+
+            if (!storedLiquid.isEmpty() && storedLiquid.hasTag()) {
+                result.setTag(storedLiquid.getTag().copy());
+            }
+
+            System.out.println("[DEBUG] transformToSolid: resultItem=" + result + " NBT=" + result.getTag());
 
             solidBE.setStoredDrug(result, drugType);
         }
     }
 
+
+
     public void setStoredLiquid(ItemStack stack) {
         this.storedLiquid = stack.copy();
+        System.out.println("[DEBUG] setStoredLiquid: " + stack.getItem() + " NBT=" + stack.getTag());
 
-        // detectar tipo de droga por el ítem
-        if (stack.getItem() == com.disco190.drugcraft.item.ModItems.LIQUID_DMT.get()) {
+        if (stack.getItem() == ModItems.LIQUID_DMT.get()) {
             this.drugType = DrugType.DMT;
+        } else if (stack.getItem() == ModItems.BLUE_LIQUID_METH.get()) {
+            this.drugType = DrugType.BLUE_METH;
         } else {
             this.drugType = DrugType.METH;
         }
@@ -64,7 +78,36 @@ public class TrayWithLiquidBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    public ItemStack getStoredLiquid() {
-        return storedLiquid.copy();
+
+    // Getters y Save/Load
+
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        tag.putInt("Progress", progress);
+        tag.putString("DrugType", drugType.getSerializedName());
+        if (!storedLiquid.isEmpty()) {
+            tag.put("StoredLiquid", storedLiquid.save(new CompoundTag()));
+        }
+    }
+
+    @Override
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        progress = tag.getInt("Progress");
+        if (tag.contains("DrugType")) {
+            try {
+                drugType = DrugType.valueOf(tag.getString("DrugType").toUpperCase());
+            } catch (IllegalArgumentException ignored) {
+                drugType = DrugType.METH; // fallback
+            }
+        }
+        if (tag.contains("StoredLiquid")) {
+            storedLiquid = ItemStack.of(tag.getCompound("StoredLiquid"));
+        }
+    }
+
+    public int getProgress() {
+        return progress;
     }
 }
