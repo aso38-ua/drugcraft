@@ -13,7 +13,18 @@ public class ChemistryStationRecipes {
     private static final Map<List<Item>, ItemStack> recipes = new HashMap<>();
 
     static {
-        // --- Receta de baja calidad ---
+        // --- Receta de media calidad ---
+
+        {
+            ItemStack medium = new ItemStack(ModItems.BLUE_LIQUID_METH.get());
+            LiquidMethItem.setQuality(medium, "very_high");
+
+            recipes.put(
+                    Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.METHYLAMINE.get()),
+                    createBlueLiquidMeth("very_high")
+            );
+        }
+
         {
             ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
             LiquidMethItem.setQuality(medium, "medium");
@@ -24,27 +35,36 @@ public class ChemistryStationRecipes {
             );
         }
 
-        // --- Receta de calidad media ---
-        /*{
+        {
             ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
-            LiquidMethItem.setQuality(medium, "medium");
+            LiquidMethItem.setQuality(medium, "low");
 
             recipes.put(
-                    Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.EPHEDRINE.get()),
-                    medium
+                    Arrays.asList(Items.GUNPOWDER, ModItems.PHOSPHOR.get(), ModItems.EPHEDRINE.get()),
+                    createLiquidMeth("low")
             );
-        }*/
+        }
 
-        // --- Receta de alta calidad ---
-        /*{
-            ItemStack high = new ItemStack(ModItems.LIQUID_METH.get());
-            LiquidMethItem.setQuality(high, "high");
+        {
+            ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
+            LiquidMethItem.setQuality(medium, "burnt");
+
+            recipes.put(
+                    Arrays.asList(Items.GUNPOWDER, Items.REDSTONE, ModItems.EPHEDRA_BERRIES.get()),
+                    createLiquidMeth("burnt")
+            );
+        }
+
+        // --- Receta de media calidad ---
+        {
+            ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
+            LiquidMethItem.setQuality(medium, "high");
 
             recipes.put(
                     Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.PURE_EPHEDRINE.get()),
-                    high
+                    createLiquidMeth("high")
             );
-        }*/
+        }
 
         // Ejemplo de otra receta: ACID crafting
         recipes.put(
@@ -55,6 +75,24 @@ public class ChemistryStationRecipes {
                 ),
                 new ItemStack(ModItems.ACID.get())
         );
+
+        recipes.put(
+                Arrays.asList(
+                        ModItems.EPHEDRINE.get(),   // ephedrine base (ya existente en tu mod)
+                        Items.GLOWSTONE_DUST,       // purificación / catalizador
+                        Items.REDSTONE              // reactivo/catalizador adicional (coste)
+                ),
+                new ItemStack(ModItems.PURE_EPHEDRINE.get())
+        );
+
+        recipes.put(
+                Arrays.asList(
+                        ModItems.PURE_EPHEDRINE.get(), // requiere la pure_ephedrine (cadena de crafting)
+                        Items.BLAZE_POWDER,            // energía/calor (elemento valioso)
+                        Items.GUNPOWDER                // componente reactivo / peligroso (ajusta si quieres)
+                ),
+                new ItemStack(ModItems.METHYLAMINE.get())
+        );
     }
 
     private static ItemStack createLiquidMeth(String quality) {
@@ -63,8 +101,9 @@ public class ChemistryStationRecipes {
 
         Random rand = new Random();
         int purity = switch (quality) {
-            case "high" -> 80 + rand.nextInt(21);   // 80–100
-            case "medium" -> 40 + rand.nextInt(41); // 50–80
+            case "very_high" -> 90 + rand.nextInt(11); // 90–100
+            case "high" -> 70 + rand.nextInt(21);   // 70–90
+            case "medium" -> 40 + rand.nextInt(30); // 50–69
             case "low" -> 10 + rand.nextInt(31);    // 10–40
             case "burnt" -> rand.nextInt(10);       // 0–10
             default -> 0;
@@ -74,6 +113,24 @@ public class ChemistryStationRecipes {
         return stack;
     }
 
+    private static ItemStack createBlueLiquidMeth(String quality) {
+        ItemStack stack = new ItemStack(ModItems.BLUE_LIQUID_METH.get());
+        LiquidMethItem.setQuality(stack, quality);
+
+        Random rand = new Random();
+        int purity = switch (quality) {
+            case "very_high" -> 90 + rand.nextInt(11);
+            case "high" -> 70 + rand.nextInt(21);
+            case "medium" -> 40 + rand.nextInt(30);
+            case "low" -> 10 + rand.nextInt(31);
+            case "burnt" -> rand.nextInt(10);
+            default -> 0;
+        };
+        LiquidMethItem.setPurity(stack, purity);
+        return stack;
+    }
+
+
 
 
 
@@ -82,6 +139,7 @@ public class ChemistryStationRecipes {
         for (Map.Entry<List<Item>, ItemStack> entry : recipes.entrySet()) {
             List<Item> recipe = entry.getKey();
             boolean matches = true;
+
             for (Item r : recipe) {
                 boolean found = false;
                 for (ItemStack s : inputs) {
@@ -95,17 +153,19 @@ public class ChemistryStationRecipes {
                     break;
                 }
             }
+
             if (matches) {
                 ItemStack base = entry.getValue();
-                ItemStack result = new ItemStack(base.getItem(), base.getCount());
+                ItemStack result = base.copy(); // hace copia profunda del stack
                 if (base.hasTag()) {
-                    result.setTag(base.getTag().copy());
+                    result.setTag(base.getTag().copy()); // asegura duplicado del NBT
                 }
                 return result;
             }
-
         }
         return ItemStack.EMPTY;
     }
+
+
 
 }

@@ -228,6 +228,12 @@ public class ModItems {
     public static final RegistryObject<Item> EPHEDRINE = ITEMS.register("ephedrine",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> METHYLAMINE = ITEMS.register("methylamine",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> PURE_EPHEDRINE = ITEMS.register("pure_ephedrine",
+            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> COUGH_SYRUP = ITEMS.register("cough_syrup",
             () -> new CoughSyrupItem(new Item.Properties()
                     .stacksTo(16)
@@ -327,6 +333,12 @@ public class ModItems {
             () -> new LiquidMethItem(new Item.Properties()));
 
     public static final RegistryObject<Item> METH = ITEMS.register("meth",
+            () -> new MethItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> BLUE_LIQUID_METH = ITEMS.register("blue_liquid_meth",
+            () -> new LiquidMethItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> BLUE_METH = ITEMS.register("blue_meth",
             () -> new MethItem(new Item.Properties()));
 
 

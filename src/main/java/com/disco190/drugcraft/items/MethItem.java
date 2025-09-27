@@ -65,6 +65,7 @@ public class MethItem extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         String quality = getQuality(stack);
         switch (quality) {
+            case "very_high" -> tooltip.add(Component.literal("Calidad: Muy Alta").withStyle(ChatFormatting.DARK_AQUA));
             case "high" -> tooltip.add(Component.literal("Calidad: Alta").withStyle(ChatFormatting.GREEN));
             case "medium" -> tooltip.add(Component.literal("Calidad: Media").withStyle(ChatFormatting.YELLOW));
             case "low" -> tooltip.add(Component.literal("Calidad: Baja").withStyle(ChatFormatting.RED));
@@ -97,6 +98,16 @@ public class MethItem extends Item {
 
         // Más fuertes que la versión líquida
         switch (quality) {
+
+            case "very_high" -> {
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 30 * 90, 2));
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60, 2));
+                player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20 * 10, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 30, 1));
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 30, 1));
+                player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 80 * 30, 1));
+            }
+
             case "high" -> {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 90, 2));
                 player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60, 1));
@@ -106,6 +117,7 @@ public class MethItem extends Item {
             case "medium" -> {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 60, 1));
                 player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20 * 10, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60, 0));
             }
             case "low" -> {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 40, 0));
@@ -120,7 +132,7 @@ public class MethItem extends Item {
 
         int purity = getPurity(stack);
 
-        if (quality.equals("high")) {
+        if (quality.equals("very_high")) {
             int amp = purity >= 95 ? 2 : 1; // más potencia si purity es >95
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * (purity/2), amp));
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * (purity/3), amp));

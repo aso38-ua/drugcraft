@@ -4,7 +4,8 @@ import net.minecraft.util.StringRepresentable;
 
 public enum DrugType implements StringRepresentable {
     METH("meth"),
-    DMT("dmt");
+    DMT("dmt"),
+    BLUE_METH("blue_meth");
 
     private final String name;
 

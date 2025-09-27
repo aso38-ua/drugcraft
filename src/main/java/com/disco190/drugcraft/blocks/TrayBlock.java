@@ -26,20 +26,25 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.Nullable; // Added import
+
 public class TrayBlock extends BaseEntityBlock {
 
     private static final VoxelShape SHAPE = Shapes.or(
-            Block.box(1, 0, 3, 15, 1, 13), // base
-            Block.box(1, 1, 3, 15, 2, 4),   // norte
-            Block.box(1, 1, 12, 15, 2, 13), // sur
-            Block.box(1, 1, 3, 2, 2, 13),   // oeste
-            Block.box(14, 1, 3, 15, 2, 13)  // este
+            Block.box(0, 0, 0, 16, 1, 16),
+            Block.box(0, 1, 0, 1, 3, 16),
+            Block.box(15, 1, 0, 16, 3, 16),
+            Block.box(1, 1, 0, 15, 3, 1),
+            Block.box(1, 1, 15, 15, 3, 16)
     );
 
-    public TrayBlock() {
-        super(BlockBehaviour.Properties.of()
-                .strength(1.0f)
-                .sound(SoundType.WOOD));
+    public TrayBlock(Properties properties) {
+        super(properties.strength(1.0f).sound(SoundType.WOOD).noOcclusion());
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE;
     }
 
     @Override
@@ -52,36 +57,31 @@ public class TrayBlock extends BaseEntityBlock {
         return new TrayBlockEntity(pos, state);
     }
 
-    @Override
-    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
-    }
-
+    // This method handles right-click interactions, such as placing liquid meth/DMT
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos,
                                  Player player, InteractionHand hand, BlockHitResult hit) {
 
-        if(level.isClientSide) return InteractionResult.SUCCESS;
+        if (level.isClientSide) return InteractionResult.SUCCESS;
 
         BlockEntity be = level.getBlockEntity(pos);
-        if(!(be instanceof TrayBlockEntity tray)) return InteractionResult.PASS;
+        if (!(be instanceof TrayBlockEntity tray)) return InteractionResult.PASS;
 
         ItemStack held = player.getItemInHand(hand);
 
-        // Si mete líquido válido (meth o dmt)
+        // Liquid Meth
         if (held.getItem() == ModItems.LIQUID_METH.get() && tray.isEmpty()) {
-            level.setBlock(pos, ModBlocks.TRAY_WITH_LIQUID.get()
-                    .defaultBlockState().setValue(TrayWithLiquidBlock.DRUG_TYPE, DrugType.METH), 3);
-
-            BlockEntity liquidBE = level.getBlockEntity(pos);
-            if (liquidBE instanceof TrayWithLiquidBlockEntity entity) {
-                entity.setStoredLiquid(new ItemStack(ModItems.LIQUID_METH.get()));
-            }
-
-            held.shrink(1);
+            placeLiquidInTray(pos, level, held, DrugType.METH);
             return InteractionResult.SUCCESS;
         }
 
+        // Blue Liquid Meth
+        if (held.getItem() == ModItems.BLUE_LIQUID_METH.get() && tray.isEmpty()) {
+            placeLiquidInTray(pos, level, held, DrugType.BLUE_METH);
+            return InteractionResult.SUCCESS;
+        }
+
+        // Liquid DMT (sin NBT)
         if (held.getItem() == ModItems.LIQUID_DMT.get() && tray.isEmpty()) {
             level.setBlock(pos, ModBlocks.TRAY_WITH_LIQUID.get()
                     .defaultBlockState().setValue(TrayWithLiquidBlock.DRUG_TYPE, DrugType.DMT), 3);
@@ -98,11 +98,48 @@ public class TrayBlock extends BaseEntityBlock {
         return InteractionResult.PASS;
     }
 
+    // ------------------------
+// Método auxiliar (fuera de use)
+// ------------------------
+    private void placeLiquidInTray(BlockPos pos, Level level, ItemStack stack, DrugType type) {
+        level.setBlock(pos, ModBlocks.TRAY_WITH_LIQUID.get()
+                .defaultBlockState().setValue(TrayWithLiquidBlock.DRUG_TYPE, type), 3);
 
+        BlockEntity liquidBE = level.getBlockEntity(pos);
+        if (liquidBE instanceof TrayWithLiquidBlockEntity entity) {
+            entity.setStoredLiquid(stack.copy()); // ✅ Copia con NBT
+        }
+
+        stack.shrink(1);
+    }
+
+
+
+
+
+    // This method handles dropping the contents when the block is broken
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.hasBlockEntity() && (!state.is(newState.getBlock()) || !newState.hasBlockEntity())) {
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof TrayBlockEntity tray) {
+                // Al romper el bloque, dropea el contenido
+                popResource(level, pos, tray.getContent());
+            }
+        }
+        super.onRemove(state, level, pos, newState, isMoving);
+    }
+
+    // This is the getTicker method, which was referencing the non-existent tick method.
+    // It now correctly points to the new static method in TrayBlockEntity.
+    @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.TRAY.get()
-                ? (BlockEntityTicker<T>) TrayBlockEntity.getTicker()
-                : null;
+        if (level.isClientSide) {
+            return null;
+        }
+
+        // CORRECTED: This line now references the newly added static tick method in TrayBlockEntity.
+        return createTickerHelper(type, ModBlockEntities.TRAY.get(), TrayBlockEntity::tick);
     }
 }

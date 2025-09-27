@@ -59,8 +59,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHEMISTRY_STATION = BLOCKS.register("chemistry_station",
             () -> new ChemistryStationBlock());
 
+    // Agregamos una constante de propiedades para bloques simples como la bandeja
+    private static final BlockBehaviour.Properties TRAY_PROPERTIES = BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)
+            .noOcclusion();
+
     public static final RegistryObject<Block> TRAY =
-            BLOCKS.register("tray", TrayBlock::new);
+            // CORRECCIÓN: Usar una expresión lambda para pasar las propiedades requeridas por el constructor
+            BLOCKS.register("tray", () -> new TrayBlock(TRAY_PROPERTIES));
 
     public static final RegistryObject<Block> TRAY_WITH_LIQUID = BLOCKS.register("tray_with_liquid",
             TrayWithLiquidBlock::new);

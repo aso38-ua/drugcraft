@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#minecraft:is_swamp",
   "features": "drugcraft:wild_tobacco_placed",
   "step": "vegetal_decoration"
 }
