@@ -132,5 +132,8 @@
   "advancement.drugcraft.arnold.desc": "Get the favourite cigar of Arnold Schwarzenegger",
 
   "advancement.drugcraft.aura": "Aura",
-  "advancement.drugcraft.aura.desc": "Smoke like a boss"
+  "advancement.drugcraft.aura.desc": "Smoke like a boss",
+
+  "block.drugcraft.wild_tobacco": "Wild tobacco",
+  "block.drugcraft.tobacco_crop": "Tobacco_crop"
 }

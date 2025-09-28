@@ -113,10 +113,10 @@
   "advancement.drugcraft.eleganto.desc": "Consigue la PIPA DE LA SABIDURÍA",
 
   "advancement.drugcraft.time_to_cook": "Es hora de cocinar, Jesse",
-  "advancement.drugcraft.time_to_cook.desc": "Crea Metanfétamina Líquida",
+  "advancement.drugcraft.time_to_cook.desc": "Crea Metanfetamina Líquida",
 
   "advancement.drugcraft.breaking_bad": "Breaking Bad",
-  "advancement.drugcraft.breaking_bad.desc": "Crea Metanfétamina",
+  "advancement.drugcraft.breaking_bad.desc": "Crea Metanfetamina",
 
   "advancement.drugcraft.into_the_spirit_realm": "En el Reino de los Espíritus",
   "advancement.drugcraft.into_the_spirit_realm.desc": "Consigue DMT",
@@ -126,7 +126,13 @@
 
   "advancement.drugcraft.arnold": "Arnold",
   "advancement.drugcraft.arnold.desc": "Consigue el puro favorito de Arnold Schwarzenegger",
-  
+
   "advancement.drugcraft.aura": "Aura",
-  "advancement.drugcraft.aura.desc": "Fuma como un jefe"
+  "advancement.drugcraft.aura.desc": "Fuma como un jefe",
+
+  "block.drugcraft.wild_tobacco": "Tabaco salvaje",
+  "block.drugcraft.tobacco_crop": "Planta de tabaco",
+
+  "item.drugcraft.blue_liquid_meth": "Metanfetamina azul líquida",
+  "item.drugcraft.blue_meth": "Metanfetamina azul"
 }
