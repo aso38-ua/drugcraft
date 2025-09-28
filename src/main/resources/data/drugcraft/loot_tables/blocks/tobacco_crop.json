@@ -19,21 +19,21 @@
       "name": "capa_pool",
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "drugcraft:capa", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:tobacco_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":2}}]}
+        { "type": "minecraft:item", "name": "drugcraft:capa", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:tobacco_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":0,"max":2}}]}
       ]
     },
     {
       "name": "capote_pool",
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "drugcraft:capote", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:tobacco_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":2}}]}
+        { "type": "minecraft:item", "name": "drugcraft:capote", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:tobacco_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":0,"max":2}}]}
       ]
     },
     {
       "name": "tripa_pool",
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "drugcraft:tripa", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:tobacco_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":1,"max":2}}]}
+        { "type": "minecraft:item", "name": "drugcraft:tripa", "conditions":[{"condition":"minecraft:block_state_property","block":"drugcraft:tobacco_crop","properties":{"age":7}}], "functions":[{"function":"minecraft:set_count","count":{"min":0,"max":2}}]}
       ]
     }
   ]
