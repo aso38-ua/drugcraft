@@ -71,9 +71,10 @@ public class ChemistryStationMenu extends AbstractContainerMenu {
 
             @Override
             public void onTake(Player player, ItemStack stack) {
-                if (blockEntity != null) {
-                    blockEntity.craftCurrentRecipe();
-                }
+                // NO llamamos a craftCurrentRecipe aquí (provocaba crafteo instantáneo/duplicado).
+                // Al tomar, el tick del BlockEntity ya gestionará reiniciar/seguir cocinando según inputs.
+                // Si quieres sincronizar de forma explícita:
+                if (blockEntity != null) blockEntity.setChanged();
                 super.onTake(player, stack);
             }
         });
@@ -114,10 +115,15 @@ public class ChemistryStationMenu extends AbstractContainerMenu {
 
     @Override
     public void slotsChanged(net.minecraft.world.Container inventory) {
-        if (blockEntity != null && inputHandler != null && outputHandler != null) {
-            ItemStack result = blockEntity.getResultForInputs();
-            outputHandler.insertItem(0, result, false);
-        }
+        // ESTA LÓGICA DEBE ELIMINARSE. LA MÁQUINA (TICK) MANEJA LA SALIDA.
+    /* if (blockEntity != null && inputHandler != null && outputHandler != null) {
+        ItemStack result = blockEntity.getResultForInputs();
+        outputHandler.insertItem(0, result, false);
+    }
+    */
+
+        // Solo necesitamos que el menú sepa que algo cambió (por ejemplo, si los inputs han cambiado).
+        // Si necesitas que el BE sepa que los slots cambiaron, usa el onContentsChanged del InputHandler.
         broadcastChanges();
     }
 

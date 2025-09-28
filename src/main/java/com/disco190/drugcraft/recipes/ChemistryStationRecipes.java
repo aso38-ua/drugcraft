@@ -99,16 +99,23 @@ public class ChemistryStationRecipes {
         ItemStack stack = new ItemStack(ModItems.LIQUID_METH.get());
         LiquidMethItem.setQuality(stack, quality);
 
-        Random rand = new Random();
-        int purity = switch (quality) {
-            case "very_high" -> 90 + rand.nextInt(11); // 90–100
-            case "high" -> 70 + rand.nextInt(21);   // 70–90
-            case "medium" -> 40 + rand.nextInt(30); // 50–69
-            case "low" -> 10 + rand.nextInt(31);    // 10–40
-            case "burnt" -> rand.nextInt(10);       // 0–10
-            default -> 0;
-        };
-        LiquidMethItem.setPurity(stack, purity);
+        // ELIMINAR ESTE BLOQUE DE ASIGNACIÓN DE PUREZA:
+    /*
+    Random rand = new Random();
+    int purity = switch (quality) {
+        case "very_high" -> 90 + rand.nextInt(11); // 90–100
+        case "high" -> 70 + rand.nextInt(21);   // 70–90
+        case "medium" -> 40 + rand.nextInt(30); // 50–69
+        case "low" -> 10 + rand.nextInt(31);    // 10–40
+        case "burnt" -> rand.nextInt(10);       // 0–10
+        default -> 0;
+    };
+    LiquidMethItem.setPurity(stack, purity);
+    */
+
+        // Opcional: Si LiquidMethItem requiere que 'Purity' esté presente,
+        // podrías establecerla a 0, pero lo mejor es dejar que la máquina lo haga.
+        // LiquidMethItem.setPurity(stack, 0);
 
         return stack;
     }
@@ -156,10 +163,16 @@ public class ChemistryStationRecipes {
 
             if (matches) {
                 ItemStack base = entry.getValue();
-                ItemStack result = base.copy(); // hace copia profunda del stack
-                if (base.hasTag()) {
-                    result.setTag(base.getTag().copy()); // asegura duplicado del NBT
-                }
+
+                // DEVOLVER SOLO UNA COPIA LIMPIA DEL ÍTEM DE LA RECETA BASE
+                ItemStack result = base.copy();
+
+                // NO ES NECESARIO HACER UNA COPIA PROFUNDA DEL TAG SI ASUMIMOS
+                // QUE LA RECETA BASE SOLO TIENE LA CALIDAD.
+                // Si el ítem base tuviera NBT, sí se necesita copiar el NBT también.
+                // Puesto que ya estás haciendo base.copy() y los tags se copian con base.copy()
+                // si el stack no está vacío, no hay problema, siempre que la pureza sea 0.
+
                 return result;
             }
         }

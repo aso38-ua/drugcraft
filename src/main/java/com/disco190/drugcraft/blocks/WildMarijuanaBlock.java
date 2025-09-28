@@ -1,5 +1,7 @@
 package com.disco190.drugcraft.blocks;
 
+import com.disco190.drugcraft.item.ModItems;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -39,6 +41,12 @@ public class WildMarijuanaBlock extends FlowerBlock {
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
         return 60;
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(BlockGetter world, BlockPos pos, BlockState state) {
+        // Devuelve la semilla correspondiente
+        return new ItemStack(ModItems.MARIJUANA_SEEDS.get());
     }
 
 }
