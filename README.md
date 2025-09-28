@@ -42,7 +42,7 @@
 ## 📦 Installation  
 1. Download the latest release from the [Releases](../../releases) page.  
 2. Place the `.jar` file into your `mods` folder.  
-3. Launch Minecraft with Forge or Fabric (depending on your version).  
+3. Launch Minecraft with Forge.
 
 ---
 
