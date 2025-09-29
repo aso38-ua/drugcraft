@@ -8,6 +8,8 @@
   "item.drugcraft.purple_haze_seeds": "Purple Haze Seeds",
   "item.drugcraft.purple_haze_joint": "Purple Haze Joint",
   "block.drugcraft.wild_marijuana": "Wild Marijuana Plant",
+  "block.drugcraft.wild_purple_haze": "Wild Purple Haze Plant",
+  "block.drugcraft.natural_blaze_kush": "Wild Blaze Kush Plant",
   "item.drugcraft.blaze_kush": "Blaze Kush",
   "item.drugcraft.blaze_kush_seeds": "Blaze Kush Seeds",
   "item.drugcraft.blaze_kush_joint": "Blaze Kush Joint",
@@ -108,6 +110,7 @@
 
   "effect.drugcraft.hallucination": "Hallucination",
   "effect.drugcraft.smoked": "Smoked",
+  "effect.drugcraft.dmt": "DMT",
 
   "creativetab.drugcraft_tab": "DrugCraft Tab",
 

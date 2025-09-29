@@ -69,6 +69,18 @@ public class ChemistryStationBlock extends BaseEntityBlock {
     }
 
     @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!state.is(newState.getBlock())) {
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof ChemistryStationBlockEntity station) {
+                station.dropContents();
+            }
+            super.onRemove(state, level, pos, newState, isMoving);
+        }
+    }
+
+
+    @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return createTickerHelper(type, ModBlockEntities.CHEMISTRY_STATION.get(),
                 ChemistryStationBlockEntity::tick);

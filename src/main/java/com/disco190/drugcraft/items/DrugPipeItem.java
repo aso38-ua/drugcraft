@@ -22,7 +22,7 @@ public class DrugPipeItem extends Item {
     private static final int USE_DURATION = 60; // 3 segundos
 
     public DrugPipeItem(Properties properties) {
-        super(properties);
+        super(properties.durability(64)); // pipa con 64 usos
     }
 
     @Override
@@ -30,9 +30,9 @@ public class DrugPipeItem extends Item {
         ItemStack pipe = player.getItemInHand(hand);
         ItemStack otherHand = player.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
 
-        if (otherHand.getItem() != ModItems.DMT.get()) {
+        if (!(otherHand.getItem() instanceof MethItem || otherHand.getItem() == ModItems.DMT.get())) {
             if (!world.isClientSide) {
-                player.displayClientMessage(Component.literal("¡Necesitas DMT en la otra mano!"), true);
+                player.displayClientMessage(Component.literal("¡Necesitas Meth o DMT en la otra mano!"), true);
             }
             return InteractionResultHolder.fail(pipe);
         }
@@ -41,20 +41,32 @@ public class DrugPipeItem extends Item {
         return InteractionResultHolder.consume(pipe);
     }
 
+
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
-        if (livingEntity instanceof Player player) {
-            if (!level.isClientSide) {
-                player.addEffect(new MobEffectInstance(ModEffects.DMT_EFFECT.get(), 1800, 0));
+        if (livingEntity instanceof Player player && !level.isClientSide) {
+            ItemStack otherHand = player.getItemInHand(
+                    player.getUsedItemHand() == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND
+            );
 
-                ItemStack otherHand = player.getItemInHand(player.getUsedItemHand() == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
-                if (otherHand.getItem() == ModItems.DMT.get()) {
-                    otherHand.shrink(1);
-                }
+            if (otherHand.getItem() instanceof MethItem meth) {
+                meth.applyEffects(player, otherHand); // aplicar efectos de la meth
+                otherHand.shrink(1);
+                stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(player.getUsedItemHand()));
+            } else if (otherHand.getItem() == ModItems.DMT.get()) {
+                player.addEffect(new MobEffectInstance(ModEffects.DMT_EFFECT.get(), 1800, 0));
+                otherHand.shrink(1);
+                stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(player.getUsedItemHand()));
+            } else {
+                // Si no hay droga en la otra mano, no pasa nada
+                player.displayClientMessage(Component.literal("Necesitas Meth o DMT en la otra mano"), true);
             }
         }
-        return super.finishUsingItem(stack, level, livingEntity);
+        return stack;
     }
+
+
+
 
     @Override
     public int getUseDuration(ItemStack stack) {
