@@ -78,18 +78,14 @@ public class MethItem extends Item {
 
     }
 
-    // --- USE (Click derecho = consumir) ---
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-
         if (!world.isClientSide) {
-            applyEffects(player, stack);
-            stack.shrink(1);
+            player.displayClientMessage(Component.literal("Necesitas una pipa para consumir esto."), true);
         }
-
-        return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
+        return InteractionResultHolder.fail(player.getItemInHand(hand));
     }
+
 
     // --- EFECTOS ---
     public void applyEffects(Player player, ItemStack stack) {

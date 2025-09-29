@@ -106,6 +106,7 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
         // Comprueba receta base para los inputs
         List<ItemStack> inputs = List.of(
                 input.getStackInSlot(0),
+                input.getStackInSlot(0),
                 input.getStackInSlot(1),
                 input.getStackInSlot(2)
         );
@@ -219,12 +220,6 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
             be.currentResult = ItemStack.EMPTY;
             be.setChanged();
         }
-    }
-
-    @Override
-    public void setRemoved() {
-        dropContents();
-        super.setRemoved();
     }
 
     public void dropContents() {
