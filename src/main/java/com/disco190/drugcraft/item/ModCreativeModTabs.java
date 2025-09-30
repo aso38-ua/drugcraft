@@ -98,6 +98,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.DMT.get());
                         pOutput.accept(ModItems.DRUG_PIPE.get());
 
+                        pOutput.accept(ModItems.OPIUM_LATEX.get());
+                        pOutput.accept(ModItems.OPIUM.get());
+                        pOutput.accept(ModItems.MORPHINE.get());
+                        pOutput.accept(ModItems.SYRINGE.get());
+
 
                     })
                     .build());

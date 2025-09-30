@@ -400,6 +400,22 @@ public class ModItems {
     public static final RegistryObject<Item> DRUG_PIPE = ITEMS.register("drug_pipe",
             () -> new DrugPipeItem(new Item.Properties().stacksTo(1).durability(64)));
 
+    public static final RegistryObject<Item> OPIUM_LATEX = ITEMS.register("opium_latex",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> OPIUM = ITEMS.register("opium",
+            () -> new OpiumItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> MORPHINE = ITEMS.register("morphine",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SYRINGE = ITEMS.register("syringe",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SYRINGE_WITH_MORPHINE = ITEMS.register("syringe_with_morphine",
+            () -> new SyringeWithMorphineItem(new Item.Properties()));
+
+
 }
 
 

@@ -112,6 +112,10 @@
   "effect.drugcraft.smoked": "Smoked",
   "effect.drugcraft.dmt": "DMT",
 
+  "item.drugcraft.opium_latex": "Opium Latex",
+  "item.drugcraft.opium": "Opium",
+  "item.drugcraft.syringe": "Syringe",
+
   "creativetab.drugcraft_tab": "DrugCraft Tab",
 
   "death.attack.cigarette": "%1$s died of natural causes",

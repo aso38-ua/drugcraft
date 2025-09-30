@@ -45,6 +45,34 @@ public class ChemistryStationRecipes {
             );
         }
 
+        recipes.put(
+                Arrays.asList(
+                        ModItems.OPIUM_LATEX.get(),   // materia prima
+                        ModItems.ACID.get(),          // reactivo ácido
+                        ModItems.PHOSPHOR.get()       // catalizador
+                ),
+                new ItemStack(ModItems.OPIUM.get())
+        );
+
+        recipes.put(
+                Arrays.asList(
+                        ModItems.OPIUM.get(),   // materia prima
+                        ModItems.EPHEDRINE.get(),
+                        Items.GLASS_BOTTLE
+                ),
+                new ItemStack(ModItems.MORPHINE.get())
+        );
+
+        recipes.put(
+                Arrays.asList(
+                        ModItems.OPIUM.get(),   // materia prima
+                        ModItems.PURE_EPHEDRINE.get(),
+                        Items.GLASS_BOTTLE
+                ),
+                new ItemStack(ModItems.MORPHINE.get())
+        );
+
+
         {
             ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
             LiquidMethItem.setQuality(medium, "burnt");
