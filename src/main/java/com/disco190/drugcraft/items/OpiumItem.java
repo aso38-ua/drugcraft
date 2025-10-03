@@ -19,14 +19,6 @@ public class OpiumItem extends Item {
         super(properties.stacksTo(64));
     }
 
-    // --- TOOLTIP ---
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.literal("Droga natural: Opio").withStyle(ChatFormatting.DARK_PURPLE));
-        tooltip.add(Component.literal("Sedante, analgésico, base de derivados").withStyle(ChatFormatting.GRAY));
-        tooltip.add(Component.literal("Se consume fumando en pipa").withStyle(ChatFormatting.RED));
-    }
-
     // --- USE (requiere pipa) ---
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {

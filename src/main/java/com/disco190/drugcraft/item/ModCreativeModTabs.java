@@ -102,6 +102,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.OPIUM.get());
                         pOutput.accept(ModItems.MORPHINE.get());
                         pOutput.accept(ModItems.SYRINGE.get());
+                        pOutput.accept(ModItems.SYRINGE_WITH_MORPHINE.get());
 
 
                     })

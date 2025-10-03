@@ -207,6 +207,18 @@ public class ChemistryStationRecipes {
         return ItemStack.EMPTY;
     }
 
+    public static Map<ItemStack, List<ItemStack>> getAllRecipes() {
+        Map<ItemStack, List<ItemStack>> jeiRecipes = new HashMap<>();
 
+        for (Map.Entry<List<Item>, ItemStack> entry : recipes.entrySet()) {
+            List<ItemStack> ingredients = new ArrayList<>();
+            for (Item item : entry.getKey()) {
+                ingredients.add(new ItemStack(item));
+            }
+            jeiRecipes.put(entry.getValue().copy(), ingredients);
+        }
+
+        return jeiRecipes;
+    }
 
 }

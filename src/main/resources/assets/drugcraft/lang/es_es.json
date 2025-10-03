@@ -93,6 +93,8 @@
   "item.drugcraft.opium_latex": "Latex de Opio",
   "item.drugcraft.opium": "Opio",
   "item.drugcraft.syringe": "Jeringuilla",
+  "item.drugcraft.morphine": "Morfina",
+  "item.drugcraft.syringe_with_morphine": "Jeringuilla con Morfina",
   "creativetab.drugcraft_tab": "DrugCraft",
   "death.attack.cigarette": "%1$s murió por causas naturales",
   "advancement.drugcraft.eleganto": "Very Eleganto",
@@ -109,6 +111,7 @@
   "advancement.drugcraft.arnold.desc": "Consigue el puro favorito de Arnold Schwarzenegger",
   "advancement.drugcraft.aura": "Aura",
   "advancement.drugcraft.aura.desc": "Fuma como un jefe",
+  "gui.drugcraft.chemistry_station": " Estación Química",
   "block.drugcraft.wild_tobacco": "Tabaco salvaje",
   "block.drugcraft.tobacco_crop": "Planta de tabaco"
 }
