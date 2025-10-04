@@ -407,7 +407,7 @@ public class ModItems {
             () -> new OpiumItem(new Item.Properties()));
 
     public static final RegistryObject<Item> MORPHINE = ITEMS.register("morphine",
-            () -> new Item(new Item.Properties()));
+            () -> new MorphineItem(new Item.Properties()));
 
     public static final RegistryObject<Item> SYRINGE = ITEMS.register("syringe",
             () -> new Item(new Item.Properties()));

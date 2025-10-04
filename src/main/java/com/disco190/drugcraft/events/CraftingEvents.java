@@ -1,35 +1,37 @@
 package com.disco190.drugcraft.events;
 
-import com.disco190.drugcraft.items.ModularBudItem;
+import com.disco190.drugcraft.item.ModItems;
+import com.disco190.drugcraft.items.MorphineItem;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "drugcraft")
-public class CraftingEvents {/*
+public class CraftingEvents {
 
     @SubscribeEvent
-    public static void onCraft(PlayerEvent.ItemCraftedEvent event) {
+    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
         ItemStack result = event.getCrafting();
+        if (result.isEmpty()) return;
 
-        // Verificar que el resultado es un ModularBudItem
-        if (result.getItem() instanceof ModularBudItem) {
-            boolean hasGlowstone = false;
+        if (result.getItem() == ModItems.SYRINGE_WITH_MORPHINE.get()) {
 
-            // Recorremos el inventario de la mesa de crafteo
-            for (int i = 0; i < event.getInventory().getContainerSize(); i++) {
-                ItemStack ingredient = event.getInventory().getItem(i);
-                if (!ingredient.isEmpty() && ingredient.getItem() == Items.GLOWSTONE_DUST) {
-                    hasGlowstone = true;
+            // Solo en servidor
+            if (event.getEntity().level().isClientSide()) return;
+
+            Container matrix = event.getInventory();
+            for (int i = 0; i < matrix.getContainerSize(); i++) {
+                ItemStack ingredient = matrix.getItem(i);
+                if (!ingredient.isEmpty() && ingredient.getItem() == ModItems.MORPHINE.get()) {
+                    String quality = MorphineItem.getQuality(ingredient);
+                    if (quality != null && !quality.equals("unknown")) {
+                        MorphineItem.setQuality(result, quality);
+                    }
                     break;
                 }
             }
-
-            if (hasGlowstone) {
-                ModularBudItem.setModifier(result, "glowing", 0xFFD700);
-            }
         }
-    }*/
+    }
 }

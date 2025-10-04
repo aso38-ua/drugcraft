@@ -17,6 +17,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ModularJointRecipe>> MODULAR_JOINT_SERIALIZER =
             SERIALIZERS.register("modular_joint", ModularJointSerializer::new);
 
+    public static final RegistryObject<RecipeSerializer<SyringeCraftingRecipe>> SYRINGE_CRAFTING_SERIALIZER =
+            SERIALIZERS.register("syringe_morphine_crafting", SyringeCraftingRecipe.Serializer::new);
+
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

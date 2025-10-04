@@ -2,6 +2,7 @@ package com.disco190.drugcraft.recipes;
 
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.items.LiquidMethItem;
+import com.disco190.drugcraft.items.MorphineItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -60,7 +61,7 @@ public class ChemistryStationRecipes {
                         ModItems.EPHEDRINE.get(),
                         Items.GLASS_BOTTLE
                 ),
-                new ItemStack(ModItems.MORPHINE.get())
+                createMorphine("medium")
         );
 
         recipes.put(
@@ -69,7 +70,7 @@ public class ChemistryStationRecipes {
                         ModItems.PURE_EPHEDRINE.get(),
                         Items.GLASS_BOTTLE
                 ),
-                new ItemStack(ModItems.MORPHINE.get())
+                createMorphine("high")
         );
 
 
@@ -166,6 +167,11 @@ public class ChemistryStationRecipes {
     }
 
 
+    private static ItemStack createMorphine(String quality) {
+        ItemStack stack = new ItemStack(ModItems.MORPHINE.get());
+        MorphineItem.setQuality(stack, quality);
+        return stack;
+    }
 
 
 
