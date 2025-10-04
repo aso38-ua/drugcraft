@@ -20,7 +20,7 @@ import java.util.List;
 
 public class SyringeWithMorphineItem extends Item {
 
-    private static final int USE_DURATION = 4;
+    private static final int USE_DURATION = 32;
 
     public SyringeWithMorphineItem(Properties properties) {
         super(properties.stacksTo(64));
