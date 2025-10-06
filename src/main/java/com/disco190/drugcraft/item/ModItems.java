@@ -85,7 +85,22 @@ public class ModItems {
                             .saturationMod(0f)  // no da saturación
                             .alwaysEat()        // permite usar siempre
                             .build())
+
+
             ));
+
+    public static final RegistryObject<Item> WEED_BROWNIE = ITEMS.register("brownie",
+            () -> new WeedBrownieItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(3) // medio muslito
+                            .saturationMod(0.5F) // poca saturación
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 0), 0.5F) // 5s Velocidad I
+                            .build())
+            ));
+
 
 
     //======================== TOBACCO ===========================================

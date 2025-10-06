@@ -2,6 +2,7 @@ package com.disco190.drugcraft.events;
 
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.items.MorphineItem;
+import com.disco190.drugcraft.items.WeedBrownieItem;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerEvent;

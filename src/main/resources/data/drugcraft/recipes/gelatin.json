@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:bone" },
+    { "item": "minecraft:water_bucket" }
+  ],
+  "result": {
+    "item": "drugcraft:gelatin",
+    "count": 2
+  }
+}

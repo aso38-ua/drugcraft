@@ -1,0 +1,18 @@
+{
+  "type": "drugcraft:weed_brownie_crafting",
+  "pattern": [
+    "MMM",
+    "CBC",
+    "EEE"
+  ],
+  "key": {
+    "M": { "tag": "drugcraft:weed_buds" },
+    "C": { "item": "minecraft:cocoa_beans" },
+    "B": { "item": "minecraft:wheat" },
+    "E": { "item": "minecraft:egg" }
+  },
+  "result": {
+    "item": "drugcraft:brownie",
+    "count": 3
+  }
+}

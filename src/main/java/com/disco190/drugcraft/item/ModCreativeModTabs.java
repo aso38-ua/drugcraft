@@ -29,6 +29,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PURPLE_HAZE_JOINT.get());
                         pOutput.accept(ModItems.BLAZE_KUSH_JOINT.get());
                         pOutput.accept(ModItems.FUJIYAMA_JOINT.get());
+                        pOutput.accept(ModItems.WEED_BROWNIE.get());
+                        pOutput.accept(ModItems.GELATIN.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
                         pOutput.accept(ModItems.TRIPA.get());
                         pOutput.accept(ModItems.CAPOTE.get());
