@@ -2,23 +2,23 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "drugcraft:block/chemistry_station_back",
-		"2": "drugcraft:block/chemistry_station_top",
-		"3": "drugcraft:block/chemistry_station_sides",
-		"4": "drugcraft:block/chemistry_station_front",
-		"particle": "drugcraft:block/chemistry_station_back"
+		"0": "drugcraft:block/extractor_sides",
+		"1": "drugcraft:block/extractor_back",
+		"2": "drugcraft:block/extractor_front",
+		"3": "drugcraft:block/extractor_right",
+		"particle": "drugcraft:block/extractor_sides"
 	},
 	"elements": [
 		{
 			"from": [0, 0, 0],
 			"to": [16, 16, 16],
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#4"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"north": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
 				"west": {"uv": [0, 0, 16, 16], "texture": "#3"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#2"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#3"}
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
 			}
 		}
 	],

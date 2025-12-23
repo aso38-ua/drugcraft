@@ -59,6 +59,17 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHEMISTRY_STATION = BLOCKS.register("chemistry_station",
             () -> new ChemistryStationBlock());
 
+    public static final RegistryObject<Block> EXTRACTOR =
+            BLOCKS.register("extractor",
+                    () -> new ExtractorBlock(
+                            BlockBehaviour.Properties
+                                    .of()
+                                    .strength(3.5F)
+                                    .requiresCorrectToolForDrops()
+                                    .sound(SoundType.METAL)
+                    ));
+
+
     // Agregamos una constante de propiedades para bloques simples como la bandeja
     private static final BlockBehaviour.Properties TRAY_PROPERTIES = BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)
             .noOcclusion();

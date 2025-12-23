@@ -85,6 +85,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.BLUE_LIQUID_METH.get());
                         pOutput.accept(ModItems.BLUE_METH.get());
                         pOutput.accept(ModItems.CHEMISTRY_STATION_ITEM.get());
+                        pOutput.accept(ModItems.EXTRACTOR_ITEM.get());
                         pOutput.accept(ModItems.TRAY_ITEM.get());
 
                         pOutput.accept(ModItems.HORSE_SEMEN.get());

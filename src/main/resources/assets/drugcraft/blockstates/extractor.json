@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=north": { "model": "drugcraft:block/extractor", "y": 0 },
+    "facing=south": { "model": "drugcraft:block/extractor", "y": 180 },
+    "facing=west":  { "model": "drugcraft:block/extractor", "y": 270 },
+    "facing=east":  { "model": "drugcraft:block/extractor", "y": 90 },
+    "inventory":   { "model": "drugcraft:block/extractor" }
+  }
+}
