@@ -2,6 +2,7 @@ package com.disco190.drugcraft.registry;
 
 import com.disco190.drugcraft.Drugcraft;
 import com.disco190.drugcraft.blockentities.ChemistryStationBlockEntity;
+import com.disco190.drugcraft.blockentities.ExtractorBlockEntity;
 import com.disco190.drugcraft.blockentities.TrayBlockEntity;
 import com.disco190.drugcraft.blocks.ModBlocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,6 +17,11 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<ChemistryStationBlockEntity>> CHEMISTRY_STATION =
             BLOCK_ENTITIES.register("chemistry_station",
                     () -> BlockEntityType.Builder.of(ChemistryStationBlockEntity::new, ModBlocks.CHEMISTRY_STATION.get())
+                            .build(null));
+
+    public static final RegistryObject<BlockEntityType<ExtractorBlockEntity>> EXTRACTOR =
+            BLOCK_ENTITIES.register("extractor",
+                    () -> BlockEntityType.Builder.of(ExtractorBlockEntity::new, ModBlocks.EXTRACTOR.get())
                             .build(null));
 
     public static final RegistryObject<BlockEntityType<TrayBlockEntity>> TRAY =

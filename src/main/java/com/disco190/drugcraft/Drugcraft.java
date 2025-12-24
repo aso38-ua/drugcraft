@@ -7,6 +7,7 @@ import com.disco190.drugcraft.item.ModCreativeModTabs;
 import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.recipes.ModRecipes;
 import com.disco190.drugcraft.registry.ModMenuTypes;
+import com.disco190.drugcraft.screens.ExtractorScreen;
 import com.disco190.drugcraft.sound.ModSounds;
 import com.disco190.drugcraft.worldgen.ModConfiguredFeatures;
 import com.disco190.drugcraft.worldgen.ModPlacedFeatures;
@@ -166,6 +167,7 @@ public class Drugcraft {
             event.enqueueWork(() -> {
                 // Pantallas de menús
                 MenuScreens.register(ModMenuTypes.CHEMISTRY_STATION.get(), ChemistryStationScreen::new);
+                MenuScreens.register(ModMenuTypes.EXTRACTOR.get(), ExtractorScreen::new);
 
                 // Render y color de hojas de mimosa
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.MIMOSA_LEAVES.get(), RenderType.cutoutMipped());

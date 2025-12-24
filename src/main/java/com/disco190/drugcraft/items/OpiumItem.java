@@ -20,13 +20,13 @@ public class OpiumItem extends Item {
     }
 
     // --- USE (requiere pipa) ---
-    @Override
+    /*@Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if (!world.isClientSide) {
             player.displayClientMessage(Component.literal("Necesitas una pipa para fumar el opio."), true);
         }
         return InteractionResultHolder.fail(player.getItemInHand(hand));
-    }
+    }*/
 
     // --- EFECTOS AL CONSUMIR ---
     public void applyEffects(Player player, ItemStack stack) {
