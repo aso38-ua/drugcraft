@@ -5,6 +5,7 @@ import com.disco190.drugcraft.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -82,6 +83,30 @@ public class ExtractorBlock extends BaseEntityBlock {
                 ? (lvl, pos, st, be) -> ExtractorBlockEntity.tick(lvl, pos, st, (ExtractorBlockEntity) be)
                 : null;
     }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos,
+                         BlockState newState, boolean isMoving) {
+
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+
+            if (blockEntity instanceof ExtractorBlockEntity extractor) {
+                for (int i = 0; i < extractor.getItemHandler().getSlots(); i++) {
+                    Containers.dropItemStack(
+                            level,
+                            pos.getX(),
+                            pos.getY(),
+                            pos.getZ(),
+                            extractor.getItemHandler().getStackInSlot(i)
+                    );
+                }
+            }
+        }
+
+        super.onRemove(state, level, pos, newState, isMoving);
+    }
+
 
 
 }

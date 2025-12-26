@@ -22,13 +22,23 @@ public class DrugCraftJeiPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
-        registration.addRecipeCategories(new ChemistryStationCategory(guiHelper));
+        registration.addRecipeCategories(
+                new ChemistryStationCategory(guiHelper),
+                new ExtractorCategory(guiHelper)
+        );
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        registration.addRecipes(ChemistryStationCategory.RECIPE_TYPE,
-                ChemistryStationJeiRecipe.getRecipesForJEI());
+        registration.addRecipes(
+                ChemistryStationCategory.RECIPE_TYPE,
+                ChemistryStationJeiRecipe.getRecipesForJEI()
+        );
+
+        registration.addRecipes(
+                ExtractorCategory.RECIPE_TYPE,
+                ExtractorJeiRecipe.getRecipesForJEI()
+        );
     }
 
     @Override
@@ -37,5 +47,11 @@ public class DrugCraftJeiPlugin implements IModPlugin {
                 new ItemStack(ModBlocks.CHEMISTRY_STATION.get()),
                 ChemistryStationCategory.RECIPE_TYPE
         );
+
+        registration.addRecipeCatalyst(
+                new ItemStack(ModBlocks.EXTRACTOR.get()),
+                ExtractorCategory.RECIPE_TYPE
+        );
     }
+
 }

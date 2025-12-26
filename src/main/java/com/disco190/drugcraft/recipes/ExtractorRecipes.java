@@ -22,4 +22,9 @@ public class ExtractorRecipes {
         ItemStack result = recipes.get(input.getItem());
         return result != null ? result.copy() : ItemStack.EMPTY;
     }
+
+    public static Map<Item, ItemStack> getAllRecipes() {
+        return recipes;
+    }
+
 }

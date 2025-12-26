@@ -2,18 +2,20 @@ package com.disco190.drugcraft.menu;
 
 import com.disco190.drugcraft.blockentities.ExtractorBlockEntity;
 import com.disco190.drugcraft.registry.ModMenuTypes;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraft.network.FriendlyByteBuf;
 
 public class ExtractorMenu extends AbstractContainerMenu {
 
     private final ExtractorBlockEntity blockEntity;
 
+    // Constructor CLIENTE (red)
     public ExtractorMenu(int id, Inventory playerInv, FriendlyByteBuf buf) {
         this(
                 id,
@@ -23,26 +25,58 @@ public class ExtractorMenu extends AbstractContainerMenu {
         );
     }
 
-    // 👉 Constructor REAL
+    // Constructor SERVIDOR
     public ExtractorMenu(int id, Inventory playerInv, ExtractorBlockEntity entity) {
         super(ModMenuTypes.EXTRACTOR.get(), id);
         this.blockEntity = entity;
 
-        // Slots máquina
-        // Input
-        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 0, 56, 35));
+        // ===== SLOTS DE LA MÁQUINA =====
 
-        // Output
-        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 2, 116, 35) {
+        // Slot 0 → INPUT (opium_latex)
+        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 0, 51, 40));
+
+        // Slot 2 → OUTPUT (opio)
+        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 2, 120, 40) {
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return false;
             }
+
+            @Override
+            public void onTake(Player player, ItemStack stack) {
+                if (blockEntity != null) blockEntity.setChanged();
+                super.onTake(player, stack);
+            }
         });
 
-
+        // ===== INVENTARIO DEL JUGADOR =====
         addPlayerInventory(playerInv);
         addPlayerHotbar(playerInv);
+
+        // ===== SINCRONIZACIÓN DE PROGRESO =====
+        if (blockEntity != null) {
+            addDataSlot(new DataSlot() {
+                @Override
+                public int get() {
+                    return blockEntity.getProgress();
+                }
+
+                @Override
+                public void set(int value) {
+                    blockEntity.setProgress(value);
+                }
+            });
+
+            addDataSlot(new DataSlot() {
+                @Override
+                public int get() {
+                    return blockEntity.getMaxProgress();
+                }
+
+                @Override
+                public void set(int value) {}
+            });
+        }
     }
 
     @Override
@@ -50,21 +84,37 @@ public class ExtractorMenu extends AbstractContainerMenu {
         return true;
     }
 
+    // =========================
+    // INVENTARIO JUGADOR
+    // =========================
 
     private void addPlayerInventory(Inventory inv) {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                this.addSlot(new Slot(inv, col + row * 9 + 9,
-                        8 + col * 18, 84 + row * 18));
+                this.addSlot(new Slot(
+                        inv,
+                        col + row * 9 + 9,
+                        8 + col * 18,
+                        84 + row * 18
+                ));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory inv) {
         for (int col = 0; col < 9; col++) {
-            this.addSlot(new Slot(inv, col, 8 + col * 18, 142));
+            this.addSlot(new Slot(
+                    inv,
+                    col,
+                    8 + col * 18,
+                    142
+            ));
         }
     }
+
+    // =========================
+    // SHIFT + CLICK (ESTABLE)
+    // =========================
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
@@ -74,23 +124,26 @@ public class ExtractorMenu extends AbstractContainerMenu {
         ItemStack stack = slot.getItem();
         ItemStack copy = stack.copy();
 
-        final int inputSlot = 0;
-        final int outputSlot = 2;
-        final int playerInvStart = 3;
-        final int playerInvEnd = this.slots.size();
+        final int INPUT_MENU_SLOT = 0;
+        final int OUTPUT_MENU_SLOT = 1;
+        final int PLAYER_INV_START = 2;
+        final int PLAYER_INV_END = this.slots.size();
 
-        // Si es slot de salida, mover al inventario del jugador
-        if (index == outputSlot) {
-            if (!moveItemStackTo(stack, playerInvStart, playerInvEnd, true)) return ItemStack.EMPTY;
+        // 👉 Si es output → inventario jugador
+        if (index == OUTPUT_MENU_SLOT) {
+            if (!moveItemStackTo(stack, PLAYER_INV_START, PLAYER_INV_END, true))
+                return ItemStack.EMPTY;
             slot.onQuickCraft(stack, copy);
         }
-        // Si es slot de input, mover al inventario
-        else if (index == inputSlot) {
-            if (!moveItemStackTo(stack, playerInvStart, playerInvEnd, false)) return ItemStack.EMPTY;
+        // 👉 Si es input → inventario jugador
+        else if (index == INPUT_MENU_SLOT) {
+            if (!moveItemStackTo(stack, PLAYER_INV_START, PLAYER_INV_END, false))
+                return ItemStack.EMPTY;
         }
-        // Si es inventario del jugador, mover al input del bloque
-        else if (index >= playerInvStart) {
-            if (!moveItemStackTo(stack, inputSlot, inputSlot + 1, false)) return ItemStack.EMPTY;
+        // 👉 Si es inventario jugador → input
+        else {
+            if (!moveItemStackTo(stack, INPUT_MENU_SLOT, INPUT_MENU_SLOT + 1, false))
+                return ItemStack.EMPTY;
         }
 
         if (stack.isEmpty()) slot.set(ItemStack.EMPTY);
@@ -99,6 +152,13 @@ public class ExtractorMenu extends AbstractContainerMenu {
         return copy;
     }
 
+    // ===== GETTERS PARA LA GUI =====
 
+    public int getProgress() {
+        return blockEntity != null ? blockEntity.getProgress() : 0;
+    }
+
+    public int getMaxProgress() {
+        return blockEntity != null ? blockEntity.getMaxProgress() : 200;
+    }
 }
-

@@ -42,23 +42,61 @@ public class ExtractorBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private boolean hasRecipe() {
-        return !itemHandler.getStackInSlot(0).isEmpty();
+        ItemStack input = itemHandler.getStackInSlot(0);
+
+        if (input.isEmpty()) return false;
+
+        ItemStack result = ExtractorRecipes.getResult(input);
+        if (result.isEmpty()) return false;
+
+        ItemStack output = itemHandler.getStackInSlot(2);
+
+        // Output vacío → OK
+        if (output.isEmpty()) return true;
+
+        // Output compatible y con espacio
+        return output.getItem() == result.getItem()
+                && output.getCount() < output.getMaxStackSize();
     }
+
 
     private void craftItem() {
         ItemStack input = itemHandler.getStackInSlot(0);
-        ItemStack output = ExtractorRecipes.getResult(input);
+        ItemStack result = ExtractorRecipes.getResult(input);
 
-        if (!output.isEmpty()) {
-            itemHandler.extractItem(0, 1, false); // consumimos input
-            itemHandler.setStackInSlot(2, output); // ponemos output
+        if (result.isEmpty()) return;
+
+        // Consumir input
+        itemHandler.extractItem(0, 1, false);
+
+        // Insertar output
+        ItemStack output = itemHandler.getStackInSlot(2);
+        if (output.isEmpty()) {
+            itemHandler.setStackInSlot(2, result.copy());
+        } else {
+            output.grow(result.getCount());
         }
     }
+
+
 
 
     public ItemStackHandler getItemHandler() {
         return itemHandler;
     }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public int getMaxProgress() {
+        return MAX_PROGRESS;
+    }
+
+    public void setProgress(int value) {
+        this.progress = value;
+    }
+
 
     @Override
     public Component getDisplayName() {
@@ -69,6 +107,21 @@ public class ExtractorBlockEntity extends BlockEntity implements MenuProvider {
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
         return new ExtractorMenu(id, inventory, this);
     }
+
+    @Override
+    protected void saveAdditional(net.minecraft.nbt.CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("progress", progress);
+        super.saveAdditional(tag);
+    }
+
+    @Override
+    public void load(net.minecraft.nbt.CompoundTag tag) {
+        super.load(tag);
+        itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        progress = tag.getInt("progress");
+    }
+
 
 }
 
