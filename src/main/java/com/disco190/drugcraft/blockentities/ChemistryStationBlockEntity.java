@@ -4,9 +4,17 @@ import com.disco190.drugcraft.items.LiquidMethItem;
 import com.disco190.drugcraft.menu.ChemistryStationMenu;
 import com.disco190.drugcraft.recipes.ChemistryStationRecipes;
 import com.disco190.drugcraft.registry.ModBlockEntities;
+import com.disco190.drugcraft.villager.ModVillagerProfessions;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.ai.memory.WalkTarget;
+import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.npc.VillagerData;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -18,6 +26,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 import java.util.Random;
@@ -153,6 +162,8 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
     public static void tick(Level level, BlockPos pos, BlockState state, ChemistryStationBlockEntity be) {
         if (be == null) return;
 
+        be.convertNearbyVillagers();
+
         ItemStack outputSlot = be.output.getStackInSlot(0);
         ItemStack computed = be.computeOrGetCurrentResult();
 
@@ -247,6 +258,58 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
         if (cookTime < cookTimeTotal) return;
         // El tick hace ya el trabajo; esta función la dejamos para compatibilidad (no hace nada extra).
     }
+
+    private void convertNearbyVillagers() {
+        if (level == null || level.isClientSide) return;
+        if (!(level instanceof ServerLevel serverLevel)) return;
+
+        // Cada 2 segundos
+        if (level.getGameTime() % 40 != 0) return;
+
+        var villagers = level.getEntitiesOfClass(
+                Villager.class,
+                new AABB(worldPosition).inflate(6.0D)
+        );
+
+        for (Villager villager : villagers) {
+
+            VillagerProfession prof = villager.getVillagerData().getProfession();
+
+            if (prof != VillagerProfession.NONE && prof != VillagerProfession.NITWIT) continue;
+
+            // Decirle dónde está su futuro curro
+            villager.getBrain().setMemory(
+                    MemoryModuleType.JOB_SITE,
+                    GlobalPos.of(serverLevel.dimension(), worldPosition)
+            );
+
+            villager.getBrain().setMemory(
+                    MemoryModuleType.WALK_TARGET,
+                    new WalkTarget(worldPosition, 0.6F, 1)
+            );
+
+            // SOLO convierte si está CERCA
+            if (!villager.blockPosition().closerThan(worldPosition, 2)) continue;
+
+            if (level.getRandom().nextFloat() > 0.6F) continue;
+
+            VillagerData oldData = villager.getVillagerData();
+            villager.setVillagerData(new VillagerData(
+                    oldData.getType(),
+                    ModVillagerProfessions.DEALER.get(),
+                    1
+            ));
+
+            villager.refreshBrain(serverLevel);
+            serverLevel.levelEvent(2005, villager.blockPosition(), 0);
+        }
+
+    }
+
+
+
+
+
 
     public void setCookTime(int value) { this.cookTime = value; }
     public void setCookTimeTotal(int value) { this.cookTimeTotal = value; }

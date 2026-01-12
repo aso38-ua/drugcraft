@@ -46,14 +46,14 @@ public class ChemistryStationRecipes {
             );
         }
 
-        recipes.put(
+        /*recipes.put(
                 Arrays.asList(
                         ModItems.OPIUM_LATEX.get(),   // materia prima
                         ModItems.ACID.get(),          // reactivo ácido
                         ModItems.PHOSPHOR.get()       // catalizador
                 ),
                 new ItemStack(ModItems.OPIUM.get())
-        );
+        );*/
 
         recipes.put(
                 Arrays.asList(

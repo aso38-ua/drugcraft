@@ -9,6 +9,9 @@ import com.disco190.drugcraft.recipes.ModRecipes;
 import com.disco190.drugcraft.registry.ModMenuTypes;
 import com.disco190.drugcraft.screens.ExtractorScreen;
 import com.disco190.drugcraft.sound.ModSounds;
+import com.disco190.drugcraft.villager.DealerTrades;
+import com.disco190.drugcraft.villager.ModVillagerPOIs;
+import com.disco190.drugcraft.villager.ModVillagerProfessions;
 import com.disco190.drugcraft.worldgen.ModConfiguredFeatures;
 import com.disco190.drugcraft.worldgen.ModPlacedFeatures;
 import com.mojang.logging.LogUtils;
@@ -73,6 +76,9 @@ public class Drugcraft {
         ModBlocks.BLOCKS.register(modEventBus);
         ModSounds.register(modEventBus);
 
+        ModVillagerPOIs.POI_TYPES.register(modEventBus);
+        ModVillagerProfessions.PROFESSIONS.register(modEventBus);
+
         ModEffects.register(modEventBus);
         ModRecipes.SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
@@ -115,6 +121,8 @@ public class Drugcraft {
         event.enqueueWork(() -> {
             // Obtenemos un ItemStack de la poción de veneno
             net.minecraft.world.item.ItemStack poisonPotion = PotionUtils.setPotion(new net.minecraft.world.item.ItemStack(Items.POTION), Potions.POISON);
+
+            DealerTrades.register();
 
             // Añade esta línea para registrar la poción de DMT
             // Ingrediente: mimosa_bark

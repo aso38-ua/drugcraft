@@ -27,7 +27,7 @@ public class ExtractorCategory implements IRecipeCategory<ExtractorJeiRecipe> {
         ResourceLocation texture =
                 new ResourceLocation(Drugcraft.MODID, "textures/gui/extractor.png");
 
-        this.background = guiHelper.createDrawable(texture, 38, 1, 140, 80);
+        this.background = guiHelper.createDrawable(texture, 40, 0, 140, 80);
         this.icon = guiHelper.createDrawableIngredient(
                 VanillaTypes.ITEM_STACK,
                 new ItemStack(ModBlocks.EXTRACTOR.get())
