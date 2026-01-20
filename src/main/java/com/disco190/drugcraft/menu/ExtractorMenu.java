@@ -9,7 +9,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.SlotItemHandler;
+
+import java.util.Objects;
 
 public class ExtractorMenu extends AbstractContainerMenu {
 
@@ -17,13 +20,17 @@ public class ExtractorMenu extends AbstractContainerMenu {
 
     // Constructor CLIENTE (red)
     public ExtractorMenu(int id, Inventory playerInv, FriendlyByteBuf buf) {
-        this(
-                id,
-                playerInv,
-                (ExtractorBlockEntity) playerInv.player.level()
-                        .getBlockEntity(buf.readBlockPos())
-        );
+        this(id, playerInv, Objects.requireNonNull(getBE(playerInv, buf)));
     }
+
+    private static ExtractorBlockEntity getBE(Inventory inv, FriendlyByteBuf buf) {
+        BlockEntity be = inv.player.level().getBlockEntity(buf.readBlockPos());
+        if (be instanceof ExtractorBlockEntity extractor) {
+            return extractor;
+        }
+        return null;
+    }
+
 
     // Constructor SERVIDOR
     public ExtractorMenu(int id, Inventory playerInv, ExtractorBlockEntity entity) {

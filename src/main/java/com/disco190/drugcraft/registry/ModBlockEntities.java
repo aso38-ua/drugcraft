@@ -36,7 +36,7 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<TrayBlockEntity>> TRAY_WITH_SOLID =
             BLOCK_ENTITIES.register("tray_with_solid",
-                    () -> BlockEntityType.Builder.of(TrayBlockEntity::new, ModBlocks.TRAY_WITH_LIQUID.get())
+                    () -> BlockEntityType.Builder.of(TrayBlockEntity::new, ModBlocks.TRAY_WITH_SOLID.get())
                             .build(null));
 
 

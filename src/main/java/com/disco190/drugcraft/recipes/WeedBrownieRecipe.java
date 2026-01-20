@@ -26,7 +26,8 @@ public class WeedBrownieRecipe extends CustomRecipe {
 
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack stack = container.getItem(i);
-            if (stack.isEmpty()) continue;
+            if (stack.isEmpty())
+                continue;
 
             if (stack.is(ModItems.PURPLE_HAZE.get()) ||
                     stack.is(ModItems.FUJIYAMA.get()) ||
@@ -54,10 +55,14 @@ public class WeedBrownieRecipe extends CustomRecipe {
 
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack stack = container.getItem(i);
-            if (stack.is(ModItems.PURPLE_HAZE.get())) budType = "purple_haze";
-            else if (stack.is(ModItems.FUJIYAMA.get())) budType = "fujiyama";
-            else if (stack.is(ModItems.MARIJUANA.get())) budType = "marijuana";
-            else if (stack.is(ModItems.BLAZE_KUSH.get())) budType = "blaze_kush";
+            if (stack.is(ModItems.PURPLE_HAZE.get()))
+                budType = "purple_haze";
+            else if (stack.is(ModItems.FUJIYAMA.get()))
+                budType = "fujiyama";
+            else if (stack.is(ModItems.MARIJUANA.get()))
+                budType = "marijuana";
+            else if (stack.is(ModItems.BLAZE_KUSH.get()))
+                budType = "blaze_kush";
         }
 
         CompoundTag tag = result.getOrCreateTag();
@@ -77,7 +82,7 @@ public class WeedBrownieRecipe extends CustomRecipe {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return ModRecipes.WEED_BROWNIE_SERIALIZER.get();
     }
 
     // ===== SERIALIZADOR =====
@@ -95,6 +100,7 @@ public class WeedBrownieRecipe extends CustomRecipe {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, WeedBrownieRecipe recipe) {}
+        public void toNetwork(FriendlyByteBuf buf, WeedBrownieRecipe recipe) {
+        }
     }
 }

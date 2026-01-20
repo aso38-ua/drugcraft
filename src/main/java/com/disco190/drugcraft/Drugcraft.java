@@ -61,11 +61,11 @@ public class Drugcraft {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "drugcraft" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    //public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "drugcraft" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    //public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "drugcraft" namespace
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    //public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     public Drugcraft() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -74,15 +74,14 @@ public class Drugcraft {
 
         ModItems.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModSounds.register(modEventBus);
 
-        ModVillagerPOIs.POI_TYPES.register(modEventBus);
-        ModVillagerProfessions.PROFESSIONS.register(modEventBus);
+        //ModVillagerPOIs.POI_TYPES.register(modEventBus);
+        //ModVillagerProfessions.PROFESSIONS.register(modEventBus);
 
         ModEffects.register(modEventBus);
         ModRecipes.SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
-
-        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 
         ModMenuTypes.MENU_TYPES.register(modEventBus);
 
@@ -90,12 +89,12 @@ public class Drugcraft {
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
+        //BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
+        //ITEMS.register(modEventBus);
 
         // Register the Deferred Register to the mod event bus so tabs get registered
-        CREATIVE_MODE_TABS.register(modEventBus);
+        //CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -122,7 +121,7 @@ public class Drugcraft {
             // Obtenemos un ItemStack de la poción de veneno
             net.minecraft.world.item.ItemStack poisonPotion = PotionUtils.setPotion(new net.minecraft.world.item.ItemStack(Items.POTION), Potions.POISON);
 
-            DealerTrades.register();
+            //DealerTrades.register();
 
             // Añade esta línea para registrar la poción de DMT
             // Ingrediente: mimosa_bark

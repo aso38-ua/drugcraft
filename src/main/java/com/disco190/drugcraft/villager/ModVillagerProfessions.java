@@ -10,20 +10,26 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModVillagerProfessions {
 
-    public static final DeferredRegister<VillagerProfession> PROFESSIONS =
+    /*public static final DeferredRegister<VillagerProfession> PROFESSIONS =
             DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, Drugcraft.MODID);
 
     public static final RegistryObject<VillagerProfession> DEALER =
             PROFESSIONS.register("dealer",
                     () -> new VillagerProfession(
                             "dealer",
-                            holder -> holder.value() == ModVillagerPOIs.DEALER_POI.get(),
-                            holder -> holder.value() == ModVillagerPOIs.DEALER_POI.get(),
+                            holder -> {
+                                assert ModVillagerPOIs.DEALER_POI.getKey() != null;
+                                return holder.is(ModVillagerPOIs.DEALER_POI.getKey());
+                            }, // Uso de getKey()
+                            holder -> {
+                                assert ModVillagerPOIs.DEALER_POI.getKey() != null;
+                                return holder.is(ModVillagerPOIs.DEALER_POI.getKey());
+                            }, // Uso de getKey()
                             ImmutableSet.of(),
                             ImmutableSet.of(),
                             SoundEvents.VILLAGER_WORK_CLERIC
                     )
-            );
+            );*/
 }
 
 

@@ -162,7 +162,7 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
     public static void tick(Level level, BlockPos pos, BlockState state, ChemistryStationBlockEntity be) {
         if (be == null) return;
 
-        be.convertNearbyVillagers();
+        /*be.convertNearbyVillagers();*/
 
         ItemStack outputSlot = be.output.getStackInSlot(0);
         ItemStack computed = be.computeOrGetCurrentResult();
@@ -259,7 +259,7 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
         // El tick hace ya el trabajo; esta función la dejamos para compatibilidad (no hace nada extra).
     }
 
-    private void convertNearbyVillagers() {
+    /*private void convertNearbyVillagers() {
         if (level == null || level.isClientSide) return;
         if (!(level instanceof ServerLevel serverLevel)) return;
 
@@ -304,7 +304,7 @@ public class ChemistryStationBlockEntity extends BlockEntity implements net.mine
             serverLevel.levelEvent(2005, villager.blockPosition(), 0);
         }
 
-    }
+    }*/
 
 
 
