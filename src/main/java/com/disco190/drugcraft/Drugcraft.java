@@ -77,8 +77,8 @@ public class Drugcraft {
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModSounds.register(modEventBus);
 
-        //ModVillagerPOIs.POI_TYPES.register(modEventBus);
-        //ModVillagerProfessions.PROFESSIONS.register(modEventBus);
+        ModVillagerPOIs.POI_TYPES.register(modEventBus);
+        ModVillagerProfessions.PROFESSIONS.register(modEventBus);
 
         ModEffects.register(modEventBus);
         ModRecipes.SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());

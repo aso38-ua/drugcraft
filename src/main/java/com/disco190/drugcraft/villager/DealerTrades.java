@@ -11,7 +11,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 
 public class DealerTrades {
 
-    /*public static void register() {
+    public static void register() {
         VillagerTrades.TRADES.put(
                 ModVillagerProfessions.DEALER.get(),
                 createTrades()
@@ -63,5 +63,5 @@ public class DealerTrades {
                 8,    // XP al aldeano
                 0.05F // inflación
         );
-    }*/
+    }
 }

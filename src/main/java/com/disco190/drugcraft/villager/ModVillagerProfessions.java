@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModVillagerProfessions {
 
-    /*public static final DeferredRegister<VillagerProfession> PROFESSIONS =
+    public static final DeferredRegister<VillagerProfession> PROFESSIONS =
             DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, Drugcraft.MODID);
 
     public static final RegistryObject<VillagerProfession> DEALER =
@@ -29,7 +29,7 @@ public class ModVillagerProfessions {
                             ImmutableSet.of(),
                             SoundEvents.VILLAGER_WORK_CLERIC
                     )
-            );*/
+            );
 }
 
 

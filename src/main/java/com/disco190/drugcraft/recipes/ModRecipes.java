@@ -8,24 +8,25 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModRecipes {
-    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
-            DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Drugcraft.MODID);
+        public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister
+                        .create(ForgeRegistries.RECIPE_SERIALIZERS, Drugcraft.MODID);
 
-    public static final RegistryObject<RecipeSerializer<BudInfusionRecipe>> BUD_INFUSION_SERIALIZER =
-            SERIALIZERS.register("bud_infusion", BudInfusionSerializer::new);
+        public static final RegistryObject<RecipeSerializer<BudInfusionRecipe>> BUD_INFUSION_SERIALIZER = SERIALIZERS
+                        .register("bud_infusion", BudInfusionSerializer::new);
 
-    public static final RegistryObject<RecipeSerializer<ModularJointRecipe>> MODULAR_JOINT_SERIALIZER =
-            SERIALIZERS.register("modular_joint", ModularJointSerializer::new);
+        public static final RegistryObject<RecipeSerializer<ModularJointRecipe>> MODULAR_JOINT_SERIALIZER = SERIALIZERS
+                        .register("modular_joint", ModularJointSerializer::new);
 
-    public static final RegistryObject<RecipeSerializer<SyringeCraftingRecipe>> SYRINGE_CRAFTING_SERIALIZER =
-            SERIALIZERS.register("syringe_morphine_crafting", SyringeCraftingRecipe.Serializer::new);
+        public static final RegistryObject<RecipeSerializer<SyringeCraftingRecipe>> SYRINGE_CRAFTING_SERIALIZER = SERIALIZERS
+                        .register("syringe_morphine_crafting", SyringeCraftingRecipe.Serializer::new);
 
-    public static final RegistryObject<RecipeSerializer<WeedBrownieRecipe>> WEED_BROWNIE_SERIALIZER =
-            SERIALIZERS.register("weed_brownie_crafting", WeedBrownieRecipe.Serializer::new);
+        public static final RegistryObject<RecipeSerializer<WeedBrownieRecipe>> WEED_BROWNIE_SERIALIZER = SERIALIZERS
+                        .register("weed_brownie_crafting", WeedBrownieRecipe.Serializer::new);
 
+        public static final RegistryObject<RecipeSerializer<GummyBearRecipe>> GUMMY_BEAR_SERIALIZER = SERIALIZERS
+                        .register("gummy_bear_crafting", GummyBearRecipe.Serializer::new);
 
-
-    public static void register(IEventBus eventBus) {
-        SERIALIZERS.register(eventBus);
-    }
+        public static void register(IEventBus eventBus) {
+                SERIALIZERS.register(eventBus);
+        }
 }

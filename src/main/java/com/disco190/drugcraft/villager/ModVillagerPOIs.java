@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Set;
 
 public class ModVillagerPOIs {
-    /*public static final DeferredRegister<PoiType> POI_TYPES =
+    public static final DeferredRegister<PoiType> POI_TYPES =
             DeferredRegister.create(ForgeRegistries.POI_TYPES, Drugcraft.MODID);
 
     public static final RegistryObject<PoiType> DEALER_POI =
@@ -20,5 +20,5 @@ public class ModVillagerPOIs {
                             ImmutableSet.copyOf(ModBlocks.CHEMISTRY_STATION.get().getStateDefinition().getPossibleStates()),
                             1, 1
                     )
-            );*/
+            );
 }
