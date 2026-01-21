@@ -98,7 +98,7 @@ public class ModItems {
                                                         .build())));
 
         public static final RegistryObject<Item> GUMMY_BEAR = ITEMS.register("gummy_bear",
-                        () -> new GummyBearItem(new Item.Properties().stacksTo(16)));
+                        () -> new GummyBearItem(new Item.Properties().stacksTo(64)));
 
         // ======================== TOBACCO ===========================================
         public static final RegistryObject<Item> TOBACCO_SEEDS = ITEMS.register("tobacco_seeds",
@@ -318,6 +318,9 @@ public class ModItems {
         public static final RegistryObject<Item> PHOSPHOR = ITEMS.register("phosphor",
                         () -> new Item(new Item.Properties()));
 
+        public static final RegistryObject<Item> QUICKLIME = ITEMS.register("quicklime",
+                        () -> new Item(new Item.Properties()));
+
         public static final RegistryObject<Item> PSEUDO = ITEMS.register("pseudo",
                         () -> new PseudoItem(new Item.Properties()
                                         .food(new FoodProperties.Builder()
@@ -348,6 +351,18 @@ public class ModItems {
 
         public static final RegistryObject<Item> TRAY_ITEM = ITEMS.register("tray",
                         () -> new BlockItem(ModBlocks.TRAY.get(), new Item.Properties()));
+
+        public static final RegistryObject<Item> DEHYDRATOR_ITEM = ITEMS.register("dehydrator",
+                        () -> new BlockItem(ModBlocks.DEHYDRATOR.get(), new Item.Properties()));
+
+        public static final RegistryObject<Item> LIQUID_HEROIN = ITEMS.register("liquid_heroin",
+                        () -> new Item(new Item.Properties().stacksTo(16)));
+
+        public static final RegistryObject<Item> HEROIN = ITEMS.register("heroin",
+                        () -> new Item(new Item.Properties()));
+
+        public static final RegistryObject<Item> SYRINGE_WITH_HEROIN = ITEMS.register("syringe_with_heroin",
+                        () -> new SyringeWithHeroinItem(new Item.Properties()));
 
         public static void register(IEventBus eventBus) {
                 ITEMS.register(eventBus);

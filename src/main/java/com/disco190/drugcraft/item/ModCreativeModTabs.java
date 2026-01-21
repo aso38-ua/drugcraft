@@ -31,6 +31,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.FUJIYAMA_JOINT.get());
                         pOutput.accept(ModItems.WEED_BROWNIE.get());
                         pOutput.accept(ModItems.GELATIN.get());
+                        pOutput.accept(ModItems.GUMMY_BEAR.get());
                         pOutput.accept(ModItems.TOBACCO_SEEDS.get());
                         pOutput.accept(ModItems.TRIPA.get());
                         pOutput.accept(ModItems.CAPOTE.get());
@@ -80,6 +81,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PEYOTE.get());
                         pOutput.accept(ModItems.ACID.get());
                         pOutput.accept(ModItems.PHOSPHOR.get());
+                        pOutput.accept(ModItems.QUICKLIME.get());
                         pOutput.accept(ModItems.LIQUID_METH.get());
                         pOutput.accept(ModItems.METH.get());
                         pOutput.accept(ModItems.BLUE_LIQUID_METH.get());
@@ -104,8 +106,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.OPIUM_LATEX.get());
                         pOutput.accept(ModItems.OPIUM.get());
                         pOutput.accept(ModItems.MORPHINE.get());
+                        pOutput.accept(ModItems.LIQUID_HEROIN.get());
+                        pOutput.accept(ModItems.HEROIN.get());
                         pOutput.accept(ModItems.SYRINGE.get());
                         pOutput.accept(ModItems.SYRINGE_WITH_MORPHINE.get());
+                        pOutput.accept(ModItems.SYRINGE_WITH_HEROIN.get());
+                        pOutput.accept(ModItems.DEHYDRATOR_ITEM.get());
 
 
                     })

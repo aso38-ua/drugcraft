@@ -22,8 +22,7 @@ public class ChemistryStationRecipes {
 
             recipes.put(
                     Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.METHYLAMINE.get()),
-                    createBlueLiquidMeth("very_high")
-            );
+                    createBlueLiquidMeth("very_high"));
         }
 
         {
@@ -32,8 +31,7 @@ public class ChemistryStationRecipes {
 
             recipes.put(
                     Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.EPHEDRINE.get()),
-                    createLiquidMeth("medium")
-            );
+                    createLiquidMeth("medium"));
         }
 
         {
@@ -42,37 +40,33 @@ public class ChemistryStationRecipes {
 
             recipes.put(
                     Arrays.asList(Items.GUNPOWDER, ModItems.PHOSPHOR.get(), ModItems.EPHEDRINE.get()),
-                    createLiquidMeth("low")
-            );
+                    createLiquidMeth("low"));
         }
 
-        /*recipes.put(
-                Arrays.asList(
-                        ModItems.OPIUM_LATEX.get(),   // materia prima
-                        ModItems.ACID.get(),          // reactivo ácido
-                        ModItems.PHOSPHOR.get()       // catalizador
-                ),
-                new ItemStack(ModItems.OPIUM.get())
-        );*/
+        /*
+         * recipes.put(
+         * Arrays.asList(
+         * ModItems.OPIUM_LATEX.get(), // materia prima
+         * ModItems.ACID.get(), // reactivo ácido
+         * ModItems.PHOSPHOR.get() // catalizador
+         * ),
+         * new ItemStack(ModItems.OPIUM.get())
+         * );
+         */
 
         recipes.put(
                 Arrays.asList(
-                        ModItems.OPIUM.get(),   // materia prima
+                        ModItems.OPIUM.get(), // materia prima
                         ModItems.EPHEDRINE.get(),
-                        Items.GLASS_BOTTLE
-                ),
-                createMorphine("medium")
-        );
+                        Items.GLASS_BOTTLE),
+                createMorphine("medium"));
 
         recipes.put(
                 Arrays.asList(
-                        ModItems.OPIUM.get(),   // materia prima
+                        ModItems.OPIUM.get(), // materia prima
                         ModItems.PURE_EPHEDRINE.get(),
-                        Items.GLASS_BOTTLE
-                ),
-                createMorphine("high")
-        );
-
+                        Items.GLASS_BOTTLE),
+                createMorphine("high"));
 
         {
             ItemStack medium = new ItemStack(ModItems.LIQUID_METH.get());
@@ -80,8 +74,7 @@ public class ChemistryStationRecipes {
 
             recipes.put(
                     Arrays.asList(Items.GUNPOWDER, Items.REDSTONE, ModItems.EPHEDRA_BERRIES.get()),
-                    createLiquidMeth("burnt")
-            );
+                    createLiquidMeth("burnt"));
         }
 
         // --- Receta de media calidad ---
@@ -91,8 +84,7 @@ public class ChemistryStationRecipes {
 
             recipes.put(
                     Arrays.asList(ModItems.ACID.get(), ModItems.PHOSPHOR.get(), ModItems.PURE_EPHEDRINE.get()),
-                    createLiquidMeth("high")
-            );
+                    createLiquidMeth("high"));
         }
 
         // Ejemplo de otra receta: ACID crafting
@@ -100,28 +92,32 @@ public class ChemistryStationRecipes {
                 Arrays.asList(
                         Items.GUNPOWDER,
                         ModItems.PHOSPHOR.get(),
-                        Items.POTION
-                ),
-                new ItemStack(ModItems.ACID.get())
-        );
+                        Items.POTION),
+                new ItemStack(ModItems.ACID.get()));
 
         recipes.put(
                 Arrays.asList(
-                        ModItems.EPHEDRINE.get(),   // ephedrine base (ya existente en tu mod)
-                        Items.GLOWSTONE_DUST,       // purificación / catalizador
-                        Items.REDSTONE              // reactivo/catalizador adicional (coste)
+                        ModItems.EPHEDRINE.get(), // ephedrine base (ya existente en tu mod)
+                        Items.GLOWSTONE_DUST, // purificación / catalizador
+                        Items.REDSTONE // reactivo/catalizador adicional (coste)
                 ),
-                new ItemStack(ModItems.PURE_EPHEDRINE.get())
-        );
+                new ItemStack(ModItems.PURE_EPHEDRINE.get()));
 
         recipes.put(
                 Arrays.asList(
                         ModItems.PURE_EPHEDRINE.get(), // requiere la pure_ephedrine (cadena de crafting)
-                        Items.BLAZE_POWDER,            // energía/calor (elemento valioso)
-                        Items.GUNPOWDER                // componente reactivo / peligroso (ajusta si quieres)
+                        Items.BLAZE_POWDER, // energía/calor (elemento valioso)
+                        Items.GUNPOWDER // componente reactivo / peligroso (ajusta si quieres)
                 ),
-                new ItemStack(ModItems.METHYLAMINE.get())
-        );
+                new ItemStack(ModItems.METHYLAMINE.get()));
+
+        // Heroin Logic
+        recipes.put(
+                Arrays.asList(
+                        ModItems.OPIUM.get(),
+                        ModItems.QUICKLIME.get(),
+                        ModItems.ACID.get()),
+                new ItemStack(ModItems.LIQUID_HEROIN.get()));
     }
 
     private static ItemStack createLiquidMeth(String quality) {
@@ -129,18 +125,18 @@ public class ChemistryStationRecipes {
         LiquidMethItem.setQuality(stack, quality);
 
         // ELIMINAR ESTE BLOQUE DE ASIGNACIÓN DE PUREZA:
-    /*
-    Random rand = new Random();
-    int purity = switch (quality) {
-        case "very_high" -> 90 + rand.nextInt(11); // 90–100
-        case "high" -> 70 + rand.nextInt(21);   // 70–90
-        case "medium" -> 40 + rand.nextInt(30); // 50–69
-        case "low" -> 10 + rand.nextInt(31);    // 10–40
-        case "burnt" -> rand.nextInt(10);       // 0–10
-        default -> 0;
-    };
-    LiquidMethItem.setPurity(stack, purity);
-    */
+        /*
+         * Random rand = new Random();
+         * int purity = switch (quality) {
+         * case "very_high" -> 90 + rand.nextInt(11); // 90–100
+         * case "high" -> 70 + rand.nextInt(21); // 70–90
+         * case "medium" -> 40 + rand.nextInt(30); // 50–69
+         * case "low" -> 10 + rand.nextInt(31); // 10–40
+         * case "burnt" -> rand.nextInt(10); // 0–10
+         * default -> 0;
+         * };
+         * LiquidMethItem.setPurity(stack, purity);
+         */
 
         // Opcional: Si LiquidMethItem requiere que 'Purity' esté presente,
         // podrías establecerla a 0, pero lo mejor es dejar que la máquina lo haga.
@@ -166,14 +162,11 @@ public class ChemistryStationRecipes {
         return stack;
     }
 
-
     private static ItemStack createMorphine(String quality) {
         ItemStack stack = new ItemStack(ModItems.MORPHINE.get());
         MorphineItem.setQuality(stack, quality);
         return stack;
     }
-
-
 
     // Devuelve el resultado de la receta según los items de entrada
     public static ItemStack getResult(List<ItemStack> inputs) {

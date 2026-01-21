@@ -33,6 +33,7 @@ public class DrugCraftJeiPlugin implements IModPlugin {
         registration.addRecipeCategories(
                 new ChemistryStationCategory(guiHelper),
                 new ExtractorCategory(guiHelper));
+                new DehydratorCategory(guiHelper);
     }
 
     @Override
@@ -44,6 +45,10 @@ public class DrugCraftJeiPlugin implements IModPlugin {
         registration.addRecipes(
                 ExtractorCategory.RECIPE_TYPE,
                 ExtractorJeiRecipe.getRecipesForJEI());
+
+        registration.addRecipes(
+                DehydratorCategory.RECIPE_TYPE,
+                DehydratorJeiRecipe.getRecipesForJEI());
 
         // --- Modular Recipes (Brownies, Gummy Bears, Joints) ---
         List<CraftingRecipe> syntheticRecipes = new ArrayList<>();
