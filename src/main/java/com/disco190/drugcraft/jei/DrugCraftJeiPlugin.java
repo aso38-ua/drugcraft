@@ -32,8 +32,8 @@ public class DrugCraftJeiPlugin implements IModPlugin {
         IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
         registration.addRecipeCategories(
                 new ChemistryStationCategory(guiHelper),
-                new ExtractorCategory(guiHelper));
-                new DehydratorCategory(guiHelper);
+                new ExtractorCategory(guiHelper),
+                new DehydratorCategory(guiHelper));
     }
 
     @Override
@@ -153,6 +153,10 @@ public class DrugCraftJeiPlugin implements IModPlugin {
         registration.addRecipeCatalyst(
                 new ItemStack(ModBlocks.EXTRACTOR.get()),
                 ExtractorCategory.RECIPE_TYPE);
+
+        registration.addRecipeCatalyst(
+                new ItemStack(ModBlocks.DEHYDRATOR.get()),
+                DehydratorCategory.RECIPE_TYPE);
     }
 
 }

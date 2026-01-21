@@ -1,6 +1,5 @@
 package com.disco190.drugcraft.jei;
 
-import com.disco190.drugcraft.recipes.ExtractorRecipes;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -27,14 +26,12 @@ public class DehydratorJeiRecipe {
     public static List<DehydratorJeiRecipe> getRecipesForJEI() {
         List<DehydratorJeiRecipe> recipes = new ArrayList<>();
 
-        for (var entry : ExtractorRecipes.getAllRecipes().entrySet()) {
+        for (var entry : com.disco190.drugcraft.recipes.DehydratorRecipes.getRecipes().entrySet()) {
             recipes.add(new DehydratorJeiRecipe(
-                    new ItemStack(entry.getKey()),
-                    entry.getValue()
-            ));
+                    new ItemStack(entry.getKey().getItem()),
+                    entry.getValue()));
         }
 
         return recipes;
     }
 }
-

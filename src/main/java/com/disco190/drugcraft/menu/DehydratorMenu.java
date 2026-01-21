@@ -6,7 +6,9 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -17,10 +19,11 @@ import java.util.Objects;
 public class DehydratorMenu extends AbstractContainerMenu {
 
     private final DehydratorBlockEntity blockEntity;
+    private final ContainerData data;
 
     // Client
     public DehydratorMenu(int id, Inventory playerInv, FriendlyByteBuf buf) {
-        this(id, playerInv, Objects.requireNonNull(getBE(playerInv, buf)));
+        this(id, playerInv, Objects.requireNonNull(getBE(playerInv, buf)), new SimpleContainerData(4));
     }
 
     private static DehydratorBlockEntity getBE(Inventory inv, FriendlyByteBuf buf) {
@@ -32,15 +35,19 @@ public class DehydratorMenu extends AbstractContainerMenu {
     }
 
     // Server
-    public DehydratorMenu(int id, Inventory playerInv, DehydratorBlockEntity entity) {
+    public DehydratorMenu(int id, Inventory playerInv, DehydratorBlockEntity entity, ContainerData data) {
         super(ModMenuTypes.DEHYDRATOR.get(), id);
         this.blockEntity = entity;
+        this.data = data;
 
         // Input Slot 0
-        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 0, 51, 40));
+        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 0, 56, 17));
+
+        // Fuel Slot 1
+        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 1, 56, 53));
 
         // Output Slot 2
-        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 2, 120, 40) {
+        this.addSlot(new SlotItemHandler(entity.getItemHandler(), 2, 116, 35) {
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return false;
@@ -57,29 +64,7 @@ public class DehydratorMenu extends AbstractContainerMenu {
         addPlayerInventory(playerInv);
         addPlayerHotbar(playerInv);
 
-        if (blockEntity != null) {
-            addDataSlot(new DataSlot() {
-                @Override
-                public int get() {
-                    return blockEntity.getProgress();
-                }
-
-                @Override
-                public void set(int value) {
-                    blockEntity.setProgress(value);
-                }
-            });
-            addDataSlot(new DataSlot() {
-                @Override
-                public int get() {
-                    return blockEntity.getMaxProgress();
-                }
-
-                @Override
-                public void set(int value) {
-                }
-            });
-        }
+        addDataSlots(data);
     }
 
     @Override
@@ -110,21 +95,32 @@ public class DehydratorMenu extends AbstractContainerMenu {
         ItemStack stack = slot.getItem();
         ItemStack copy = stack.copy();
 
-        final int INPUT_MENU_SLOT = 0;
-        final int OUTPUT_MENU_SLOT = 1;
-        final int PLAYER_INV_START = 2;
+        final int INPUT_SLOT = 0;
+        final int FUEL_SLOT = 1;
+        final int OUTPUT_SLOT = 2;
+        final int PLAYER_INV_START = 3;
         final int PLAYER_INV_END = this.slots.size();
 
-        if (index == OUTPUT_MENU_SLOT) {
+        if (index == OUTPUT_SLOT) {
             if (!moveItemStackTo(stack, PLAYER_INV_START, PLAYER_INV_END, true))
                 return ItemStack.EMPTY;
             slot.onQuickCraft(stack, copy);
-        } else if (index == INPUT_MENU_SLOT) {
+        } else if (index == INPUT_SLOT || index == FUEL_SLOT) {
             if (!moveItemStackTo(stack, PLAYER_INV_START, PLAYER_INV_END, false))
                 return ItemStack.EMPTY;
         } else {
-            if (!moveItemStackTo(stack, INPUT_MENU_SLOT, INPUT_MENU_SLOT + 1, false))
-                return ItemStack.EMPTY;
+            // Check if it's fuel
+            if (net.minecraftforge.common.ForgeHooks.getBurnTime(stack, null) > 0) {
+                if (!moveItemStackTo(stack, FUEL_SLOT, FUEL_SLOT + 1, false)) {
+                    // If fuel slot full or failed, try input slot if valid input
+                    if (!moveItemStackTo(stack, INPUT_SLOT, INPUT_SLOT + 1, false))
+                        return ItemStack.EMPTY;
+                }
+            } else {
+                // Not fuel, try input
+                if (!moveItemStackTo(stack, INPUT_SLOT, INPUT_SLOT + 1, false))
+                    return ItemStack.EMPTY;
+            }
         }
 
         if (stack.isEmpty())
@@ -136,10 +132,22 @@ public class DehydratorMenu extends AbstractContainerMenu {
     }
 
     public int getProgress() {
-        return blockEntity != null ? blockEntity.getProgress() : 0;
+        return data.get(0);
     }
 
     public int getMaxProgress() {
-        return blockEntity != null ? blockEntity.getMaxProgress() : 200;
+        return data.get(1);
+    }
+
+    public int getLitTime() {
+        return data.get(2);
+    }
+
+    public int getMaxLitTime() {
+        return data.get(3);
+    }
+
+    public boolean isLit() {
+        return data.get(2) > 0;
     }
 }

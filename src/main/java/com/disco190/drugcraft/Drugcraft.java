@@ -8,6 +8,7 @@ import com.disco190.drugcraft.item.ModItems;
 import com.disco190.drugcraft.recipes.ModRecipes;
 import com.disco190.drugcraft.registry.ModMenuTypes;
 import com.disco190.drugcraft.screens.ExtractorScreen;
+import com.disco190.drugcraft.screens.DehydratorScreen;
 import com.disco190.drugcraft.sound.ModSounds;
 import com.disco190.drugcraft.villager.DealerTrades;
 import com.disco190.drugcraft.villager.ModVillagerPOIs;
@@ -60,12 +61,18 @@ public class Drugcraft {
     public static final String MODID = "drugcraft";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "drugcraft" namespace
-    //public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "drugcraft" namespace
-    //public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "drugcraft" namespace
-    //public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    // Create a Deferred Register to hold Blocks which will all be registered under
+    // the "drugcraft" namespace
+    // public static final DeferredRegister<Block> BLOCKS =
+    // DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    // Create a Deferred Register to hold Items which will all be registered under
+    // the "drugcraft" namespace
+    // public static final DeferredRegister<Item> ITEMS =
+    // DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    // Create a Deferred Register to hold CreativeModeTabs which will all be
+    // registered under the "drugcraft" namespace
+    // public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+    // DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     public Drugcraft() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -89,12 +96,12 @@ public class Drugcraft {
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
-        //BLOCKS.register(modEventBus);
+        // BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
-        //ITEMS.register(modEventBus);
+        // ITEMS.register(modEventBus);
 
         // Register the Deferred Register to the mod event bus so tabs get registered
-        //CREATIVE_MODE_TABS.register(modEventBus);
+        // CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -102,7 +109,8 @@ public class Drugcraft {
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
+        // Register our mod's ForgeConfigSpec so that Forge can create and load the
+        // config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
@@ -111,7 +119,8 @@ public class Drugcraft {
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
 
-        if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        if (Config.logDirtBlock)
+            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
 
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
@@ -119,9 +128,10 @@ public class Drugcraft {
 
         event.enqueueWork(() -> {
             // Obtenemos un ItemStack de la poción de veneno
-            net.minecraft.world.item.ItemStack poisonPotion = PotionUtils.setPotion(new net.minecraft.world.item.ItemStack(Items.POTION), Potions.POISON);
+            net.minecraft.world.item.ItemStack poisonPotion = PotionUtils
+                    .setPotion(new net.minecraft.world.item.ItemStack(Items.POTION), Potions.POISON);
 
-            //DealerTrades.register();
+            // DealerTrades.register();
 
             // Añade esta línea para registrar la poción de DMT
             // Ingrediente: mimosa_bark
@@ -130,15 +140,15 @@ public class Drugcraft {
             BrewingRecipeRegistry.addRecipe(
                     Ingredient.of(poisonPotion),
                     Ingredient.of(ModItems.MIMOSA_BARK.get().getDefaultInstance()),
-                    ModItems.LIQUID_DMT.get().getDefaultInstance()
-            );
+                    ModItems.LIQUID_DMT.get().getDefaultInstance());
         });
 
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        //if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
+        // if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+        // event.accept(EXAMPLE_BLOCK_ITEM);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -161,7 +171,8 @@ public class Drugcraft {
         });
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    // You can use EventBusSubscriber to automatically register all static methods
+    // in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
@@ -175,22 +186,20 @@ public class Drugcraft {
                 // Pantallas de menús
                 MenuScreens.register(ModMenuTypes.CHEMISTRY_STATION.get(), ChemistryStationScreen::new);
                 MenuScreens.register(ModMenuTypes.EXTRACTOR.get(), ExtractorScreen::new);
+                MenuScreens.register(ModMenuTypes.DEHYDRATOR.get(), DehydratorScreen::new);
 
                 // Render y color de hojas de mimosa
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.MIMOSA_LEAVES.get(), RenderType.cutoutMipped());
 
                 Minecraft.getInstance().getBlockColors().register(
-                        (state, reader, pos, tintIndex) ->
-                                reader != null && pos != null
-                                        ? BiomeColors.getAverageFoliageColor(reader, pos)  // color dinámico del bioma
-                                        : FoliageColor.getDefaultColor(),                  // fallback verde
-                        ModBlocks.MIMOSA_LEAVES.get()
-                );
+                        (state, reader, pos, tintIndex) -> reader != null && pos != null
+                                ? BiomeColors.getAverageFoliageColor(reader, pos) // color dinámico del bioma
+                                : FoliageColor.getDefaultColor(), // fallback verde
+                        ModBlocks.MIMOSA_LEAVES.get());
 
                 Minecraft.getInstance().getItemColors().register(
                         (stack, tintIndex) -> FoliageColor.getDefaultColor(), // item en inventario
-                        ModBlocks.MIMOSA_LEAVES.get()
-                );
+                        ModBlocks.MIMOSA_LEAVES.get());
             });
 
         }

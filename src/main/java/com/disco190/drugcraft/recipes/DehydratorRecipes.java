@@ -13,6 +13,11 @@ public class DehydratorRecipes {
     static {
         // Liquid Heroin -> Heroin
         recipes.put(new ItemStack(ModItems.LIQUID_HEROIN.get()), new ItemStack(ModItems.HEROIN.get()));
+
+        // Tobacco Curing
+        recipes.put(new ItemStack(ModItems.CAPA.get()), new ItemStack(ModItems.CURED_CAPA.get()));
+        recipes.put(new ItemStack(ModItems.CAPOTE.get()), new ItemStack(ModItems.CURED_CAPOTE.get()));
+        recipes.put(new ItemStack(ModItems.TRIPA.get()), new ItemStack(ModItems.CURED_TRIPA.get()));
     }
 
     public static ItemStack getResult(ItemStack input) {

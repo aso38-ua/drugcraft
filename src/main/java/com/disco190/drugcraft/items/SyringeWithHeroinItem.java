@@ -66,6 +66,8 @@ public class SyringeWithHeroinItem extends Item {
                 data.putBoolean(HEROIN_ADDICTED, true);
             }
 
+            data.putLong("HeroinLastUseTime", level.getGameTime());
+
             int tolerancePenalty = tolerance * 5; // Reduces beneficial duration
 
             // Potent effects

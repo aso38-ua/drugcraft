@@ -14,24 +14,21 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
-
 public class DehydratorCategory implements IRecipeCategory<DehydratorJeiRecipe> {
 
-    public static final RecipeType<DehydratorJeiRecipe> RECIPE_TYPE =
-            RecipeType.create(Drugcraft.MODID, "dehydrator", DehydratorJeiRecipe.class);
+    public static final RecipeType<DehydratorJeiRecipe> RECIPE_TYPE = RecipeType.create(Drugcraft.MODID, "dehydrator",
+            DehydratorJeiRecipe.class);
 
     private final IDrawable background;
     private final IDrawable icon;
 
     public DehydratorCategory(IGuiHelper guiHelper) {
-        ResourceLocation texture =
-                new ResourceLocation(Drugcraft.MODID, "textures/gui/dehydrator.png");
+        ResourceLocation texture = new ResourceLocation(Drugcraft.MODID, "textures/gui/dehydrator.png");
 
-        this.background = guiHelper.createDrawable(texture, 40, 0, 140, 80);
+        this.background = guiHelper.createDrawable(texture, 0, 0, 176, 85);
         this.icon = guiHelper.createDrawableIngredient(
                 VanillaTypes.ITEM_STACK,
-                new ItemStack(ModBlocks.DEHYDRATOR.get())
-        );
+                new ItemStack(ModBlocks.DEHYDRATOR.get()));
     }
 
     @Override
@@ -56,14 +53,13 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorJeiRecipe> 
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder,
-                          DehydratorJeiRecipe recipe,
-                          IFocusGroup focuses) {
+            DehydratorJeiRecipe recipe,
+            IFocusGroup focuses) {
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 13, 40)
+        builder.addSlot(RecipeIngredientRole.INPUT, 56, 17)
                 .addItemStack(recipe.getInput());
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 40)
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35)
                 .addItemStack(recipe.getOutput());
     }
 }
-
