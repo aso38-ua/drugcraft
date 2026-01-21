@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "drugcraft:heroin"
+        },
+        {
+            "item": "drugcraft:syringe"
+        }
+    ],
+    "result": {
+        "item": "drugcraft:syringe_with_heroin",
+        "count": 1
+    }
+}
